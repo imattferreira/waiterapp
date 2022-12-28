@@ -1,5 +1,5 @@
 import Order, { OrderStatusEnum } from "../entities/order";
-import { HttpRequest, HttpResponse } from "../interfaces";
+import { HttpRequest, HttpResponse } from "../../interfaces";
 
 interface OrderInput {
   table: string;

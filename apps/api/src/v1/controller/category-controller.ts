@@ -1,5 +1,5 @@
 import Category from "../entities/category";
-import { HttpRequest, HttpResponse } from "../interfaces";
+import { HttpRequest, HttpResponse } from "../../interfaces";
 
 interface CategoryInput {
   name: string;
