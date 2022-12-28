@@ -1,0 +1,24 @@
+{
+  "name": "api",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev:server": "nodemon src/index.ts",
+    "services:up": "docker-compose up -d",
+    "services:down": "docker-compose stop",
+    "build": "tsc",
+    "start": "node dist"
+  },
+  "dependencies": {
+    "fastify": "^4.10.2"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.12",
+    "eslint": "7.32.0",
+    "eslint-config-custom": "*",
+    "nodemon": "^2.0.20",
+    "ts-node": "^10.9.1",
+    "tsconfig": "*",
+    "typescript": "^4.5.3"
+  }
+}
