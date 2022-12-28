@@ -7,6 +7,10 @@ interface CategoryInput {
   image_url: string;
 }
 
+interface CategoryParams {
+  id: string;
+}
+
 class CategoryController {
   async create(req: HttpRequest, res: HttpResponse) {
     if (!req.body) {
@@ -51,13 +55,30 @@ class CategoryController {
     return res.send({ categories });
   }
 
-  async findById(req: HttpRequest, res: HttpResponse) {}
+  async findById(req: HttpRequest, res: HttpResponse) {
+    const { id } = req.params as Pick<CategoryParams, 'id'>;
 
-  async findByName(req: HttpRequest, res: HttpResponse) {}
+    // TODO
+    // if (!isIdValid(id)) {}
 
-  async update(req: HttpRequest, res: HttpResponse) {}
+    const category = await Category.findById(id);
 
-  async delete(req: HttpRequest, res: HttpResponse) {}
+    if (!category) {
+      return res.status(404).send({
+        status: 'error',
+        code: 404,
+        message: '[category] not found'
+      });
+    }
+
+    return res.status(200).send({ category });
+  }
+
+  // async findByName(req: HttpRequest, res: HttpResponse) {}
+
+  // async update(req: HttpRequest, res: HttpResponse) {}
+
+  // async delete(req: HttpRequest, res: HttpResponse) {}
 }
 
 export default new CategoryController();
