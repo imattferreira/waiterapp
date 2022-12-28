@@ -45,7 +45,11 @@ class CategoryController {
     return res.status(201).send({ category });
   }
 
-  async listAll(req: HttpRequest, res: HttpResponse) {}
+  async listAll(req: HttpRequest, res: HttpResponse) {
+    const categories = await Category.find();
+
+    return res.send({ categories });
+  }
 
   async findById(req: HttpRequest, res: HttpResponse) {}
 

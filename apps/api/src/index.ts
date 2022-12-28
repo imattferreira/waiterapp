@@ -14,7 +14,7 @@ try {
   // app.delete('/categories', categoryController.delete);
   // app.get('/categories', categoryController.findById);
   // app.get('/categories', categoryController.findByName);
-  // app.get('/categories', categoryController.listAll);
+  app.get('/categories', categoryController.listAll);
   // app.upd('/categories', categoryController.update);
 
   app.listen({ port: 3000 }, (err) => {
