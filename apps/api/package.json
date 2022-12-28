@@ -10,7 +10,8 @@
     "start": "node dist"
   },
   "dependencies": {
-    "fastify": "^4.10.2"
+    "fastify": "^4.10.2",
+    "mongoose": "^6.8.2"
   },
   "devDependencies": {
     "@types/node": "^17.0.12",
