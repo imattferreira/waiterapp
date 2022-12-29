@@ -13,13 +13,14 @@ export type IconTypes = keyof typeof ICONS;
 
 type IconProps = {
   name: IconTypes;
-  className: string;
+  size?: number;
+  className?: string;
 };
 
-function Icon({ name, ...props }: IconProps) {
+function Icon({ name, size, ...props }: IconProps) {
   const Component = ICONS[name];
 
-  return Component ? <Component {...props} /> : null;
+  return Component ? <Component size={size} {...props} /> : null;
 }
 
 export default Icon;

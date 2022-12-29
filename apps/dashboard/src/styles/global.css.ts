@@ -1,9 +1,12 @@
-import { globalStyle } from "@vanilla-extract/css";
+import { globalStyle, style } from "@vanilla-extract/css";
 
-globalStyle("html, body", {
+globalStyle("*", {
   margin: 0,
   padding: 0,
   boxSizing: "border-box",
+});
+
+globalStyle("html, body", {
   background: "#fafafa",
   color: "#333",
   fontFamily: "GeneralSans, sans-serif",
@@ -13,4 +16,12 @@ globalStyle("button", {
   cursor: "pointer",
   fontSize: "1rem",
   color: "#333",
+});
+
+globalStyle("path", {
+  stroke: "#333",
+});
+
+export const container = style({
+  marginLeft: 156,
 });

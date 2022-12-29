@@ -1,8 +1,12 @@
-function MenuIcon({ ...props }) {
+type MenuIconProps = {
+  size?: number;
+};
+
+function MenuIcon({ size = 24, ...props }: MenuIconProps) {
   return (
     <svg
-      width="24"
-      height="25"
+      width={size}
+      height={size}
       viewBox="0 0 24 25"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

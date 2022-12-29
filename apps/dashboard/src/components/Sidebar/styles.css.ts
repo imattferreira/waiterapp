@@ -1,7 +1,7 @@
 import { style, styleVariants } from "@vanilla-extract/css";
 
 export const container = style({
-  position: 'absolute',
+  position: "absolute",
   top: 0,
   bottom: 0,
   left: 0,
@@ -39,7 +39,7 @@ const optionBase = style({
     },
     "&:nth-last-child(2)": {
       marginTop: 240,
-    }
+    },
   },
 });
 
@@ -65,6 +65,6 @@ export const iconVariants = styleVariants({
 export const line = style({
   width: 12,
   height: 2,
-  background: '#D73035',
-  marginTop: 8
+  background: "#D73035",
+  marginTop: 8,
 });

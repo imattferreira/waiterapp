@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 
 import { IconTypes } from "../Icon";
 import Option from "./Option";
