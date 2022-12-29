@@ -1,3 +1,5 @@
+import { useLocation } from 'react-router-dom';
+
 import { IconTypes } from "../Icon";
 import Option from "./Option";
 import { container, logo, w } from "./styles.css";
@@ -44,6 +46,8 @@ const options = [
 const isOptionActive = (currPath: string, link: string) => currPath === link;
 
 function Sidebar() {
+  const { pathname } = useLocation();
+
   return (
     <aside className={container}>
       <div className={logo}>
@@ -53,7 +57,7 @@ function Sidebar() {
       <div>
         {options.map(({ icon, title, link }) => (
           <Option
-            active={isOptionActive("/orders", link)}
+            active={isOptionActive(pathname, link)}
             icon={icon}
             title={title}
             link={link}

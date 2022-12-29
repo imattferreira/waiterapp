@@ -1,4 +1,5 @@
 import Icon, { IconTypes } from "../Icon";
+import Link from "../Link";
 import { iconVariants, line, optionVariants } from "./styles.css";
 
 type OptionProps = {
@@ -10,10 +11,10 @@ type OptionProps = {
 
 function Option({ active, icon, link, title }: OptionProps) {
   return (
-    <a
-    key={link}
-    href={link}
-    className={
+    <Link
+      key={link}
+      to={link}
+      className={
       active
         ? optionVariants.active
         : optionVariants.default
@@ -29,7 +30,7 @@ function Option({ active, icon, link, title }: OptionProps) {
     />
     <span>{title}</span>
     {active && <div className={line} />}
-  </a>
+  </Link>
   )
 }
 
