@@ -11,7 +11,6 @@ interface ProductInput {
     name: string;
     image_url?: string;
   }>;
-
 }
 
 interface ProductParams {
@@ -22,9 +21,9 @@ class ProductController {
   async create(req: HttpRequest, res: HttpResponse) {
     if (!req.body) {
       return res.status(400).send({
-        status: 'error',
+        status: "error",
         code: 400,
-        message: 'json body are required'
+        message: "json body are required",
       });
     }
 
@@ -37,19 +36,22 @@ class ProductController {
       price,
     } = req.body as ProductInput;
 
-    if (!(name && description && imageUrl && categoryId && ingredients && price)) {
+    if (
+      !(name && description && imageUrl && categoryId && ingredients && price)
+    ) {
       return res.status(400).send({
-        status: 'error',
+        status: "error",
         code: 400,
-        message: '[name], [description], [image_url], [categoryId], [ingredients] and [price] are required',
+        message:
+          "[name], [description], [image_url], [categoryId], [ingredients] and [price] are required",
       });
     }
 
     if (!ingredients.every((ingredient) => !!ingredient.name)) {
       return res.status(400).send({
-        status: 'error',
+        status: "error",
         code: 400,
-        message: '[ingredient.name] are required',
+        message: "[ingredient.name] are required",
       });
     }
 
@@ -60,9 +62,9 @@ class ProductController {
 
     if (productAlreadyExists) {
       return res.status(409).send({
-        status: 'error',
+        status: "error",
         code: 409,
-        message: '[name] already exists'
+        message: "[name] already exists",
       });
     }
 
@@ -79,28 +81,29 @@ class ProductController {
   }
 
   async listAll(req: HttpRequest, res: HttpResponse) {
-    const products = await Product.find().populate('category').lean();
+    const products = await Product.find().populate("category").lean();
 
     return res.send({
-      products: products.map((product) =>
-        ({...product, price: product.price / 100})
-      )
+      products: products.map((product) => ({
+        ...product,
+        price: product.price / 100,
+      })),
     });
   }
 
   async findById(req: HttpRequest, res: HttpResponse) {
-    const { id } = req.params as Pick<ProductParams, 'id'>;
+    const { id } = req.params as Pick<ProductParams, "id">;
 
     // TODO
     // if (!isIdValid(id)) {}
 
-    const product = await Product.findById(id).populate('category').lean();
+    const product = await Product.findById(id).populate("category").lean();
 
     if (!product) {
       return res.status(404).send({
-        status: 'error',
+        status: "error",
         code: 404,
-        message: '[product] not found'
+        message: "[product] not found",
       });
     }
 

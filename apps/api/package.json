@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev:server": "nodemon src/index.ts",
+    "dev": "yarn services:up && nodemon src/index.ts",
     "services:up": "docker-compose up -d",
     "services:down": "docker-compose stop",
     "build": "tsc",

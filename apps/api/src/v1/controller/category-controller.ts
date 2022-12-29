@@ -15,19 +15,23 @@ class CategoryController {
   async create(req: HttpRequest, res: HttpResponse) {
     if (!req.body) {
       return res.status(400).send({
-        status: 'error',
+        status: "error",
         code: 400,
-        message: 'json body are required'
+        message: "json body are required",
       });
     }
 
-    const { name, description, image_url: imageUrl } = req.body as CategoryInput;
+    const {
+      name,
+      description,
+      image_url: imageUrl,
+    } = req.body as CategoryInput;
 
     if (!(name && description && imageUrl)) {
       return res.status(400).send({
-        status: 'error',
+        status: "error",
         code: 400,
-        message: '[name], [description] and [image_url] are required',
+        message: "[name], [description] and [image_url] are required",
       });
     }
 
@@ -38,9 +42,9 @@ class CategoryController {
 
     if (categoryAlreadyExists) {
       return res.status(409).send({
-        status: 'error',
+        status: "error",
         code: 409,
-        message: '[name] already exists'
+        message: "[name] already exists",
       });
     }
 
@@ -56,7 +60,7 @@ class CategoryController {
   }
 
   async findById(req: HttpRequest, res: HttpResponse) {
-    const { id } = req.params as Pick<CategoryParams, 'id'>;
+    const { id } = req.params as Pick<CategoryParams, "id">;
 
     // TODO
     // if (!isIdValid(id)) {}
@@ -65,9 +69,9 @@ class CategoryController {
 
     if (!category) {
       return res.status(404).send({
-        status: 'error',
+        status: "error",
         code: 404,
-        message: '[category] not found'
+        message: "[category] not found",
       });
     }
 

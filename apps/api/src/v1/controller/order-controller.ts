@@ -22,39 +22,37 @@ class OrderController {
   async create(req: HttpRequest, res: HttpResponse) {
     if (!req.body) {
       return res.status(400).send({
-        status: 'error',
+        status: "error",
         code: 400,
-        message: 'json body are required'
+        message: "json body are required",
       });
     }
 
-    const {
-      products,
-      status,
-      table,
-    } = req.body as OrderInput;
+    const { products, status, table } = req.body as OrderInput;
 
     if (!(table && products && status)) {
       return res.status(400).send({
-        status: 'error',
+        status: "error",
         code: 400,
-        message: '[name], [description], [image_url], [categoryId], [ingredients] and [price] are required',
+        message:
+          "[name], [description], [image_url], [categoryId], [ingredients] and [price] are required",
       });
     }
 
     if (!products.every((product) => !!product.product_id)) {
       return res.status(400).send({
-        status: 'error',
+        status: "error",
         code: 400,
-        message: '[product.product_id] are required',
+        message: "[product.product_id] are required",
       });
     }
 
     if (!OrderStatusEnum[status]) {
       return res.status(400).send({
-        status: 'error',
+        status: "error",
         code: 400,
-        message: '[status] should be one of `WAITING`, `IN_PRODUCTION` or `DONE`'
+        message:
+          "[status] should be one of `WAITING`, `IN_PRODUCTION` or `DONE`",
       });
     }
 
@@ -63,40 +61,43 @@ class OrderController {
 
     if (tableAlreadyHasOrder) {
       return res.status(409).send({
-        status: 'error',
+        status: "error",
         code: 409,
-        message: '[table] already has order'
+        message: "[table] already has order",
       });
     }
 
     const order = await Order.create({
-      products: products.map(({ quantity, product_id }) => ({ quantity, product: product_id })),
+      products: products.map(({ quantity, product_id }) => ({
+        quantity,
+        product: product_id,
+      })),
       status,
-      table
+      table,
     });
 
     return res.status(201).send({ order });
   }
 
   async listAll(req: HttpRequest, res: HttpResponse) {
-    const orders = await Order.find().populate('products.product');
+    const orders = await Order.find().populate("products.product");
 
     return res.send({ orders });
   }
 
   async findById(req: HttpRequest, res: HttpResponse) {
-    const { id } = req.params as Pick<OrderParams, 'id'>;
+    const { id } = req.params as Pick<OrderParams, "id">;
 
     // TODO
     // if (!isIdValid(id)) {}
 
-    const order = await Order.findById(id).populate('products.product');
+    const order = await Order.findById(id).populate("products.product");
 
     if (!order) {
       return res.status(404).send({
-        status: 'error',
+        status: "error",
         code: 404,
-        message: '[order] not found'
+        message: "[order] not found",
       });
     }
 
@@ -104,7 +105,7 @@ class OrderController {
   }
 
   async changeStatus(req: HttpRequest, res: HttpResponse) {
-    const { id } = req.params as Pick<OrderParams, 'id'>;
+    const { id } = req.params as Pick<OrderParams, "id">;
     const { status } = req.body as ChangeOrderStatusInput;
 
     // TODO
@@ -112,9 +113,10 @@ class OrderController {
 
     if (!OrderStatusEnum[status]) {
       return res.status(400).send({
-        status: 'error',
+        status: "error",
         code: 400,
-        message: '[status] should be one of `WAITING`, `IN_PRODUCTION` or `DONE`'
+        message:
+          "[status] should be one of `WAITING`, `IN_PRODUCTION` or `DONE`",
       });
     }
 
