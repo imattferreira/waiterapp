@@ -1,6 +1,8 @@
 import { lazy } from "react";
 
 const ICONS = {
+  "eye-hidden": lazy(() => import("./Icons/EyeHidden")),
+  eye: lazy(() => import("./Icons/Eye")),
   home: lazy(() => import("./Icons/Home")),
   "log-off": lazy(() => import("./Icons/LogOff")),
   menu: lazy(() => import("./Icons/Menu")),
