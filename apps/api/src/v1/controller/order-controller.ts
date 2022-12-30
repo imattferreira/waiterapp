@@ -1,4 +1,4 @@
-import Order, { OrderStatusEnum } from "../entities/order";
+import  { OrderStatusEnum } from "../entities/order";
 import { HttpRequest, HttpResponse } from "../../interfaces";
 
 interface OrderInput {

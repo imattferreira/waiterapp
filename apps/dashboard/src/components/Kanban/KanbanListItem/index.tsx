@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { Order } from "../../../entities";
+import type { Order } from "../../../entities/Order";
 import { container, counterDisplay, tableTitle } from "./styles.css";
 
 type KanbanListItemProps = Omit<Order, "status"> & {};

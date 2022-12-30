@@ -1,22 +1,12 @@
+import { Product } from "./product";
+
 export enum OrderStatusEnum {
   WAITING = "WAITING",
   IN_PRODUCTION = "IN_PRODUCTION",
   DONE = "DONE",
 }
 
-export type Product = {
-  name: string;
-  description: string;
-  imageUrl: string;
-  price: number;
-  category: string;
-  ingredients: Array<{
-    name: string;
-    imageUrl?: string;
-  }>;
-};
-
-export type ProductOrder = {
+type ProductOrder = {
   quantity: number;
   product: Product;
 };
