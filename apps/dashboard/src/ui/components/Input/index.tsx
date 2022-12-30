@@ -1,4 +1,5 @@
-import { InputHTMLAttributes, Suspense, useState } from "react";
+import type { InputHTMLAttributes } from "react";
+import { Suspense, useState } from "react";
 import Icon from "../Icon";
 import {
   eyeButton,

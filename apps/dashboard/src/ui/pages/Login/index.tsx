@@ -1,5 +1,5 @@
-// TODO refactor
 import { Controller, useForm } from "react-hook-form";
+import { emailRegEx } from "../../../app/lib/regex";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import {
@@ -15,6 +15,16 @@ import {
 type FormFields = {
   email: string;
   password: string;
+};
+
+const MESSAGES = {
+  EMAIL: {
+    PATTERN: "Insira um e-mail válido",
+    REQUIRED: "E-mail é requerido",
+  },
+  PASSWORD: {
+    REQUIRED: "Senha é requerido",
+  },
 };
 
 function LoginPage() {
@@ -56,11 +66,11 @@ function LoginPage() {
             rules={{
               required: {
                 value: true,
-                message: "E-mail é requerido",
+                message: MESSAGES.EMAIL.REQUIRED,
               },
               pattern: {
-                value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-                message: "Insira um e-mail válido",
+                value: emailRegEx,
+                message: MESSAGES.EMAIL.PATTERN,
               },
             }}
           />
@@ -81,7 +91,7 @@ function LoginPage() {
             rules={{
               required: {
                 value: true,
-                message: "Password é requerido",
+                message: MESSAGES.PASSWORD.REQUIRED,
               },
               minLength: 8,
             }}

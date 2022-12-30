@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, ReactNode } from "react";
+import type { ButtonHTMLAttributes, ReactNode } from "react";
 import { compose } from "../../../app/lib/css";
 import { containerVariants } from "./styles.css";
 

@@ -1,7 +1,7 @@
 import categoryController from "./controller/category-controller";
 import orderController from "./controller/order-controller";
 import productController from "./controller/product-controller";
-import { DoneFn, Opts, Server } from "../interfaces";
+import type { DoneFn, Opts, Server } from "../interfaces";
 
 function routes(router: Server, opts: Opts, done: DoneFn) {
   router.post("/categories", categoryController.create);

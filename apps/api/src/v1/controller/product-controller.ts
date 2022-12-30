@@ -1,5 +1,5 @@
 import Product from "../entities/product";
-import { HttpRequest, HttpResponse } from "../../interfaces";
+import type { HttpRequest, HttpResponse } from "../../interfaces";
 
 interface ProductInput {
   name: string;

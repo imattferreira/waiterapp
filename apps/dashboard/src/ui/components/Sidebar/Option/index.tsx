@@ -1,4 +1,5 @@
-import Icon, { IconTypes } from "../../Icon";
+import Icon from "../../Icon";
+import type { IconTypes } from "../../Icon";
 import Link from "../../Link";
 import { containerVariants, dash, iconVariants } from "./styles.css";
 
