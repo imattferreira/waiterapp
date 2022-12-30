@@ -1,52 +1,13 @@
 import { useLocation } from "react-router-dom";
-
-import { IconTypes } from "../Icon";
+import useRoutesStore from "../../hooks/stores/useRoutesStore";
 import Option from "./Option";
 import { container, logo, w } from "./styles.css";
 
-type Options = {
-  title: string;
-  link: string;
-  icon: IconTypes;
-};
-
-const options = [
-  {
-    title: "Home",
-    icon: "home",
-    link: "/orders",
-  },
-  {
-    title: "Histórico",
-    icon: "order",
-    link: "/orders/list",
-  },
-  {
-    title: "Cardápio",
-    icon: "menu",
-    link: "/menu",
-  },
-  {
-    title: "Usuários",
-    icon: "users",
-    link: "/users",
-  },
-  {
-    title: "Meu perfil",
-    icon: "profile",
-    link: "/profile",
-  },
-  {
-    title: "Sair",
-    icon: "log-off",
-    link: "/",
-  },
-] satisfies Options[];
-
-const isOptionActive = (currPath: string, link: string) => currPath === link;
+const isRouteActive = (currPath: string, link: string) => currPath === link;
 
 function Sidebar() {
   const { pathname } = useLocation();
+  const { routes } = useRoutesStore();
 
   return (
     <aside className={container}>
@@ -55,12 +16,13 @@ function Sidebar() {
         <span>A</span>
       </div>
       <div>
-        {options.map(({ icon, title, link }) => (
+        {routes.map(({ icon, title, link, onClick }) => (
           <Option
-            active={isOptionActive(pathname, link)}
+            active={link ? isRouteActive(pathname, link) : false}
             icon={icon}
             title={title}
             link={link}
+            onClick={onClick}
           />
         ))}
       </div>

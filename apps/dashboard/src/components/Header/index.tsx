@@ -1,13 +1,20 @@
-import Icon, { IconTypes } from "../Icon";
+import useRoutesStore from "../../hooks/stores/useRoutesStore";
+import Icon from "../Icon";
 import { header, iconStyles, title as titleStyle, wrapper } from "./styles.css";
 
-type HeaderProps = {
-  title: string;
-  icon: IconTypes;
-  description: string;
-};
+function Header() {
+  const {
+    utils: { getActiveRoute },
+  } = useRoutesStore();
 
-function Header({ description, icon, title }: HeaderProps) {
+  const activeRoute = getActiveRoute();
+
+  if (!activeRoute) {
+    return null;
+  }
+
+  const { icon, title, description } = activeRoute;
+
   return (
     <header className={header}>
       <div className={wrapper}>

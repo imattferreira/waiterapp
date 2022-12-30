@@ -8,7 +8,7 @@ function App() {
     <>
       <Sidebar />
       <div className={container}>
-        <Header description="" icon="home" title="" />
+        <Header />
         <Router />
       </div>
     </>

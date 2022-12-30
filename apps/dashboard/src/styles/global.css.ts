@@ -16,6 +16,8 @@ globalStyle("button", {
   cursor: "pointer",
   fontSize: "1rem",
   color: "#333",
+  background: "none",
+  border: "none",
 });
 
 globalStyle("path", {

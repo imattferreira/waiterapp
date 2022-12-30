@@ -32,6 +32,7 @@ const optionBase = style({
   justifyContent: "center",
   flexDirection: "column",
   padding: 4,
+  width: "100%",
 
   selectors: {
     "&:not(:first-child)": {
