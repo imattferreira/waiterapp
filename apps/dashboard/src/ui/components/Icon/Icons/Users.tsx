@@ -2,7 +2,7 @@ type UsersIconProps = {
   size?: number;
 };
 
-function Users({ size, ...props }: UsersIconProps) {
+function Users({ size = 24, ...props }: UsersIconProps) {
   return (
     <svg
       width={size}
@@ -16,9 +16,9 @@ function Users({ size, ...props }: UsersIconProps) {
         cy="9.00854"
         r="3.49145"
         stroke="#666666"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         {...props}
       />
       <circle
@@ -26,25 +26,25 @@ function Users({ size, ...props }: UsersIconProps) {
         cy="9.99897"
         r="2.50104"
         stroke="#666666"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         {...props}
       />
       <path
         d="M1.99585 20.5033V19.4859C1.99585 17.285 3.77959 15.5012 5.98051 15.5012H10.0162C12.2171 15.5012 14.0008 17.285 14.0008 19.4859V20.5033"
         stroke="#666666"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         {...props}
       />
       <path
         d="M17.0021 15.5012H18.1045C20.3055 15.5012 22.0892 17.285 22.0892 19.4859V20.5033"
         stroke="#666666"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         {...props}
       />
     </svg>

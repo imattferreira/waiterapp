@@ -18,6 +18,7 @@ function Sidebar() {
       <div>
         {routes.map(({ icon, title, link, onClick }) => (
           <Option
+            key={title}
             active={link ? isRouteActive(pathname, link) : false}
             icon={icon}
             title={title}
