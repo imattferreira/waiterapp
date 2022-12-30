@@ -1,6 +1,6 @@
-import Icon, { IconTypes } from "../Icon";
-import Link from "../Link";
-import { iconVariants, line, optionVariants } from "./styles.css";
+import Icon, { IconTypes } from "../../Icon";
+import Link from "../../Link";
+import { containerVariants, dash, iconVariants } from "./styles.css";
 
 type OptionProps = {
   active: boolean;
@@ -14,14 +14,17 @@ function Option({ active, icon, link, title, onClick }: OptionProps) {
   if (!link) {
     return (
       <button
-        className={active ? optionVariants.active : optionVariants.default}
+        className={
+          active ? containerVariants.active : containerVariants.default
+        }
+        onClick={onClick}
       >
         <Icon
           name={icon}
           className={active ? iconVariants.active : iconVariants.default}
         />
         <span>{title}</span>
-        {active && <div className={line} />}
+        {active && <div className={dash} />}
       </button>
     );
   }
@@ -30,14 +33,14 @@ function Option({ active, icon, link, title, onClick }: OptionProps) {
     <Link
       key={link}
       to={link}
-      className={active ? optionVariants.active : optionVariants.default}
+      className={active ? containerVariants.active : containerVariants.default}
     >
       <Icon
         name={icon}
         className={active ? iconVariants.active : iconVariants.default}
       />
       <span>{title}</span>
-      {active && <div className={line} />}
+      {active && <div className={dash} />}
     </Link>
   );
 }

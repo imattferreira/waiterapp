@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { useLocation } from "react-router-dom";
-import { IconTypes } from "../../components/Icon";
+import { IconTypes } from "../../../ui/components/Icon";
 
 type RoutePage = {
   title: string;

@@ -1,6 +1,6 @@
-import useRoutesStore from "../../hooks/stores/useRoutesStore";
+import useRoutesStore from "../../../app/hooks/stores/useRoutesStore";
 import Icon from "../Icon";
-import { header, iconStyles, title as titleStyle, wrapper } from "./styles.css";
+import { container, ico, titleText, titleWrapper } from "./styles.css";
 
 function Header() {
   const {
@@ -16,10 +16,10 @@ function Header() {
   const { icon, title, description } = activeRoute;
 
   return (
-    <header className={header}>
-      <div className={wrapper}>
-        <Icon name={icon} size={24} className={iconStyles} />
-        <h2 className={titleStyle}>{title}</h2>
+    <header className={container}>
+      <div className={titleWrapper}>
+        <Icon name={icon} size={24} className={ico} />
+        <h2 className={titleText}>{title}</h2>
       </div>
       <p>{description}</p>
     </header>

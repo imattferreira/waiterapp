@@ -1,17 +1,11 @@
-import Sidebar from "./components/Sidebar";
-import { container } from "./styles/global.css";
-import Router from "./Router";
-import Header from "./components/Header";
+import Router from "./app/Router";
+import Layout from "./ui/Layout";
 
 function App() {
   return (
-    <>
-      <Sidebar />
-      <div className={container}>
-        <Header />
-        <Router />
-      </div>
-    </>
+    <Layout>
+      <Router />
+    </Layout>
   );
 }
 

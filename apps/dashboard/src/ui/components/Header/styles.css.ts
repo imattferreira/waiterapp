@@ -1,21 +1,21 @@
 import { style } from "@vanilla-extract/css";
 
-export const header = style({
+export const container = style({
   marginTop: 40,
   marginBottom: 48,
 });
 
-export const wrapper = style({
+export const titleWrapper = style({
   display: "flex",
   alignItems: "center",
   marginBottom: 16,
 });
 
-export const title = style({
+export const titleText = style({
   marginLeft: 14,
   fontSize: 24,
 });
 
-export const iconStyles = style({
+export const ico = style({
   strokeWidth: 2,
 });

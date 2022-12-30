@@ -1,4 +1,5 @@
-import { globalStyle, style } from "@vanilla-extract/css";
+// TODO map colors
+import { globalStyle } from "@vanilla-extract/css";
 
 globalStyle("*", {
   margin: 0,
@@ -23,9 +24,4 @@ globalStyle("button", {
 
 globalStyle("path", {
   stroke: "#333",
-});
-
-export const container = style({
-  marginLeft: 156,
-  marginRight: 80,
 });

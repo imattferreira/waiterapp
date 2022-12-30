@@ -1,7 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
 export const container = style({
-  // border: '1px solid green',
   padding: "26px 16px 16px",
   border: "1px solid rgba(204, 204, 204, 0.4)",
   borderRadius: 8,

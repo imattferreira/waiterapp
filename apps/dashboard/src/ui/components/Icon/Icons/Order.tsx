@@ -1,4 +1,9 @@
-function OrderIcon({ ...props }) {
+// TODO automate creation of svgs in build-time
+type OrderIconProps = {
+  size?: number;
+};
+
+function OrderIcon({ ...props }: OrderIconProps) {
   return (
     <svg
       width="24"

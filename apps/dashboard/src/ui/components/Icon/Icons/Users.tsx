@@ -1,8 +1,12 @@
-function Users({ ...props }) {
+type UsersIconProps = {
+  size?: number;
+};
+
+function Users({ size, ...props }: UsersIconProps) {
   return (
     <svg
-      width="24"
-      height="25"
+      width={size}
+      height={size}
       viewBox="0 0 24 25"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
