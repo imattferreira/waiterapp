@@ -27,17 +27,35 @@ const Repository = model(
       enum: ["admin", "waiter"],
       default: "waiter",
     },
+    createdAt: {
+      type: String,
+      required: true,
+    },
+    updatedAt: {
+      type: String,
+      required: true,
+    },
   })
 );
 
 class UsersRepository implements IUsersRepository {
-  async create({ _id, email, name, password, role }: User): Promise<void> {
+  async create({
+    _id,
+    email,
+    name,
+    password,
+    role,
+    createdAt,
+    updatedAt,
+  }: User): Promise<void> {
     await Repository.create({
       _id,
       email,
       name,
       password,
       role,
+      createdAt,
+      updatedAt,
     });
   }
 

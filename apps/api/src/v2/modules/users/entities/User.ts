@@ -1,4 +1,5 @@
 import { randomUUID } from "../utils/crypto";
+import { getUTCTime } from "../utils/datetime";
 import { isEmailValid, isPasswordValid } from "../utils/validations";
 
 export type AccountRoles = "admin" | "waiter";
@@ -17,6 +18,8 @@ export interface UserEntity {
   email: string;
   password: string;
   role: AccountRoles;
+  createdAt: string;
+  updatedAt: string;
 }
 
 class User {
@@ -46,6 +49,8 @@ class User {
       password,
       _id: _id ?? randomUUID(),
       role,
+      createdAt: getUTCTime(),
+      updatedAt: getUTCTime(),
     };
   }
 
@@ -69,16 +74,26 @@ class User {
     return this.props.role;
   }
 
+  get createdAt(): string {
+    return this.props.createdAt;
+  }
+
+  get updatedAt(): string {
+    return this.props.updatedAt;
+  }
+
   set email(email: string) {
     if (!isEmailValid(email)) {
       throw new Error("email is invalid");
     }
 
     this.props.email = email;
+    this.props.updatedAt = getUTCTime();
   }
 
   set name(name: string) {
     this.props.name = name;
+    this.props.updatedAt = getUTCTime();
   }
 
   set password(password: string) {
@@ -87,10 +102,12 @@ class User {
     }
 
     this.props.password = password;
+    this.props.updatedAt = getUTCTime();
   }
 
   set role(role: AccountRoles) {
     this.props.role = role;
+    this.props.updatedAt = getUTCTime();
   }
 }
 

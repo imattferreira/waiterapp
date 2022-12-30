@@ -1,10 +1,11 @@
 import type { Router } from "../../../infra/http/interfaces";
-import CreateUser from "../use-cases/create-user";
+import createUser from "../use-cases/create-user";
+import listUser from "../use-cases/list-user";
 
 function routes(router: Router) {
-  router.post("/users", CreateUser.factory);
+  router.post("/users", createUser.factory);
   // router.get('/users', () => {});
-  // router.get('/users/:id', () => {});
+  router.get("/users/:id", listUser.factory);
   // router.put('/users/:id', () => {});
   // router.patch('/users/:id', () => {});
   // router.delete('/users/:id', () => {});
