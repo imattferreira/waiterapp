@@ -1,5 +1,7 @@
+import Kanban from "../Kanban";
+
 function HomePage() {
-  return <h1>Home Page</h1>;
+  return <Kanban />;
 }
 
 export default HomePage;

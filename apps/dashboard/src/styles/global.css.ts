@@ -9,6 +9,7 @@ globalStyle("*", {
 globalStyle("html, body", {
   background: "#fafafa",
   color: "#333",
+  lineHeight: "120%",
   fontFamily: "GeneralSans, sans-serif",
 });
 
@@ -26,4 +27,5 @@ globalStyle("path", {
 
 export const container = style({
   marginLeft: 156,
+  marginRight: 80,
 });
