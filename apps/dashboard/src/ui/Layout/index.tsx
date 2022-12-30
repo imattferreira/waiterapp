@@ -8,7 +8,7 @@ type LayoutProps = {
   children: ReactNode;
 };
 
-const pathsThatLayoutShouldNotBeRendered = ['/', '/signin'];
+const pathsThatLayoutShouldNotBeRendered = ["/", "/signin"];
 
 function Layout({ children }: LayoutProps) {
   const { pathname } = useLocation();

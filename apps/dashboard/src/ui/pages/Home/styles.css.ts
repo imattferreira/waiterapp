@@ -1,13 +1,13 @@
 import { style } from "@vanilla-extract/css";
 
 export const container = style({
-  height: '100vh',
-  background: '#D73035',
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  justifyContent: 'center',
-  color: '#fff'
+  height: "100vh",
+  background: "#D73035",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  color: "#fff",
 });
 
 export const hero = style({
@@ -17,10 +17,10 @@ export const hero = style({
 
 export const title = style({
   selectors: {
-    '&:last-child': {
-      fontWeight: 400
-    }
-  }
+    "&:last-child": {
+      fontWeight: 400,
+    },
+  },
 });
 
 export const text = style({
@@ -31,16 +31,16 @@ export const loginBtn = style({
   height: 48,
   width: 384,
   marginTop: 24,
-  padding: '16px 0',
-  background: '#FFFFFF',
-  color: '#D73035',
+  padding: "16px 0",
+  background: "#FFFFFF",
+  color: "#D73035",
   fontWeight: 600,
   borderRadius: 44,
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
 
-  ':hover': {
-    opacity: 0.8
-  }
+  ":hover": {
+    opacity: 0.8,
+  },
 });
