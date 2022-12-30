@@ -10,7 +10,7 @@ interface ListUserUseCaseInput {
 }
 
 type ListUserUseCaseOutput = HttpBodyResponse<{
-  user: IUserPresentation | null;
+  user: IUserPresentation;
 }>;
 
 class ListUserUseCase {
@@ -23,9 +23,13 @@ class ListUserUseCase {
 
     const user = await this.usersRepository.findById(id);
 
+    if (!user) {
+      throw new Error("user not found");
+    }
+
     return {
       _self: null,
-      data: { user: user ? userPresentation(user) : null },
+      data: { user: userPresentation(user) },
     };
   }
 }
