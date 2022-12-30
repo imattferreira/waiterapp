@@ -14,4 +14,26 @@ export const wrapper = style({
   alignItems: "center",
 });
 
-export const form = style({});
+export const paragraph = style({
+  marginBottom: 8,
+});
+
+export const logo = style({
+  ":last-child": {
+    fontWeight: 400,
+  },
+});
+
+export const form = style({
+  marginTop: 40,
+});
+
+export const input = style({
+  ":first-child": {
+    marginBottom: 32,
+  },
+});
+
+export const submitButton = style({
+  marginTop: 40,
+});

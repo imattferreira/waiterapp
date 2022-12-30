@@ -3,7 +3,6 @@ import { style, styleVariants } from "@vanilla-extract/css";
 const base = style({
   height: 48,
   width: 384,
-  marginTop: 24,
   padding: "16px 0",
   fontWeight: 600,
   borderRadius: 44,

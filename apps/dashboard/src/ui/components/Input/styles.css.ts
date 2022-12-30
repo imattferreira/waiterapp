@@ -7,6 +7,8 @@ export const labelText = style({
 const inputWrapperBase = style({
   padding: 16,
   marginTop: 8,
+  display: "flex",
+  alignItems: "center",
   border: "1px solid #CCCCCC",
   borderRadius: 8,
   transition: "250ms",
@@ -56,22 +58,29 @@ export const inputVariants = styleVariants({
   ],
 });
 
-export const messageBase = style({
+const messageWrapperBase = style({
   fontSize: 14,
   marginBottom: 8,
+  display: "flex",
+  alignItems: "center",
+  gap: 8,
+  marginTop: 8,
 });
 
-export const messageVariants = styleVariants({
-  default: [messageBase, {}],
+export const messageWrapperVariants = styleVariants({
+  default: [messageWrapperBase, {}],
   error: [
-    messageBase,
+    messageWrapperBase,
     {
       color: "#D73035",
     },
   ],
 });
 
-export const eyeButton = style({});
+export const eyeButton = style({
+  display: "flex",
+  alignItems: "center",
+});
 
 export const iconError = style({
   stroke: "#D73035",

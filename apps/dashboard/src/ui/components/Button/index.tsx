@@ -1,4 +1,5 @@
 import { ButtonHTMLAttributes, ReactNode } from "react";
+import { compose } from "../../../app/lib/css";
 import { containerVariants } from "./styles.css";
 
 type ButtonTypes = "primary" | "secondary";
@@ -12,14 +13,16 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 function Button({
   variant = "primary",
   disabled,
+  className,
   children,
   ...props
 }: ButtonProps) {
   return (
     <button
-      className={
-        disabled ? containerVariants.disabled : containerVariants[variant]
-      }
+      className={compose(
+        disabled ? containerVariants.disabled : containerVariants[variant],
+        className
+      )}
       {...props}
     >
       {children}

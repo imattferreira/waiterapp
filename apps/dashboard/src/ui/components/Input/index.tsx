@@ -1,11 +1,12 @@
-import { InputHTMLAttributes } from "react";
+import { InputHTMLAttributes, Suspense, useState } from "react";
 import Icon from "../Icon";
 import {
+  eyeButton,
   iconError,
   inputVariants,
   inputWrapperVariants,
   labelText,
-  messageVariants,
+  messageWrapperVariants,
 } from "./styles.css";
 
 type InputProps = InputHTMLAttributes<HTMLInputElement> & {
@@ -22,10 +23,20 @@ function Input({
   message,
   error,
   type = "text",
+  className,
   ...props
 }: InputProps) {
+  const [hidePassword, setHidePassword] = useState(type === "password");
+
+  function onEyeClick() {
+    setHidePassword((prevState) => !prevState);
+  }
+
+  const inputType =
+    type === "password" ? (hidePassword ? "password" : "text") : type;
+
   return (
-    <div>
+    <div className={className}>
       <label className={labelText} htmlFor={name}>
         {label}
       </label>
@@ -36,23 +47,35 @@ function Input({
       >
         <input
           className={error ? inputVariants.error : inputVariants.default}
-          type={type}
+          type={inputType}
           id={name}
           name={name}
           placeholder={placeholder}
           {...props}
         />
-        {/* {type === 'password' && } */}
+        {type === "password" && (
+          <button type="button" className={eyeButton} onClick={onEyeClick}>
+            <Suspense>
+              <Icon name={hidePassword ? "eye" : "eye-hidden"} />
+            </Suspense>
+          </button>
+        )}
       </div>
       {message && (
-        <>
-          {/* {error && <Icon name="warning" className={iconError} />} */}
-          <span
-            className={error ? messageVariants.error : messageVariants.default}
-          >
-            {message}
-          </span>
-        </>
+        <div
+          className={
+            error
+              ? messageWrapperVariants.error
+              : messageWrapperVariants.default
+          }
+        >
+          {error && (
+            <Suspense>
+              <Icon name="warning" className={iconError} />
+            </Suspense>
+          )}
+          <span>{message}</span>
+        </div>
       )}
     </div>
   );

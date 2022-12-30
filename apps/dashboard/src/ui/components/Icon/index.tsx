@@ -9,6 +9,7 @@ const ICONS = {
   order: lazy(() => import("./Icons/Order")),
   profile: lazy(() => import("./Icons/Profile")),
   users: lazy(() => import("./Icons/Users")),
+  warning: lazy(() => import("./Icons/Warning")),
 };
 
 export type IconTypes = keyof typeof ICONS;
