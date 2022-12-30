@@ -10,6 +10,8 @@ interface UserInput {
   email: string;
   password: string;
   role?: AccountRoles;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
 export interface UserEntity {
@@ -31,6 +33,8 @@ class User {
     name,
     password,
     role = "waiter",
+    createdAt,
+    updatedAt
   }: UserInput) {
     if (!isEmailValid(email)) {
       throw new Error("email is invalid");
@@ -49,8 +53,8 @@ class User {
       password,
       _id: _id ?? randomUUID(),
       role,
-      createdAt: getUTCTime(),
-      updatedAt: getUTCTime(),
+      createdAt: createdAt ?? getUTCTime(),
+      updatedAt: updatedAt ??getUTCTime(),
     };
   }
 
