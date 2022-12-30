@@ -1,7 +1,6 @@
 import { style, styleVariants } from "@vanilla-extract/css";
 
 const container = style({
-  textDecoration: "none",
   fontSize: 14,
   color: "#666",
   display: "flex",

@@ -20,6 +20,15 @@ globalStyle("button", {
   color: "#333",
   background: "none",
   border: "none",
+  transition: '250ms'
+});
+
+globalStyle("a", {
+  cursor: "pointer",
+  fontSize: "1rem",
+  color: "#333",
+  textDecoration: 'none',
+  transition: '250ms'
 });
 
 globalStyle("path", {
