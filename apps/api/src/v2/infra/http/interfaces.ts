@@ -11,3 +11,10 @@ export type Router = FastifyInstance;
 // }
 
 export type DoneFn = (err?: Error) => void;
+
+export interface HttpBodyResponse<T> {
+  _self: {
+    // paginate: { }
+  } | null,
+  data: T
+}

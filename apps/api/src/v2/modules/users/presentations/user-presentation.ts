@@ -1,22 +1,29 @@
 import User from "../entities/User";
 
+export interface IUserPresentation {
+  id: string;
+  email: string;
+  name: string;
+  role: string;
+  created_at: string;
+  updated_at: string;
+}
+
 function userPresentation({
   _id,
   email,
   name,
-  password,
   role,
   createdAt,
   updatedAt,
-}: User) {
+}: User): IUserPresentation {
   return {
     id: _id,
     email,
     name,
-    password,
     role,
-    createdAt,
-    updatedAt,
+    created_at: createdAt,
+    updated_at: updatedAt,
   };
 }
 
