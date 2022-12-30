@@ -1,5 +1,8 @@
+import type { HttpBodyResponse } from "../../../../infra/http/interfaces";
 import User, { AccountRoles } from "../../entities/User";
-import userPresentation from "../../presentations/user-presentation";
+import userPresentation, {
+  IUserPresentation,
+} from "../../presentations/user-presentation";
 import type { IUsersRepository } from "../../repositories/interfaces";
 import { isFieldsRequired } from "../../utils/validations";
 
@@ -10,10 +13,16 @@ export interface ICreateUserUseCaseInput {
   role?: AccountRoles;
 }
 
+type CreateUserUseCaseOutput = HttpBodyResponse<{
+  user: IUserPresentation;
+}>;
+
 class CreateUserUseCase {
   constructor(private readonly usersRepository: IUsersRepository) {}
 
-  async execute(input: ICreateUserUseCaseInput) {
+  async execute(
+    input: ICreateUserUseCaseInput
+  ): Promise<CreateUserUseCaseOutput> {
     // TODO improve initial validations
     if (
       !isFieldsRequired<ICreateUserUseCaseInput>(
@@ -43,6 +52,7 @@ class CreateUserUseCase {
     await this.usersRepository.create(user);
 
     return {
+      _self: null,
       data: {
         user: userPresentation(user),
       },

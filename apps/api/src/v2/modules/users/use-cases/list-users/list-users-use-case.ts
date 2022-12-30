@@ -1,9 +1,11 @@
 import type { HttpBodyResponse } from "../../../../infra/http/interfaces";
-import userPresentation, { IUserPresentation } from "../../presentations/user-presentation";
+import userPresentation, {
+  IUserPresentation,
+} from "../../presentations/user-presentation";
 import { IUsersRepository } from "../../repositories/interfaces";
 
 type ListUsersUseCaseOutput = HttpBodyResponse<{
-  users: IUserPresentation[]
+  users: IUserPresentation[];
 }>;
 
 class ListUsersUseCase {

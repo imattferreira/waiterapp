@@ -15,6 +15,6 @@ export type DoneFn = (err?: Error) => void;
 export interface HttpBodyResponse<T> {
   _self: {
     // paginate: { }
-  } | null,
-  data: T
+  } | null;
+  data: T;
 }

@@ -1,4 +1,7 @@
-import userPresentation from "../../presentations/user-presentation";
+import type { HttpBodyResponse } from "../../../../infra/http/interfaces";
+import userPresentation, {
+  IUserPresentation,
+} from "../../presentations/user-presentation";
 import { IUsersRepository } from "../../repositories/interfaces";
 import { isUUIDValid } from "../../utils/validations";
 
@@ -6,17 +9,24 @@ interface ListUserUseCaseInput {
   id: string;
 }
 
+type ListUserUseCaseOutput = HttpBodyResponse<{
+  user: IUserPresentation | null;
+}>;
+
 class ListUserUseCase {
   constructor(private readonly usersRepository: IUsersRepository) {}
 
-  async execute({ id }: ListUserUseCaseInput) {
+  async execute({ id }: ListUserUseCaseInput): Promise<ListUserUseCaseOutput> {
     if (!isUUIDValid(id)) {
       throw new Error("invalid [id] param");
     }
 
     const user = await this.usersRepository.findById(id);
 
-    return { data: { user: user ? userPresentation(user) : null } };
+    return {
+      _self: null,
+      data: { user: user ? userPresentation(user) : null },
+    };
   }
 }
 

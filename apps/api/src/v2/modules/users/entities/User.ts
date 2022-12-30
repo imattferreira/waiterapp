@@ -34,7 +34,7 @@ class User {
     password,
     role = "waiter",
     createdAt,
-    updatedAt
+    updatedAt,
   }: UserInput) {
     if (!isEmailValid(email)) {
       throw new Error("email is invalid");
@@ -54,7 +54,7 @@ class User {
       _id: _id ?? randomUUID(),
       role,
       createdAt: createdAt ?? getUTCTime(),
-      updatedAt: updatedAt ??getUTCTime(),
+      updatedAt: updatedAt ?? getUTCTime(),
     };
   }
 

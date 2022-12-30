@@ -5,7 +5,7 @@ import listUsers from "../use-cases/list-users";
 
 function routes(router: Router) {
   router.post("/users", createUser.factory);
-  router.get('/users', listUsers.factory);
+  router.get("/users", listUsers.factory);
   router.get("/users/:id", listUser.factory);
   // router.put('/users/:id', () => {});
   // router.patch('/users/:id', () => {});
