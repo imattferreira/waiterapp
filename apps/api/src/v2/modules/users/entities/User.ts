@@ -1,11 +1,10 @@
-import crypto from "../utils/crypto";
-import datetime from "../utils/datetime";
+import Entity from "../../../entities/entity";
 import validate from "../utils/validate";
 
 export type AccountRoles = "admin" | "waiter";
 
 interface UserInput {
-  _id?: string | null;
+  _id?: string;
   name: string;
   email: string;
   password: string;
@@ -15,20 +14,18 @@ interface UserInput {
 }
 
 export interface UserEntity {
-  _id: string;
+  _id?: string;
   name: string;
   email: string;
   password: string;
   role: AccountRoles;
-  createdAt: string;
-  updatedAt: string;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
-class User {
-  private props: UserEntity;
-
+class User extends Entity<UserEntity> {
   constructor({
-    _id = null,
+    _id,
     email,
     name,
     password,
@@ -47,19 +44,15 @@ class User {
     // TODO can be necessary
     // if (isRoleValid(role)) {}
 
-    this.props = {
+    super({
+      _id,
+      createdAt,
       email,
       name,
       password,
-      _id: _id ?? crypto.randomUUID(),
       role,
-      createdAt: createdAt ?? datetime.getUTCTime(),
-      updatedAt: updatedAt ?? datetime.getUTCTime(),
-    };
-  }
-
-  get _id(): string {
-    return this.props._id;
+      updatedAt,
+    });
   }
 
   get email(): string {
@@ -76,14 +69,6 @@ class User {
 
   get role(): AccountRoles {
     return this.props.role;
-  }
-
-  get createdAt(): string {
-    return this.props.createdAt;
-  }
-
-  get updatedAt(): string {
-    return this.props.updatedAt;
   }
 
   set email(email: string) {
@@ -112,10 +97,6 @@ class User {
   set role(role: AccountRoles) {
     this.props.role = role;
     this.updateTimestamps();
-  }
-
-  private updateTimestamps() {
-    this.props.updatedAt = datetime.getUTCTime();
   }
 }
 

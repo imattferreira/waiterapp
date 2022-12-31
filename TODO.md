@@ -1,7 +1,7 @@
 ## API
 
 - implement Either (error handler)
-- Generic classes (Entity, Errors)
+- Generic classes (Errors)
 - Swagger
 - Bounded Contexts (or similar to share code between modules)
 - EmailService (with queues)
