@@ -1,4 +1,5 @@
 import { style } from "@vanilla-extract/css";
+import theme from "../../styles/theme.css";
 
 export const container = style({
   position: "absolute",
@@ -10,11 +11,11 @@ export const container = style({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  background: "#fff",
+  background: theme.color.white,
 });
 
 export const logo = style({
-  color: "#666",
+  color: theme.color.gray[400],
   fontSize: 24,
   marginBottom: 80,
 });

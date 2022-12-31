@@ -1,8 +1,9 @@
 import { style, styleVariants } from "@vanilla-extract/css";
+import theme from "../../../styles/theme.css";
 
 const container = style({
   fontSize: 14,
-  color: "#666",
+  color: theme.color.gray[400],
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -25,23 +26,23 @@ export const containerVariants = styleVariants({
   active: [
     container,
     {
-      color: "#D73035",
+      color: theme.color.red[400],
     },
   ],
 });
 
 export const iconVariants = styleVariants({
   default: {
-    stroke: "#666",
+    stroke: theme.color.gray[400],
   },
   active: {
-    stroke: "#D73035",
+    stroke: theme.color.red[400],
   },
 });
 
 export const dash = style({
   width: 12,
   height: 2,
-  background: "#D73035",
+  background: theme.color.red[400],
   marginTop: 8,
 });

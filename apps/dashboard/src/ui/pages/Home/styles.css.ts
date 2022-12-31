@@ -1,13 +1,14 @@
 import { style } from "@vanilla-extract/css";
+import theme from "../../styles/theme.css";
 
 export const container = style({
   height: "100vh",
-  background: "#D73035",
+  background: theme.color.red[400],
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "center",
-  color: "#fff",
+  color: theme.color.white,
 });
 
 export const hero = style({
@@ -32,8 +33,8 @@ export const loginBtn = style({
   width: 384,
   marginTop: 24,
   padding: "16px 0",
-  background: "#FFFFFF",
-  color: "#D73035",
+  background: theme.color.white,
+  color: theme.color.red[400],
   fontWeight: 600,
   borderRadius: 44,
   display: "flex",

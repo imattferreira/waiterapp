@@ -1,4 +1,5 @@
 import { style, styleVariants } from "@vanilla-extract/css";
+import theme from "../../styles/theme.css";
 
 export const labelText = style({
   fontSize: 14,
@@ -9,13 +10,13 @@ const inputWrapperBase = style({
   marginTop: 8,
   display: "flex",
   alignItems: "center",
-  border: "1px solid #CCCCCC",
+  border: `1px solid ${theme.color.gray[200]}`,
   borderRadius: 8,
   transition: "250ms",
 
   selectors: {
     "&:focus-within": {
-      borderColor: "#666666",
+      borderColor: theme.color.gray[400],
     },
   },
 });
@@ -25,11 +26,11 @@ export const inputWrapperVariants = styleVariants({
   error: [
     inputWrapperBase,
     {
-      border: "1px solid #D73035",
+      border: `1px solid ${theme.color.red[400]}`,
 
       selectors: {
         "&:focus-within": {
-          borderColor: "#D73035",
+          borderColor: theme.color.red[400],
         },
       },
     },
@@ -49,10 +50,10 @@ export const inputVariants = styleVariants({
   error: [
     inputBase,
     {
-      color: "#D73035",
+      color: theme.color.red[400],
 
       "::placeholder": {
-        color: "#D73035",
+        color: theme.color.red[400],
       },
     },
   ],
@@ -72,7 +73,7 @@ export const messageWrapperVariants = styleVariants({
   error: [
     messageWrapperBase,
     {
-      color: "#D73035",
+      color: theme.color.red[400],
     },
   ],
 });
@@ -83,5 +84,5 @@ export const eyeButton = style({
 });
 
 export const iconError = style({
-  stroke: "#D73035",
+  stroke: theme.color.red[400],
 });

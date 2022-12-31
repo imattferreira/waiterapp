@@ -1,7 +1,8 @@
 import { style } from "@vanilla-extract/css";
+import theme from "../../../styles/theme.css";
 
 export const container = style({
-  background: "#fff",
+  background: theme.color.white,
   borderRadius: 4,
   border: "1px solid rgba(204, 204, 204, 0.4)",
   padding: "42px 0",

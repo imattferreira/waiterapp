@@ -1,4 +1,5 @@
 import { style, styleVariants } from "@vanilla-extract/css";
+import theme from "../../styles/theme.css";
 
 const base = style({
   height: 48,
@@ -19,22 +20,22 @@ export const containerVariants = styleVariants({
   primary: [
     base,
     {
-      background: "#D73035",
-      color: "#FFFFFF",
+      background: theme.color.red[400],
+      color: theme.color.white,
     },
   ],
   secondary: [
     base,
     {
-      background: "#FFFFFF",
-      color: "#D73035",
+      background:theme.color.white,
+      color: theme.color.red[400],
     },
   ],
   disabled: [
     base,
     {
-      background: "#CCCCCC",
-      color: "#FFFFFF",
+      background: theme.color.gray[200],
+      color: theme.color.white,
       cursor: "not-allowed",
 
       ":hover": {
