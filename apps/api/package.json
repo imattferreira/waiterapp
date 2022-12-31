@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "yarn services:up && nodemon src/index.ts",
+    "dev": "yarn services:up && nodemon src/v2/infra/index.ts",
     "services:up": "docker-compose -f ./src/v2/infra/container/docker-compose.yml up -d",
     "services:down": "docker-compose -f ./src/v2/infra/container/docker-compose.yml stop",
     "build": "tsc",
