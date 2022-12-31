@@ -1,6 +1,5 @@
 import useRoutesStore from "../../../app/hooks/stores/useRoutesStore";
-import Icon from "../Icon";
-import { container, ico, titleText, titleWrapper } from "./styles.css";
+import Presentation from "./Presentation";
 
 function Header() {
   const {
@@ -15,15 +14,7 @@ function Header() {
 
   const { icon, title, description } = activeRoute;
 
-  return (
-    <header className={container}>
-      <div className={titleWrapper}>
-        <Icon name={icon} size={24} className={ico} />
-        <h2 className={titleText}>{title}</h2>
-      </div>
-      <p>{description}</p>
-    </header>
-  );
+  return <Presentation description={description} icon={icon} title={title} />;
 }
 
 export default Header;

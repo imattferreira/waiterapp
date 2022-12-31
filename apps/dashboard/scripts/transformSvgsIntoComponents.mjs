@@ -88,7 +88,7 @@ function makeComponentFile({ iconName, content }) {
 
 function makeEntrypointComponent(namesInPascalCase, namesInSnakeCase) {
   const template = `
-import { lazy } from "react";
+import { Suspense, lazy } from "react";
 
 const ICONS = {
   ${namesInPascalCase.map(
@@ -108,7 +108,11 @@ type IconProps = {
 function Icon({ name, size, ...props }: IconProps) {
   const Component = ICONS[name];
 
-  return Component ? <Component size={size} {...props} /> : null;
+  return !Component ? null : (
+    <Suspense>
+      <Component size={size} {...props} />
+    </Suspense>
+  );
 }
 
 export default Icon;
