@@ -1,14 +1,15 @@
 import argon2 from "argon2";
 import crypto from "node:crypto";
 
-export function hash(plaintext: string): Promise<string> {
-  return argon2.hash(plaintext);
-}
+const hash = (plaintext: string): Promise<string> => argon2.hash(plaintext);
 
-export function verify(plaintext: string, hash: string): Promise<boolean> {
-  return argon2.verify(hash, plaintext);
-}
+const verify = (plaintext: string, hash: string): Promise<boolean> => argon2.verify(hash, plaintext);
 
-export function randomUUID() {
-  return crypto.randomUUID();
-}
+ const randomUUID = ():string => crypto.randomUUID();
+
+
+export default Object.freeze({
+  hash,
+  verify,
+  randomUUID
+});

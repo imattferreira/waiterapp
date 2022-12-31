@@ -4,6 +4,7 @@ import userPresentation, {
   IUserPresentation,
 } from "../../presentations/user-presentation";
 import type { IUsersRepository } from "../../repositories/interfaces";
+import crypto from "../../utils/crypto";
 import { isFieldsRequired } from "../../utils/validations";
 
 export interface ICreateUserUseCaseInput {
@@ -42,10 +43,12 @@ class CreateUserUseCase {
       throw new Error("[email] already exists");
     }
 
+    const passwordHashed = await crypto.hash(password);
+
     const user = new User({
       email,
       name,
-      password,
+      password: passwordHashed,
       role,
     });
 

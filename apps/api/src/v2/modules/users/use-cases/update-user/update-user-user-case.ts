@@ -4,6 +4,7 @@ import userPresentation, {
   IUserPresentation,
 } from "../../presentations/user-presentation";
 import type { IUsersRepository } from "../../repositories/interfaces";
+import crypto from "../../utils/crypto";
 import { isFieldsRequired, isUUIDValid } from "../../utils/validations";
 
 export interface IUpdateUserUseCaseInput {
@@ -55,8 +56,10 @@ class UpdateUserUseCase {
       }
     }
 
+    const passwordHashed = await crypto.hash(password);
+
     existingUser.email = email;
-    existingUser.password = password;
+    existingUser.password = passwordHashed;
 
     if (role) {
       existingUser.role = role;

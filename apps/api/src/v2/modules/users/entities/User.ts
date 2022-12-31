@@ -1,4 +1,4 @@
-import { randomUUID } from "../utils/crypto";
+import crypto from "../utils/crypto";
 import { getUTCTime } from "../utils/datetime";
 import { isEmailValid, isPasswordValid } from "../utils/validations";
 
@@ -51,7 +51,7 @@ class User {
       email,
       name,
       password,
-      _id: _id ?? randomUUID(),
+      _id: _id ?? crypto.randomUUID(),
       role,
       createdAt: createdAt ?? getUTCTime(),
       updatedAt: updatedAt ?? getUTCTime(),
