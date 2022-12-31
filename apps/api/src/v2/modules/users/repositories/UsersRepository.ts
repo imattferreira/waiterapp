@@ -66,7 +66,7 @@ class UsersRepository implements IUsersRepository {
       return null;
     }
 
-    return new User({ ...data });
+    return new User({ ...data }, true);
   }
 
   async findByEmail(email: string): Promise<User | null> {
@@ -76,7 +76,7 @@ class UsersRepository implements IUsersRepository {
       return null;
     }
 
-    return new User({ ...data });
+    return new User({ ...data }, true);
   }
 
   async update(data: User): Promise<void> {
@@ -86,7 +86,7 @@ class UsersRepository implements IUsersRepository {
   async listAll(): Promise<User[]> {
     const data = await Repository.find().lean();
 
-    return data.map((user) => new User({ ...user }));
+    return data.map((user) => new User({ ...user }, true));
   }
 
   async delete(_id: string): Promise<void> {

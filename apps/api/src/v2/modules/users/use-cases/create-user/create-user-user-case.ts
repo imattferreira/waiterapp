@@ -26,7 +26,6 @@ class CreateUserUseCase {
   async execute(
     input: ICreateUserUseCaseInput
   ): Promise<Either<AppError, CreateUserUseCaseOutput>> {
-    // TODO improve initial validations
     if (
       !validate.requiredFields<ICreateUserUseCaseInput>(
         ["name", "email", "password"],

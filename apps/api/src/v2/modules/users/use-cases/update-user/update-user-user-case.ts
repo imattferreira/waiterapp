@@ -27,7 +27,6 @@ class UpdateUserUseCase {
   async execute(
     input: IUpdateUserUseCaseInput
   ): Promise<Either<AppError, UpdateUserUseCaseOutput>> {
-    // TODO improve initial validations
     if (
       !validate.requiredFields<IUpdateUserUseCaseInput>(
         ["id", "name", "email", "password"],

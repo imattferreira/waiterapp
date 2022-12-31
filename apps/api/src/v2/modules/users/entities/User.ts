@@ -35,15 +35,24 @@ class User extends Entity<UserEntity> {
     role = "waiter",
     createdAt,
     updatedAt,
-  }: UserInput) {
-    if (!validate.email(email)) {
-      throw new AppError("bad_request", "[email] is invalid");
+  }: UserInput, alreadySaved = false) {
+
+    if (!alreadySaved) {
+      if (!validate.email(email)) {
+        throw new AppError("bad_request", "[email] is invalid");
+      }
+
+      if (!password || (password && !validate.password(password))) {
+        if (password) {
+
+          console.log({ validation: password })
+        }
+        throw new AppError("bad_request", "[password] is too weak");
+    }
     }
 
-    if (!password || !validate.password(password)) {
-      throw new AppError("bad_request", "[password] is too weak");
-    }
 
+    const userPassword = (passwordHashed || password) as string;
     // TODO can be necessary
     // if (isRoleValid(role)) {}
 
@@ -52,7 +61,7 @@ class User extends Entity<UserEntity> {
       createdAt,
       email,
       name,
-      password: passwordHashed || password,
+      password: userPassword,
       role,
       updatedAt,
     });
