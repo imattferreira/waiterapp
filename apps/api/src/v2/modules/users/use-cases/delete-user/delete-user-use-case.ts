@@ -13,7 +13,7 @@ class DeleteUserUseCase {
   async execute({
     id,
   }: DeleteUserUseCaseInput): Promise<Either<AppError, null>> {
-    if (!validate.uuid(id)) {
+    if (!validate.uuidV4(id)) {
       Left.commit(new AppError("bad_request", "invalid [id] param"));
     }
 

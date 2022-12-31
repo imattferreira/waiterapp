@@ -1,5 +1,5 @@
 import { Controller, useForm } from "react-hook-form";
-import { emailRegEx } from "../../../app/lib/regex";
+import regex from "../../../app/lib/regex";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import {
@@ -69,7 +69,7 @@ function LoginPage() {
                 message: MESSAGES.EMAIL.REQUIRED,
               },
               pattern: {
-                value: emailRegEx,
+                value: regex.email,
                 message: MESSAGES.EMAIL.PATTERN,
               },
             }}

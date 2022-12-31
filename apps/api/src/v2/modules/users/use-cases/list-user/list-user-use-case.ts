@@ -21,7 +21,7 @@ class ListUserUseCase {
   async execute({
     id,
   }: ListUserUseCaseInput): Promise<Either<AppError, ListUserUseCaseOutput>> {
-    if (!validate.uuid(id)) {
+    if (!validate.uuidV4(id)) {
       return Left.commit(new AppError("bad_request", "invalid [id] param"));
     }
 

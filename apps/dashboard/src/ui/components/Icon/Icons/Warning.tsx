@@ -4,35 +4,29 @@ type WarningIconProps = {
 
 function WarningIcon({ size = 24, ...props }: WarningIconProps) {
   return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 20 20"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none">
       <path
         {...props}
+        fill="#666"
         fill-rule="evenodd"
+        d="M9.999 6.667a.208.208 0 1 0 .002.417.208.208 0 0 0-.002-.417Z"
         clip-rule="evenodd"
-        d="M9.99901 6.66675C9.88401 6.66675 9.79068 6.76008 9.79151 6.87508C9.79151 6.99008 9.88484 7.08341 9.99984 7.08341C10.1148 7.08341 10.2082 6.99008 10.2082 6.87508C10.2082 6.76008 10.1148 6.66675 9.99901 6.66675Z"
-        fill="#666666"
       />
       <path
         {...props}
-        d="M9.99901 6.66675C9.88401 6.66675 9.79068 6.76008 9.79151 6.87508C9.79151 6.99008 9.88484 7.08341 9.99984 7.08341C10.1148 7.08341 10.2082 6.99008 10.2082 6.87508C10.2082 6.76008 10.1148 6.66675 9.99901 6.66675"
         stroke="#D73035"
-        stroke-width="1.25"
         stroke-linecap="round"
         stroke-linejoin="round"
+        stroke-width="1.25"
+        d="M9.999 6.667a.208.208 0 1 0 .002.417.208.208 0 0 0-.002-.417"
       />
       <path
         {...props}
-        d="M10 10V14.1667M10 17.5V17.5C5.8575 17.5 2.5 14.1425 2.5 10V10C2.5 5.8575 5.8575 2.5 10 2.5V2.5C14.1425 2.5 17.5 5.8575 17.5 10V10C17.5 14.1425 14.1425 17.5 10 17.5Z"
         stroke="#D73035"
-        stroke-width="1.25"
         stroke-linecap="round"
         stroke-linejoin="round"
+        stroke-width="1.25"
+        d="M10 10v4.167m0 3.333v0A7.5 7.5 0 0 1 2.5 10v0A7.5 7.5 0 0 1 10 2.5v0a7.5 7.5 0 0 1 7.5 7.5v0a7.5 7.5 0 0 1-7.5 7.5Z"
       />
     </svg>
   );

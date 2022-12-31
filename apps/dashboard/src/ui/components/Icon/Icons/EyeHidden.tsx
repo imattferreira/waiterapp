@@ -4,60 +4,22 @@ type EyeHiddenIconProps = {
 
 function EyeHiddenIcon({ size = 24, ...props }: EyeHiddenIconProps) {
   return (
-    <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
       <path
         {...props}
-        d="M12.0001 18.9999C11.1581 18.9999 10.3151 18.8219 9.49609 18.5049"
-        stroke="#666666"
-        stroke-width="1.5"
+        stroke="#666"
         stroke-linecap="round"
         stroke-linejoin="round"
+        stroke-width="1.5"
+        d="M12 19c-.842 0-1.685-.178-2.504-.495m11.386-6.037C18.99 15.967 15.495 19 12 19m7.08-10.08a15.135 15.135 0 0 1 1.802 2.613.987.987 0 0 1 0 .935M5 19 19 5m-9.227 9.227a3.15 3.15 0 0 1 4.455-4.455"
       />
       <path
         {...props}
-        d="M20.882 12.468C18.99 15.967 15.495 19 12 19"
-        stroke="#666666"
-        stroke-width="1.5"
+        stroke="#666"
         stroke-linecap="round"
         stroke-linejoin="round"
-      />
-      <path
-        {...props}
-        d="M19.0791 8.9209C19.7701 9.7299 20.3841 10.6119 20.8821 11.5329C21.0391 11.8239 21.0391 12.1769 20.8821 12.4679"
-        stroke="#666666"
         stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      />
-      <path
-        {...props}
-        d="M5 19L19 5"
-        stroke="#666666"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      />
-      <path
-        {...props}
-        d="M9.77309 14.2271C8.54309 12.9971 8.54309 11.0021 9.77309 9.77211C11.0031 8.54211 12.9981 8.54211 14.2281 9.77211"
-        stroke="#666666"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      />
-      <path
-        {...props}
-        d="M17.0442 6.956C15.4972 5.759 13.7482 5 12.0002 5C8.50524 5 5.01024 8.033 3.11824 11.533C2.96124 11.824 2.96124 12.177 3.11824 12.468C4.06424 14.217 5.41024 15.849 6.95624 17.045"
-        stroke="#666666"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        d="M17.044 6.956C15.497 5.759 13.748 5 12 5c-3.495 0-6.99 3.033-8.882 6.533a.987.987 0 0 0 0 .935c.946 1.749 2.292 3.381 3.838 4.577"
       />
     </svg>
   );

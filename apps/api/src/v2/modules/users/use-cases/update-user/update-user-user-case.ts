@@ -41,7 +41,7 @@ class UpdateUserUseCase {
 
     const { id, email, name, password, role } = input;
 
-    if (!validate.uuid(id)) {
+    if (!validate.uuidV4(id)) {
       return Left.commit(new AppError("bad_request", "[id] is invalid"));
     }
 
