@@ -1,6 +1,6 @@
 import crypto from "../utils/crypto";
-import { getUTCTime } from "../utils/datetime";
-import { isEmailValid, isPasswordValid } from "../utils/validations";
+import datetime from "../utils/datetime";
+import validate from "../utils/validate";
 
 export type AccountRoles = "admin" | "waiter";
 
@@ -36,11 +36,11 @@ class User {
     createdAt,
     updatedAt,
   }: UserInput) {
-    if (!isEmailValid(email)) {
+    if (!validate.email(email)) {
       throw new Error("email is invalid");
     }
 
-    if (!isPasswordValid(password)) {
+    if (!validate.password(password)) {
       throw new Error("password is invalid");
     }
 
@@ -53,8 +53,8 @@ class User {
       password,
       _id: _id ?? crypto.randomUUID(),
       role,
-      createdAt: createdAt ?? getUTCTime(),
-      updatedAt: updatedAt ?? getUTCTime(),
+      createdAt: createdAt ?? datetime.getUTCTime(),
+      updatedAt: updatedAt ?? datetime.getUTCTime(),
     };
   }
 
@@ -87,31 +87,35 @@ class User {
   }
 
   set email(email: string) {
-    if (!isEmailValid(email)) {
+    if (!validate.email(email)) {
       throw new Error("email is invalid");
     }
 
     this.props.email = email;
-    this.props.updatedAt = getUTCTime();
+    this.updateTimestamps();
   }
 
   set name(name: string) {
     this.props.name = name;
-    this.props.updatedAt = getUTCTime();
+    this.updateTimestamps();
   }
 
   set password(password: string) {
-    if (!isPasswordValid(password)) {
+    if (!validate.password(password)) {
       throw new Error("password invalid");
     }
 
     this.props.password = password;
-    this.props.updatedAt = getUTCTime();
+    this.updateTimestamps();
   }
 
   set role(role: AccountRoles) {
     this.props.role = role;
-    this.props.updatedAt = getUTCTime();
+    this.updateTimestamps();
+  }
+
+  private updateTimestamps() {
+    this.props.updatedAt = datetime.getUTCTime();
   }
 }
 

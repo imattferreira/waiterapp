@@ -1,3 +1,3 @@
-import connect from './connection';
+import connect from "./connection";
 
-export default Object.freeze({connect});
+export default Object.freeze({ connect });

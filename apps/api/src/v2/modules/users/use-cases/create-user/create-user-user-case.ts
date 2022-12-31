@@ -5,7 +5,7 @@ import userPresentation, {
 } from "../../presentations/user-presentation";
 import type { IUsersRepository } from "../../repositories/interfaces";
 import crypto from "../../utils/crypto";
-import { isFieldsRequired } from "../../utils/validations";
+import validate from "../../utils/validate";
 
 export interface ICreateUserUseCaseInput {
   name: string;
@@ -26,7 +26,7 @@ class CreateUserUseCase {
   ): Promise<CreateUserUseCaseOutput> {
     // TODO improve initial validations
     if (
-      !isFieldsRequired<ICreateUserUseCaseInput>(
+      !validate.requiredFields<ICreateUserUseCaseInput>(
         ["name", "email", "password"],
         input
       )

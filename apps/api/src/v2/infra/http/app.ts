@@ -1,6 +1,6 @@
-import routesV2 from './routes';
-import routesV1 from '../../../v1/routes';
-import fastify, { FastifyInstance } from 'fastify';
+import routesV2 from "./routes";
+import routesV1 from "../../../v1/routes";
+import fastify, { FastifyInstance } from "fastify";
 
 const PORT = 3000;
 

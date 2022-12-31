@@ -5,7 +5,7 @@ import userPresentation, {
 } from "../../presentations/user-presentation";
 import type { IUsersRepository } from "../../repositories/interfaces";
 import crypto from "../../utils/crypto";
-import { isFieldsRequired, isUUIDValid } from "../../utils/validations";
+import validate from "../../utils/validate";
 
 export interface IUpdateUserUseCaseInput {
   id: string;
@@ -27,7 +27,7 @@ class UpdateUserUseCase {
   ): Promise<UpdateUserUseCaseOutput> {
     // TODO improve initial validations
     if (
-      !isFieldsRequired<IUpdateUserUseCaseInput>(
+      !validate.requiredFields<IUpdateUserUseCaseInput>(
         ["id", "name", "email", "password"],
         input
       )
@@ -38,7 +38,7 @@ class UpdateUserUseCase {
 
     const { id, email, name, password, role } = input;
 
-    if (!isUUIDValid(id)) {
+    if (!validate.uuid(id)) {
       throw new Error("[id] is invalid");
     }
 
@@ -58,6 +58,7 @@ class UpdateUserUseCase {
 
     const passwordHashed = await crypto.hash(password);
 
+    existingUser.name = name;
     existingUser.email = email;
     existingUser.password = passwordHashed;
 

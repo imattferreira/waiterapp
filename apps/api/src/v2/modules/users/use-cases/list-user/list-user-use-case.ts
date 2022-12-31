@@ -3,7 +3,7 @@ import userPresentation, {
   IUserPresentation,
 } from "../../presentations/user-presentation";
 import { IUsersRepository } from "../../repositories/interfaces";
-import { isUUIDValid } from "../../utils/validations";
+import validate from "../../utils/validate";
 
 interface ListUserUseCaseInput {
   id: string;
@@ -17,7 +17,7 @@ class ListUserUseCase {
   constructor(private readonly usersRepository: IUsersRepository) {}
 
   async execute({ id }: ListUserUseCaseInput): Promise<ListUserUseCaseOutput> {
-    if (!isUUIDValid(id)) {
+    if (!validate.uuid(id)) {
       throw new Error("invalid [id] param");
     }
 
