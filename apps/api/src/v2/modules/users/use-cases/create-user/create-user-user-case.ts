@@ -1,3 +1,5 @@
+import AppError from "../../../../errors/AppError";
+import Either, { Left, Right } from "../../../../errors/either";
 import type { HttpBodyResponse } from "../../../../infra/http/interfaces";
 import User, { AccountRoles } from "../../entities/User";
 import userPresentation, {
@@ -23,7 +25,7 @@ class CreateUserUseCase {
 
   async execute(
     input: ICreateUserUseCaseInput
-  ): Promise<CreateUserUseCaseOutput> {
+  ): Promise<Either<AppError, CreateUserUseCaseOutput>> {
     // TODO improve initial validations
     if (
       !validate.requiredFields<ICreateUserUseCaseInput>(
@@ -31,8 +33,9 @@ class CreateUserUseCase {
         input
       )
     ) {
-      // TODO improve error messages
-      throw new Error("some required fields are missing");
+      return Left.commit(
+        new AppError("bad_request", "some required fields are missing")
+      );
     }
 
     const { email, name, password, role } = input;
@@ -40,7 +43,7 @@ class CreateUserUseCase {
     const emailAlreadyExists = await this.usersRepository.findByEmail(email);
 
     if (emailAlreadyExists) {
-      throw new Error("[email] already exists");
+      return Left.commit(new AppError("conflict", "[email] already exists"));
     }
 
     const passwordHashed = await crypto.hash(password);
@@ -48,18 +51,19 @@ class CreateUserUseCase {
     const user = new User({
       email,
       name,
-      password: passwordHashed,
+      password,
+      passwordHashed,
       role,
     });
 
     await this.usersRepository.create(user);
 
-    return {
+    return Right.commit({
       _self: null,
       data: {
         user: userPresentation(user),
       },
-    };
+    });
   }
 }
 

@@ -11,7 +11,11 @@ class DeleteUserController {
   async handle(req: HttpRequest, res: HttpResponse) {
     const { id } = req.params as { id: string };
 
-    await this.deleteUserUseCase.execute({ id });
+    const result = await this.deleteUserUseCase.execute({ id });
+
+    if (result.isLeft()) {
+      return res.status(result.error.status).send(result.error.body);
+    }
 
     return res.status(STATUS_CODES.NO_CONTENT).send();
   }

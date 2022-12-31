@@ -1,3 +1,5 @@
+import AppError from "../../../../errors/AppError";
+import Either, { Left, Right } from "../../../../errors/either";
 import type { HttpBodyResponse } from "../../../../infra/http/interfaces";
 import type { AccountRoles } from "../../entities/User";
 import userPresentation, {
@@ -24,7 +26,7 @@ class UpdateUserUseCase {
 
   async execute(
     input: IUpdateUserUseCaseInput
-  ): Promise<UpdateUserUseCaseOutput> {
+  ): Promise<Either<AppError, UpdateUserUseCaseOutput>> {
     // TODO improve initial validations
     if (
       !validate.requiredFields<IUpdateUserUseCaseInput>(
@@ -32,27 +34,28 @@ class UpdateUserUseCase {
         input
       )
     ) {
-      // TODO improve error messages
-      throw new Error("some required fields are missing");
+      return Left.commit(
+        new AppError("bad_request", "some required fields are missing")
+      );
     }
 
     const { id, email, name, password, role } = input;
 
     if (!validate.uuid(id)) {
-      throw new Error("[id] is invalid");
+      return Left.commit(new AppError("bad_request", "[id] is invalid"));
     }
 
     const existingUser = await this.usersRepository.findById(id);
 
     if (!existingUser) {
-      throw new Error("user not found");
+      return Left.commit(new AppError("not_found", "user not found"));
     }
 
     if (existingUser.email !== email) {
       const emailAlreadyExists = await this.usersRepository.findByEmail(email);
 
       if (emailAlreadyExists) {
-        throw new Error("[email] already exists");
+        return Left.commit(new AppError("conflict", "[email] already exists"));
       }
     }
 
@@ -60,7 +63,8 @@ class UpdateUserUseCase {
 
     existingUser.name = name;
     existingUser.email = email;
-    existingUser.password = passwordHashed;
+    existingUser.password = password;
+    existingUser.passwordHashed = passwordHashed;
 
     if (role) {
       existingUser.role = role;
@@ -68,12 +72,12 @@ class UpdateUserUseCase {
 
     await this.usersRepository.update(existingUser);
 
-    return {
+    return Right.commit({
       _self: null,
       data: {
         user: userPresentation(existingUser),
       },
-    };
+    });
   }
 }
 

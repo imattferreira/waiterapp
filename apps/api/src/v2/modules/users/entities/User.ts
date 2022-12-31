@@ -1,4 +1,5 @@
 import Entity from "../../../entities/entity";
+import AppError from "../../../errors/AppError";
 import validate from "../utils/validate";
 
 export type AccountRoles = "admin" | "waiter";
@@ -7,7 +8,8 @@ interface UserInput {
   _id?: string;
   name: string;
   email: string;
-  password: string;
+  password?: string;
+  passwordHashed?: string;
   role?: AccountRoles;
   createdAt?: string;
   updatedAt?: string;
@@ -29,16 +31,17 @@ class User extends Entity<UserEntity> {
     email,
     name,
     password,
+    passwordHashed,
     role = "waiter",
     createdAt,
     updatedAt,
   }: UserInput) {
     if (!validate.email(email)) {
-      throw new Error("email is invalid");
+      throw new AppError("bad_request", "[email] is invalid");
     }
 
-    if (!validate.password(password)) {
-      throw new Error("password is invalid");
+    if (!password || !validate.password(password)) {
+      throw new AppError("bad_request", "[password] is too weak");
     }
 
     // TODO can be necessary
@@ -49,7 +52,7 @@ class User extends Entity<UserEntity> {
       createdAt,
       email,
       name,
-      password,
+      password: passwordHashed || password,
       role,
       updatedAt,
     });
@@ -73,7 +76,7 @@ class User extends Entity<UserEntity> {
 
   set email(email: string) {
     if (!validate.email(email)) {
-      throw new Error("email is invalid");
+      throw new AppError("bad_request", "[email] is invalid");
     }
 
     this.props.email = email;
@@ -87,10 +90,14 @@ class User extends Entity<UserEntity> {
 
   set password(password: string) {
     if (!validate.password(password)) {
-      throw new Error("password invalid");
+      throw new AppError("bad_request", "[password] is too weak");
     }
 
-    this.props.password = password;
+    this.updateTimestamps();
+  }
+
+  set passwordHashed(passwordHashed: string) {
+    this.props.password = passwordHashed;
     this.updateTimestamps();
   }
 

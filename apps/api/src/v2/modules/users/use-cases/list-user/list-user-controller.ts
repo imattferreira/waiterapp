@@ -1,3 +1,4 @@
+import InternalError from "../../../../errors/InternalError";
 import type {
   HttpRequest,
   HttpResponse,
@@ -12,7 +13,16 @@ class ListUserController {
 
     const result = await this.listUserUseCase.execute({ id });
 
-    return res.send(result);
+    if (result.isLeft()) {
+      return res.status(result.error.status).send(result.error.body);
+    }
+
+    if (result.isRight()) {
+      return res.send(result.value);
+    }
+    const internalError = new InternalError();
+
+    return res.status(internalError.status).send(internalError.body);
   }
 }
 

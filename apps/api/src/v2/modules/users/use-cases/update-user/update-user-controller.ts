@@ -1,3 +1,4 @@
+import InternalError from "../../../../errors/InternalError";
 import { HttpRequest, HttpResponse } from "../../../../infra/http/interfaces";
 import STATUS_CODES from "../../../../infra/http/status-codes";
 import UpdateUserUseCase, {
@@ -22,7 +23,17 @@ class UpdateUserController {
       role,
     });
 
-    return res.status(STATUS_CODES.CREATED).send(result);
+    if (result.isLeft()) {
+      return res.status(result.error.status).send(result.error.body);
+    }
+
+    if (result.isRight()) {
+      return res.status(STATUS_CODES.CREATED).send(result.value);
+    }
+
+    const internalError = new InternalError();
+
+    return res.status(internalError.status).send(internalError.body);
   }
 }
 

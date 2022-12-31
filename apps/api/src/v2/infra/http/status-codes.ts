@@ -13,7 +13,7 @@ enum STATUS_CODES {
   CONFLICT = 409,
 
   // 5xx
-  INTERNAL_ERROR = 500,
+  INTERNAL = 500,
 }
 
 export default STATUS_CODES;
