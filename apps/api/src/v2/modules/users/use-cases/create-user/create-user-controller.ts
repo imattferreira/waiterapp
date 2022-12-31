@@ -1,4 +1,5 @@
 import { HttpRequest, HttpResponse } from "../../../../infra/http/interfaces";
+import STATUS_CODES from "../../../../infra/http/status-codes";
 import CreateUserUseCase, {
   ICreateUserUseCaseInput,
 } from "./create-user-user-case";
@@ -16,7 +17,7 @@ class CreateUserController {
       role,
     });
 
-    return res.status(201).send(result);
+    return res.status(STATUS_CODES.CREATED).send(result);
   }
 }
 

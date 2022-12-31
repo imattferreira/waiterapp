@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { Suspense, lazy } from "react";
 
 const ICONS = {
   "eye-hidden": lazy(() => import("./Icons/EyeHidden")),
@@ -23,11 +23,11 @@ type IconProps = {
 function Icon({ name, size, ...props }: IconProps) {
   const Component = ICONS[name];
 
-  return Component ? (
+  return !Component ? null : (
     <Suspense>
       <Component size={size} {...props} />
     </Suspense>
-  ) : null;
+  );
 }
 
 export default Icon;

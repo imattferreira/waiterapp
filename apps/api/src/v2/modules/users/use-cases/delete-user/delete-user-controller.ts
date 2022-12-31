@@ -2,6 +2,7 @@ import type {
   HttpRequest,
   HttpResponse,
 } from "../../../../infra/http/interfaces";
+import STATUS_CODES from "../../../../infra/http/status-codes";
 import DeleteUserUseCase from "./delete-user-use-case";
 
 class DeleteUserController {
@@ -12,7 +13,7 @@ class DeleteUserController {
 
     await this.deleteUserUseCase.execute({ id });
 
-    return res.status(204).send();
+    return res.status(STATUS_CODES.NO_CONTENT).send();
   }
 }
 
