@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "yarn services:up && nodemon src/index.ts",
-    "services:up": "docker-compose up -d",
-    "services:down": "docker-compose stop",
+    "services:up": "docker-compose -f ./src/v2/infra/container/docker-compose.yml up -d",
+    "services:down": "docker-compose -f ./src/v2/infra/container/docker-compose.yml stop",
     "build": "tsc",
     "start": "node dist"
   },
