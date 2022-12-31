@@ -4,10 +4,13 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "yarn makeicons && vite",
-    "build": "yarn makeicons && tsc && vite build",
-    "preview": "vite preview",
-    "makeicons": "node ./scripts/transformSvgsIntoComponents.mjs && prettier --write \"src/ui/components/Icon/**/*.{ts,tsx}\""
+    "analyze": "vite-bundle-analyze",
+    "build": "yarn prebuild && tsc && vite build",
+    "dev": "yarn optimize:svg && yarn makeicons && vite",
+    "makeicons": "node ./scripts/transformSvgsIntoComponents.mjs && prettier --write \"src/ui/components/Icon/**/*.{ts,tsx}\"",
+    "optimize:svg": "svgo -f ./src/ui/assets/svgs -o ./src/ui/assets/svgs",
+    "prebuild": "yarn optimize:svg && yarn optimize:svg && yarn makeicons",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@vanilla-extract/css": "^1.9.2",
@@ -23,8 +26,10 @@
     "@vitejs/plugin-react-swc": "^3.0.0",
     "eslint": "7.32.0",
     "eslint-config-custom": "*",
+    "svgo": "^3.0.2",
     "tsconfig": "*",
     "typescript": "^4.9.3",
-    "vite": "^4.0.0"
+    "vite": "^4.0.0",
+    "vite-bundle-visualizer": "^0.4.2"
   }
 }

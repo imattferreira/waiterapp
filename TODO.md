@@ -7,7 +7,6 @@
 
 ## Dashboard
 
-- colors SSoT
 - integrate with API (fetch API + swr?)
 - modal component (with Portal)
 
