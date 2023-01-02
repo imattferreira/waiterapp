@@ -10,12 +10,18 @@ function KanbanListItem({ products, table }: KanbanListItemProps) {
     [products]
   );
 
+  function onClick() {
+    // openModal();
+  }
+
   return (
-    <div className={container}>
+    <>
+    <button className={container} onClick={onClick}>
       <h4 className={tableTitle}>{table}</h4>
       {/* TODO choose singular or plural */}
       <p className={counterDisplay}>{count} items</p>
-    </div>
+    </button>
+    </>
   );
 }
 

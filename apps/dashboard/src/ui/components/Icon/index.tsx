@@ -1,6 +1,7 @@
 import { Suspense, lazy } from "react";
 
 const ICONS = {
+  close: lazy(() => import("./Icons/Close")),
   "eye-hidden": lazy(() => import("./Icons/EyeHidden")),
   eye: lazy(() => import("./Icons/Eye")),
   home: lazy(() => import("./Icons/Home")),
