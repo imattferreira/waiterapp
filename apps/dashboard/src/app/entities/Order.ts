@@ -6,6 +6,12 @@ export enum OrderStatusEnum {
   DONE = "DONE",
 }
 
+export enum OrderTranslatedStatusEnum {
+  WAITING = "🕑 Aguardando",
+  IN_PRODUCTION = "👩‍🍳 Em produção",
+  DONE = "✅ Finalizado",
+}
+
 type ProductOrder = {
   quantity: number;
   product: Product;

@@ -1,3 +1,4 @@
+import { OrderTranslatedStatusEnum } from "../../../app/entities/Order";
 import KanbanList from "./KanbanList";
 import { container } from "./styles.css";
 
@@ -7,7 +8,7 @@ function Kanban({}: KanbanProps) {
   return (
     <main className={container}>
       <KanbanList
-        title="test"
+        title={OrderTranslatedStatusEnum.WAITING}
         orders={[
           {
             // "_id": "63aca46f0bad38d54c0a2a94",
@@ -142,7 +143,7 @@ function Kanban({}: KanbanProps) {
         ]}
       />
       <KanbanList
-        title="test2"
+        title={OrderTranslatedStatusEnum.IN_PRODUCTION}
         orders={[
           {
             // "_id": "63aca46f0bad38d54c0a2a94",
@@ -277,7 +278,7 @@ function Kanban({}: KanbanProps) {
         ]}
       />
       <KanbanList
-        title="test3"
+        title={OrderTranslatedStatusEnum.DONE}
         orders={[
           {
             // "_id": "63aca46f0bad38d54c0a2a94",

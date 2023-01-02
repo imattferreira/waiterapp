@@ -1,4 +1,4 @@
-import { ReactNode, useState } from "react";
+import { ReactNode } from "react";
 import Icon from "../Icon";
 import Portal from "../Portal";
 import { closeButton, container, modal, overlay, header } from "./styles.css";
@@ -8,16 +8,11 @@ const PORTAL_SELECTOR = "modal-root";
 type ModalProps = {
   title: string;
   children: ReactNode;
-  open?: boolean;
+  isOpen?: boolean;
+  onClose: () => void;
 };
 
-function Modal({ title, children, open = false }: ModalProps) {
-  const [isOpen, setOpen] = useState(open);
-
-  function onClose() {
-    setOpen(false);
-  }
-
+function Modal({ title, children, isOpen = false, onClose }: ModalProps) {
   if (!isOpen) {
     return null;
   }
