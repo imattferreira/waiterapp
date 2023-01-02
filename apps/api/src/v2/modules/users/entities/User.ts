@@ -45,7 +45,6 @@ class User extends Entity<UserEntity> {
         throw new AppError("bad_request", "[email] is invalid");
       }
 
-      // TODO can be necessary
       if (role !== "admin" && role !== "waiter") {
         throw new AppError("bad_request", "[role] is invalid");
       }

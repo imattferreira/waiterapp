@@ -2,7 +2,7 @@ import type {
   HttpRequest,
   HttpResponse,
 } from "../../../../infra/http/interfaces";
-import UsersRepository from "../../repositories/UsersRepository";
+import UsersRepository from "../../repositories/users-repository";
 import CreateUserController from "./create-user-controller";
 import CreateUserUseCase from "./create-user-user-case";
 
