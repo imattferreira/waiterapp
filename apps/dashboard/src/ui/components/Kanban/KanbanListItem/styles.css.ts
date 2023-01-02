@@ -12,7 +12,6 @@ export const container = style({
 });
 
 export const tableTitle = style({
-  fontWeight: 500,
   marginBottom: 4,
 });
 

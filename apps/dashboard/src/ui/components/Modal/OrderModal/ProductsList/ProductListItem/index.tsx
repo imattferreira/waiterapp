@@ -1,5 +1,6 @@
-import { toBRLCurrency } from "../../../../../app/lib/formatter";
-import { priceText, title, container, qty } from "./styles.css";
+import { toBRLCurrency } from "../../../../../../app/lib/formatter";
+import Title from "../../../../Title";
+import { priceText, container, qty } from "./styles.css";
 
 type ProductListItemProps = {
   img: string;
@@ -14,7 +15,7 @@ function ProductListItem({ img, quantity, name, price }: ProductListItemProps) {
       <img src={img} alt={`Imagem do produto ${name}`} className={img} />
       <span className={qty}>{quantity}x</span>
       <div>
-        <h4 className={title}>{name}</h4>
+        <Title size="size7">{name}</Title>
         <p className={priceText}>{toBRLCurrency(price)}</p>
       </div>
     </article>

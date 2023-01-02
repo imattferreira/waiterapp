@@ -13,7 +13,6 @@ export const titleWrapper = style({
 });
 
 export const listTitle = style({
-  fontSize: 18,
   margin: "0 8px",
 });
 

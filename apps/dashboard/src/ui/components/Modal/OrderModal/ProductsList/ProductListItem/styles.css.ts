@@ -17,10 +17,6 @@ export const qty = style({
   margin: "0 12px",
 });
 
-export const title = style({
-  fontSize: 14,
-});
-
 export const priceText = style({
   fontSize: 14,
   marginTop: 4,

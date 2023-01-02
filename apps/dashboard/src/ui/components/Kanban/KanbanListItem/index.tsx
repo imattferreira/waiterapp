@@ -1,5 +1,6 @@
 import { lazy, Suspense, useCallback, useMemo, useState } from "react";
 import type { Order } from "../../../../app/entities/Order";
+import Title from "../../Title";
 import { container, counterDisplay, tableTitle } from "./styles.css";
 
 const OrderModal = lazy(() => import("../../Modal/OrderModal"));
@@ -35,7 +36,9 @@ function KanbanListItem({ products, table }: KanbanListItemProps) {
         </Suspense>
       )}
       <button className={container} onClick={onClick}>
-        <h4 className={tableTitle}>{table}</h4>
+        <Title size="size7" className={tableTitle}>
+          {table}
+        </Title>
         {/* TODO choose singular or plural */}
         <p className={counterDisplay}>{count} items</p>
       </button>

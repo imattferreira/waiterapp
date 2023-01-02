@@ -1,4 +1,5 @@
 import type { Order } from "../../../../app/entities/Order";
+import Title from "../../Title";
 import KanbanListItem from "../KanbanListItem";
 import {
   container,
@@ -21,7 +22,9 @@ function KanbanList({ orders, title }: KanbanListProps) {
     <article className={container}>
       <div className={titleWrapper}>
         {/* {icon} */}
-        <h3 className={listTitle}>{title}</h3>
+        <Title size="size6" className={listTitle}>
+          {title}
+        </Title>
         <div className={counterDisplay}>
           <span>{count}</span>
         </div>
