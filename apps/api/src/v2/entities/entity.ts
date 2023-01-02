@@ -7,20 +7,22 @@ type CommonProps = {
   updatedAt: string;
 };
 
-type EntityProps<T> = T & CommonProps;
+export type EntityProps = CommonProps;
 
-type EntityInput = Partial<CommonProps>;
+type InternalEntityProps<T> = T & CommonProps;
 
-class Entity<T extends EntityInput> {
-  protected props: EntityProps<T>;
+export type EntityInput = Partial<CommonProps>;
 
-  constructor(props: T) {
+class Entity<T> {
+  protected props: InternalEntityProps<T>;
+
+  constructor(props: Omit<T, "_id" | "createdAt" | "updatedAt"> & EntityInput) {
     this.props = {
+      _id: crypto.randomUUID(),
+      createdAt: datetime.getUTCTime(),
+      updatedAt: datetime.getUTCTime(),
       ...props,
-      _id: props._id ?? crypto.randomUUID(),
-      createdAt: props.createdAt ?? datetime.getUTCTime(),
-      updatedAt: props.updatedAt ?? datetime.getUTCTime(),
-    };
+    } as InternalEntityProps<T>;
   }
 
   get _id(): string {

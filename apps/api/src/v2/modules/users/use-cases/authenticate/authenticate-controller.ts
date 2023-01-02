@@ -1,12 +1,17 @@
 import InternalError from "../../../../errors/InternalError";
-import type { HttpRequest, HttpResponse } from "../../../../infra/http/interfaces";
+import type {
+  HttpRequest,
+  HttpResponse,
+} from "../../../../infra/http/interfaces";
 import STATUS_CODES from "../../../../infra/http/status-codes";
-import AuthenticateUseCase, { AuthenticateUseCaseInput } from "./authenticate-use-case";
+import AuthenticateUseCase, {
+  AuthenticateUseCaseInput,
+} from "./authenticate-use-case";
 
 class AuthenticateController {
   constructor(private readonly authenticateUseCase: AuthenticateUseCase) {}
 
-  async handle(req: HttpRequest, res: HttpResponse): Promise<HttpResponse>  {
+  async handle(req: HttpRequest, res: HttpResponse): Promise<HttpResponse> {
     const { email, password } = req.body as AuthenticateUseCaseInput;
 
     const result = await this.authenticateUseCase.execute({ email, password });

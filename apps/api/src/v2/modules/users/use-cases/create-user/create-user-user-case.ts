@@ -39,21 +39,20 @@ class CreateUserUseCase {
 
     const { email, name, password, role } = input;
 
+    const passwordHash = await crypto.hash(password);
+
+    const user = new User({
+      email,
+      name,
+      password: { hash: passwordHash, plaintext: password },
+      role,
+    });
+
     const emailAlreadyExists = await this.usersRepository.findByEmail(email);
 
     if (emailAlreadyExists) {
       return Left.commit(new AppError("conflict", "[email] already exists"));
     }
-
-    const passwordHashed = await crypto.hash(password);
-
-    const user = new User({
-      email,
-      name,
-      password,
-      passwordHashed,
-      role,
-    });
 
     await this.usersRepository.create(user);
 

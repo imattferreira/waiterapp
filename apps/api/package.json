@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "yarn services:up && nodemon src/v2/infra/index.ts",
+    "dev": "yarn services:up && NODE_ENV=development nodemon src/v2/infra/index.ts",
     "services:up": "docker-compose -f ./src/v2/infra/container/docker-compose.yml up -d",
     "services:down": "docker-compose -f ./src/v2/infra/container/docker-compose.yml stop",
     "build": "tsc",
-    "start": "node dist"
+    "start": "NODE_ENV=production node dist"
   },
   "dependencies": {
     "argon2": "^0.30.2",

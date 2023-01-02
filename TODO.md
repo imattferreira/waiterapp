@@ -1,15 +1,17 @@
 ## API
 
-- Swagger
-- Bounded Contexts (or similar to share code between modules)
-- EmailService (with queues)
 - create `.env`
+- Bounded Contexts (or similar to share code between modules)
+- Swagger
+- unit tests
+- EmailService (with queues)
 
 ## Dashboard
 
 - integrate with API (fetch API + swr?)
 - improve semantic and accessibility
 - add responsiveness
+- improve kanban usage
 - create custom scrollbar
 
 ## Packages

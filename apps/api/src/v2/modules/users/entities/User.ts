@@ -1,68 +1,65 @@
-import Entity from "../../../entities/entity";
+import Entity, { EntityInput, EntityProps } from "../../../entities/entity";
 import AppError from "../../../errors/AppError";
+import { isObj } from "../../../utils/object";
 import validate from "../utils/validate";
 
 export type AccountRoles = "admin" | "waiter";
 
-interface UserInput {
-  _id?: string;
+interface UserInput extends EntityInput {
   name: string;
   email: string;
-  password?: string;
-  passwordHashed?: string;
+  password: string | { plaintext: string; hash: string };
   role?: AccountRoles;
-  createdAt?: string;
-  updatedAt?: string;
 }
 
-export interface UserEntity {
-  _id?: string;
+export interface UserEntity extends EntityProps {
   name: string;
   email: string;
   password: string;
   role: AccountRoles;
-  createdAt?: string;
-  updatedAt?: string;
 }
 
 class User extends Entity<UserEntity> {
-  constructor(
-    {
-      _id,
-      email,
-      name,
-      password,
-      passwordHashed,
-      role = "waiter",
-      createdAt,
-      updatedAt,
-    }: UserInput,
-    alreadySaved = false
-  ) {
-    if (!alreadySaved) {
+  constructor({
+    _id,
+    email,
+    name,
+    password,
+    role = "waiter",
+    createdAt,
+    updatedAt,
+  }: UserInput) {
+    let userPassword = null;
+
+    //* when the password is a object, theoretically is a new register
+    if (isObj(password)) {
+      const { plaintext, hash } = password;
+
+      if (!validate.password(plaintext)) {
+        throw new AppError("bad_request", "[password] is too weak");
+      }
+
+      userPassword = hash;
+
       if (!validate.email(email)) {
         throw new AppError("bad_request", "[email] is invalid");
       }
 
-      if (!password || (password && !validate.password(password))) {
-        if (password) {
-          console.log({ validation: password });
-        }
-        throw new AppError("bad_request", "[password] is too weak");
+      // TODO can be necessary
+      if (role !== "admin" && role !== "waiter") {
+        throw new AppError("bad_request", "[role] is invalid");
       }
+    } else {
+      userPassword = password;
     }
-
-    const userPassword = (passwordHashed || password) as string;
-    // TODO can be necessary
-    // if (isRoleValid(role)) {}
 
     super({
       _id,
-      createdAt,
       email,
       name,
       password: userPassword,
       role,
+      createdAt,
       updatedAt,
     });
   }
@@ -97,16 +94,17 @@ class User extends Entity<UserEntity> {
     this.updateTimestamps();
   }
 
-  set password(password: string) {
-    if (!validate.password(password)) {
-      throw new AppError("bad_request", "[password] is too weak");
+  set password(password: string | { hash: string; plaintext: string }) {
+    if (isObj(password)) {
+      if (!validate.password(password.plaintext)) {
+        throw new AppError("bad_request", "[password] is too weak");
+      }
+
+      this.props.password = password.hash;
+    } else {
+      this.props.password = password;
     }
 
-    this.updateTimestamps();
-  }
-
-  set passwordHashed(passwordHashed: string) {
-    this.props.password = passwordHashed;
     this.updateTimestamps();
   }
 

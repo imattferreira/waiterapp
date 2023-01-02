@@ -58,12 +58,11 @@ class UpdateUserUseCase {
       }
     }
 
-    const passwordHashed = await crypto.hash(password);
+    const passwordHash = await crypto.hash(password);
 
     existingUser.name = name;
     existingUser.email = email;
-    existingUser.password = password;
-    existingUser.passwordHashed = passwordHashed;
+    existingUser.password = { hash: passwordHash, plaintext: password };
 
     if (role) {
       existingUser.role = role;
