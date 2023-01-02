@@ -1,4 +1,4 @@
-import { validate } from 'validate';
+import { validate } from "validate";
 
 const requiredFields = <T extends object>(
   requiredFields: (keyof T)[],
@@ -7,5 +7,5 @@ const requiredFields = <T extends object>(
 
 export default Object.freeze({
   requiredFields,
-  ...validate
+  ...validate,
 });

@@ -1,11 +1,11 @@
-import { ReactNode } from 'react';
-import { createPortal } from 'react-dom';
+import { ReactNode } from "react";
+import { createPortal } from "react-dom";
 
 type PortalProps = {
   selector: string;
   onePerRoot?: boolean;
   children: ReactNode;
-}
+};
 
 function Portal({ selector, children, onePerRoot = false }: PortalProps) {
   let node = document.getElementById(selector);
@@ -15,9 +15,9 @@ function Portal({ selector, children, onePerRoot = false }: PortalProps) {
   }
 
   if (!node || onePerRoot) {
-    const newNode = document.createElement('div');
+    const newNode = document.createElement("div");
 
-    newNode.setAttribute('id', selector);
+    newNode.setAttribute("id", selector);
     document.body.appendChild(newNode);
 
     node = document.getElementById(selector) as HTMLElement;

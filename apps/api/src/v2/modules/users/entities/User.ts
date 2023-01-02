@@ -26,17 +26,19 @@ export interface UserEntity {
 }
 
 class User extends Entity<UserEntity> {
-  constructor({
-    _id,
-    email,
-    name,
-    password,
-    passwordHashed,
-    role = "waiter",
-    createdAt,
-    updatedAt,
-  }: UserInput, alreadySaved = false) {
-
+  constructor(
+    {
+      _id,
+      email,
+      name,
+      password,
+      passwordHashed,
+      role = "waiter",
+      createdAt,
+      updatedAt,
+    }: UserInput,
+    alreadySaved = false
+  ) {
     if (!alreadySaved) {
       if (!validate.email(email)) {
         throw new AppError("bad_request", "[email] is invalid");
@@ -44,13 +46,11 @@ class User extends Entity<UserEntity> {
 
       if (!password || (password && !validate.password(password))) {
         if (password) {
-
-          console.log({ validation: password })
+          console.log({ validation: password });
         }
         throw new AppError("bad_request", "[password] is too weak");
+      }
     }
-    }
-
 
     const userPassword = (passwordHashed || password) as string;
     // TODO can be necessary

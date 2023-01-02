@@ -1,3 +1,3 @@
-import { regex } from 'validate';
+import { regex } from "validate";
 
 export default regex;

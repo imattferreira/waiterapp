@@ -27,7 +27,7 @@ export const containerVariants = styleVariants({
   secondary: [
     base,
     {
-      background:theme.color.white,
+      background: theme.color.white,
       color: theme.color.red[400],
     },
   ],

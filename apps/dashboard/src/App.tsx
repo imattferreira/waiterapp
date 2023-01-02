@@ -5,11 +5,10 @@ import { themeClass } from "./ui/styles/theme.css";
 
 function App() {
   useEffect(() => {
-    const root = document.querySelector('body');
+    const root = document.querySelector("body");
 
-    root?.setAttribute('class', themeClass);
+    root?.setAttribute("class", themeClass);
   }, []);
-
 
   return (
     <Layout>

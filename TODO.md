@@ -8,7 +8,9 @@
 ## Dashboard
 
 - integrate with API (fetch API + swr?)
-- modal component (with Portal)
+- improve semantic and accessibility
+- add responsiveness
+- create custom scrollbar
 
 ## Packages
 
