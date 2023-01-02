@@ -3,6 +3,6 @@
   "compilerOptions": {
     "outDir": "./dist"
   },
-  "include": ["**/*.ts"],
+  "include": ["**/*.ts", "src/v2/modules/users/use-cases/authenticate"],
   "exclude": ["node_modules"]
 }

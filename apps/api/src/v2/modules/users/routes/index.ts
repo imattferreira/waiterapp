@@ -4,6 +4,7 @@ import deleteUser from "../use-cases/delete-user";
 import listUser from "../use-cases/list-user";
 import listUsers from "../use-cases/list-users";
 import updateUser from "../use-cases/update-user";
+import authenticate from '../use-cases/authenticate'
 
 function routes(router: Router) {
   router.post("/users", createUser.factory);
@@ -12,7 +13,7 @@ function routes(router: Router) {
   router.put("/users/:id", updateUser.factory);
   router.delete("/users/:id", deleteUser.factory);
 
-  // router.post('/auth', () => {});
+  router.post('/auth', authenticate.factory);
   // router.post('/refresh', () => {});
   // router.post('/forgot-password', () => {});
   // router.post('/reset', () => {});
