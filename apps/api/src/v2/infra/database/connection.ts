@@ -1,10 +1,9 @@
 import mongoose from "mongoose";
-
-const DATABASE_URL = "mongodb://mongo:docker@localhost:27017";
+import SECRETS from "../../constants/secrets";
 
 async function connect(): Promise<void> {
   try {
-    await mongoose.connect(DATABASE_URL);
+    await mongoose.connect(SECRETS.DATABASE_URL);
   } catch (err) {
     console.log(`Database connection error: ${err}`);
   }
