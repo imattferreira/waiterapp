@@ -3,6 +3,8 @@ import dotenv from "dotenv";
 import routesV2 from "./routes";
 import routesV1 from "../../../v1/routes";
 import fastify, { FastifyInstance } from "fastify";
+import swagger from '@fastify/swagger';
+import swaggerUI from '@fastify/swagger-ui';
 
 const PORT = 3000;
 
@@ -13,7 +15,7 @@ class App {
     this.server = fastify();
   }
 
-  private register() {
+  private routes() {
     this.server.register(routesV1, { prefix: "/v1" });
     this.server.register(routesV2, { prefix: "/v2" });
   }
@@ -27,13 +29,31 @@ class App {
     });
   }
 
-  setup() {
-    this.register();
+  private async swagger() {
+    await this.server.register(swagger);
+    await this.server.register(swaggerUI, {
+      routePrefix: '/v2/docs',
+      uiConfig: {
+        docExpansion: 'full',
+        deepLinking: false,
+      },
+      staticCSP: true,
+      transformStaticCSP: (header) => header,
+      transformSpecification: (swaggerObject, request, reply) => { return swaggerObject },
+      transformSpecificationClone: true
+    });
+  }
+
+  async setup() {
     this.dotenv();
+    await this.swagger();
+    this.routes();
+    await this.server.ready()
+    this.server.swagger()
   }
 
   listen() {
-    this.server.listen({ port: PORT });
+    this.server.listen({ port: PORT }, console.error);
   }
 }
 

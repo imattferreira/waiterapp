@@ -1,7 +1,6 @@
 ## API
 
 - Bounded Contexts (or similar to share code between modules)
-- Swagger
 - unit tests
 - EmailService (with queues)
 

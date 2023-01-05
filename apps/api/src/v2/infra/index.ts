@@ -5,5 +5,6 @@ const app = new App();
 
 database.connect();
 
-app.setup();
-app.listen();
+app.setup().then(() => {
+  app.listen();
+});

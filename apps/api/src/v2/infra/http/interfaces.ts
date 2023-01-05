@@ -1,4 +1,4 @@
-import type { FastifyRequest, FastifyReply, FastifyInstance } from "fastify";
+import type { FastifyRequest, FastifyReply, FastifyInstance, FastifySchema } from "fastify";
 
 export type HttpRequest = FastifyRequest;
 
@@ -11,6 +11,8 @@ export type Router = FastifyInstance;
 // }
 
 export type DoneFn = (err?: Error) => void;
+
+export type DocSchema = { schema: FastifySchema };
 
 export interface HttpBodyResponse<T> {
   _self: {
