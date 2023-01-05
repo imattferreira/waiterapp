@@ -1,5 +1,6 @@
-import Entity, { EntityInput, EntityProps } from "../../../entities/entity";
-import AppError from "../../../errors/AppError";
+import Entity from "../../../entities/entity";
+import type { EntityInput, EntityProps } from "../../../entities/interfaces";
+import AppError from "../../../errors/app-error";
 import { isObj } from "../../../utils/object";
 import validate from "../utils/validate";
 

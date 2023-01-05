@@ -1,4 +1,4 @@
-import InternalError from "../../../../errors/InternalError";
+import InternalError from "../../../../errors/internal-error";
 import type {
   HttpRequest,
   HttpResponse,

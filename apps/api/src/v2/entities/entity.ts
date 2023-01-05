@@ -1,17 +1,6 @@
 import crypto from "../modules/users/utils/crypto";
 import datetime from "../modules/users/utils/datetime";
-
-type CommonProps = {
-  _id: string;
-  createdAt: string;
-  updatedAt: string;
-};
-
-export type EntityProps = CommonProps;
-
-type InternalEntityProps<T> = T & CommonProps;
-
-export type EntityInput = Partial<CommonProps>;
+import type { EntityInput, InternalEntityProps } from "./interfaces";
 
 class Entity<T> {
   protected props: InternalEntityProps<T>;

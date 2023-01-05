@@ -1,4 +1,4 @@
-import AppError from "../../../../errors/AppError";
+import AppError from "../../../../errors/app-error";
 import Either, { Left, Right } from "../../../../errors/either";
 import type { HttpBodyResponse } from "../../../../infra/http/interfaces";
 import type { AccountRoles } from "../../entities/User";

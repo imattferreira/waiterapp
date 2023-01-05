@@ -1,4 +1,4 @@
-import AppError from "../../../../errors/AppError";
+import AppError from "../../../../errors/app-error";
 import Either, { Left, Right } from "../../../../errors/either";
 import userPresentation, {
   IUserPresentation,

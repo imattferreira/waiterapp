@@ -12,6 +12,6 @@
 - improve kanban usage
 - create custom scrollbar
 
-## Packages
+## Others
 
-- create validator package? (to email, password, ...)
+- Get started guide (README)

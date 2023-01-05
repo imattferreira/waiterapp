@@ -1,4 +1,4 @@
-import AppError from "./AppError";
+import AppError from "./app-error";
 
 class InternalError extends AppError {
   constructor() {
