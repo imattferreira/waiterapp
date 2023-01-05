@@ -3,7 +3,7 @@ import Either, { Left, Right } from "../../../../errors/either";
 import userPresentation, {
   IUserPresentation,
 } from "../../presentations/user-presentation";
-import { IUsersRepository } from "../../repositories/interfaces";
+import { IUsersRepository } from "../../infra/repositories/interfaces";
 import crypto from "../../utils/crypto";
 import validate from "../../utils/validate";
 

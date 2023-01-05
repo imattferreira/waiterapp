@@ -2,7 +2,7 @@ import type { HttpBodyResponse } from "../../../../infra/http/interfaces";
 import userPresentation, {
   IUserPresentation,
 } from "../../presentations/user-presentation";
-import { IUsersRepository } from "../../repositories/interfaces";
+import { IUsersRepository } from "../../infra/repositories/interfaces";
 
 type ListUsersUseCaseOutput = HttpBodyResponse<{
   users: IUserPresentation[];

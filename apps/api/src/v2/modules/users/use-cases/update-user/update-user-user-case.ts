@@ -5,7 +5,7 @@ import type { AccountRoles } from "../../entities/User";
 import userPresentation, {
   IUserPresentation,
 } from "../../presentations/user-presentation";
-import type { IUsersRepository } from "../../repositories/interfaces";
+import type { IUsersRepository } from "../../infra/repositories/interfaces";
 import crypto from "../../utils/crypto";
 import validate from "../../utils/validate";
 

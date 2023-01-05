@@ -2,7 +2,7 @@ import type {
   HttpRequest,
   HttpResponse,
 } from "../../../../infra/http/interfaces";
-import UsersRepository from "../../repositories/users-repository";
+import UsersRepository from "../../infra/repositories/users-repository";
 import AuthenticateController from "./authenticate-controller";
 import AuthenticateUseCase from "./authenticate-use-case";
 

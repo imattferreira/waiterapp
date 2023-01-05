@@ -1,6 +1,5 @@
 import { model, Schema } from "mongoose";
-import type { UserEntity } from "../entities/User";
-import User from "../entities/User";
+import User, { UserEntity } from "../../entities/User";
 import type { IUsersRepository } from "./interfaces";
 
 const Repository = model(

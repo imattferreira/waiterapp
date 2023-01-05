@@ -1,6 +1,6 @@
 import AppError from "../../../../errors/AppError";
 import Either, { Left, Right } from "../../../../errors/either";
-import { IUsersRepository } from "../../repositories/interfaces";
+import { IUsersRepository } from "../../infra/repositories/interfaces";
 import validate from "../../utils/validate";
 
 interface DeleteUserUseCaseInput {
