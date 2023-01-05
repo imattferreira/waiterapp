@@ -3,8 +3,8 @@ import dotenv from "dotenv";
 import routesV2 from "./routes";
 import routesV1 from "../../../v1/routes";
 import fastify, { FastifyInstance } from "fastify";
-import swagger from '@fastify/swagger';
-import swaggerUI from '@fastify/swagger-ui';
+import swagger from "@fastify/swagger";
+import swaggerUI from "@fastify/swagger-ui";
 
 const PORT = 3000;
 
@@ -32,15 +32,17 @@ class App {
   private async swagger() {
     await this.server.register(swagger);
     await this.server.register(swaggerUI, {
-      routePrefix: '/v2/docs',
+      routePrefix: "/v2/docs",
       uiConfig: {
-        docExpansion: 'full',
+        docExpansion: "full",
         deepLinking: false,
       },
       staticCSP: true,
       transformStaticCSP: (header) => header,
-      transformSpecification: (swaggerObject, request, reply) => { return swaggerObject },
-      transformSpecificationClone: true
+      transformSpecification: (swaggerObject, request, reply) => {
+        return swaggerObject;
+      },
+      transformSpecificationClone: true,
     });
   }
 
@@ -48,8 +50,8 @@ class App {
     this.dotenv();
     await this.swagger();
     this.routes();
-    await this.server.ready()
-    this.server.swagger()
+    await this.server.ready();
+    this.server.swagger();
   }
 
   listen() {

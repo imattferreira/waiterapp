@@ -9,13 +9,12 @@ import docs from "../docs";
 
 function routes(router: Router) {
   router.post("/users", docs.createUser, createUser.factory);
-  router.get("/users", listUsers.factory);
-  router.get("/users/:id", listUser.factory);
-  router.put("/users/:id", updateUser.factory);
-  router.delete("/users/:id", deleteUser.factory);
+  router.get("/users", docs.listUsers, listUsers.factory);
+  router.get("/users/:id", docs.listUser, listUser.factory);
+  router.put("/users/:id", docs.updateUser, updateUser.factory);
+  router.delete("/users/:id", docs.deleteUser, deleteUser.factory);
 
-
-  router.post("/auth", authenticate.factory);
+  router.post("/auth", docs.authenticate, authenticate.factory);
   // router.post('/refresh', () => {});
   // router.post('/forgot-password', () => {});
   // router.post('/reset', () => {});

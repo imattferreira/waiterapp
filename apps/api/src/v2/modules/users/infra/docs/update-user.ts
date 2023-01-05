@@ -1,6 +1,6 @@
 import type { DocSchema } from "../../../../infra/http/interfaces";
 
-const createUserDocs: DocSchema = {
+const updateUserDocs: DocSchema = {
   schema: {
     response: {
       200: {
@@ -11,4 +11,4 @@ const createUserDocs: DocSchema = {
   },
 };
 
-export default createUserDocs;
+export default updateUserDocs;
