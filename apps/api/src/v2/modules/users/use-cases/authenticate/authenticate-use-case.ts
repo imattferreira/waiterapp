@@ -5,8 +5,8 @@ import userPresentation, {
   IUserPresentation,
 } from "../../presentations/user-presentation";
 import { IUsersRepository } from "../../infra/repositories/interfaces";
-import crypto from "../../utils/crypto";
-import validate from "../../utils/validate";
+import crypto from "../../../../utils/crypto";
+import validate from "../../../../utils/validate";
 
 export interface AuthenticateUseCaseInput {
   email: string;

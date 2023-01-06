@@ -1,7 +1,7 @@
 import argon2 from "argon2";
 import jwt from "jsonwebtoken";
 import crypto from "node:crypto";
-import SECRETS from "../../../constants/secrets";
+import SECRETS from "../constants/secrets";
 
 const { AUTH_SECRET } = SECRETS;
 

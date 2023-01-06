@@ -1,4 +1,7 @@
 // TODO improve
+// TODO add database statistics
+// TODO add fs statistics
+// TODO add cpu percentage
 import os from "node:os";
 import AppError from "../../../../errors/app-error";
 import Either, { Right } from "../../../../errors/either";
@@ -16,7 +19,7 @@ class HealthUseCase {
     const cpu = os.cpus()[0];
     const cpuUsage =
       Object.values(process.cpuUsage()).reduce((acc, curr) => acc + curr, 0) *
-      1000;
+      100;
     const cpuTotal = Object.values(cpu.times).reduce(
       (acc, curr) => acc + curr,
       0

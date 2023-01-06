@@ -3,6 +3,7 @@
 - Bounded Contexts (or similar to share code between modules)
 - unit tests
 - EmailService (with queues)
+- Image crop and transform to webp (with image-magic)
 
 ## Dashboard
 
