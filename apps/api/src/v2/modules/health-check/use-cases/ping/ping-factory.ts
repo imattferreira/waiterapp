@@ -4,10 +4,10 @@ import type {
 } from "../../../../infra/http/interfaces";
 import PingController from "./ping-controller";
 
-function listUserFactory(req: HttpRequest, res: HttpResponse) {
+function pingFactory(req: HttpRequest, res: HttpResponse) {
   const controller = new PingController();
 
   return controller.handle(req, res);
 }
 
-export default listUserFactory;
+export default pingFactory;

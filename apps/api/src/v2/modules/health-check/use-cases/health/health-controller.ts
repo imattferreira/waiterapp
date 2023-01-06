@@ -3,15 +3,13 @@ import type {
   HttpRequest,
   HttpResponse,
 } from "../../../../infra/http/interfaces";
-import ListUserUseCase from "./list-user-use-case";
+import HealthUseCase from "./health-use-case";
 
-class ListUserController {
-  constructor(private readonly listUserUseCase: ListUserUseCase) {}
+class HealthController {
+  constructor(private readonly healthUseCase: HealthUseCase) {}
 
   async handle(req: HttpRequest, res: HttpResponse) {
-    const { id } = req.params as { id: string };
-
-    const result = await this.listUserUseCase.execute({ id });
+    const result = await this.healthUseCase.execute();
 
     if (result.isLeft()) {
       return res.status(result.error.status).send(result.error.body);
@@ -26,4 +24,4 @@ class ListUserController {
   }
 }
 
-export default ListUserController;
+export default HealthController;
