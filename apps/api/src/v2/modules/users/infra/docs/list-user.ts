@@ -3,13 +3,13 @@ import type { DocSchema } from "../../../../infra/http/interfaces";
 const listUserDocs: DocSchema = {
   schema: {
     params: {
-      type: 'object',
+      type: "object",
       properties: {
         id: {
-          type: 'string',
-          format: 'uuid',
-        }
-      }
+          type: "string",
+          format: "uuid",
+        },
+      },
     },
     response: {
       200: {
@@ -17,69 +17,69 @@ const listUserDocs: DocSchema = {
         type: "object",
         properties: {
           _self: {
-            type: 'null',
+            type: "null",
           },
           data: {
-            type: 'object',
+            type: "object",
             properties: {
               user: {
-                type: 'object',
+                type: "object",
                 properties: {
                   _id: {
-                    type: 'string',
-                    format: 'uuid'
-                    },
+                    type: "string",
+                    format: "uuid",
+                  },
                   email: {
-                    type: 'string',
-                    format: 'email'
-                    },
+                    type: "string",
+                    format: "email",
+                  },
                   name: {
-                    type: 'string'
-                    },
+                    type: "string",
+                  },
                   role: {
-                    type: 'string',
-                    enum: ['waiter', 'admin']
-                    },
+                    type: "string",
+                    enum: ["waiter", "admin"],
+                  },
                   created_at: {
-                    type: 'string',
-                  format: 'date-time'
-                    },
+                    type: "string",
+                    format: "date-time",
+                  },
                   updated_at: {
-                    type: 'string',
-                    format: 'date-time'
-                    },
-                }
-              }
-            }
-          }
-        }
+                    type: "string",
+                    format: "date-time",
+                  },
+                },
+              },
+            },
+          },
+        },
       },
       400: {
-        description: 'a field are incorrect',
-        type: 'object',
+        description: "a field are incorrect",
+        type: "object",
         properties: {
           status: {
-            type: 'number'
-            },
+            type: "number",
+          },
           message: {
-            type: 'string',
-            enum: ['invalid [id] param']
-          }
-        }
+            type: "string",
+            enum: ["invalid [id] param"],
+          },
+        },
       },
       404: {
-        description: 'user not found',
-        type: 'object',
+        description: "user not found",
+        type: "object",
         properties: {
           status: {
-            type: 'number'
-            },
+            type: "number",
+          },
           message: {
-            type: 'string',
-            enum: ['user not found']
-          }
-        }
-      }
+            type: "string",
+            enum: ["user not found"],
+          },
+        },
+      },
     },
   },
 };

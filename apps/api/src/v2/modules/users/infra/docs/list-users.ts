@@ -8,45 +8,45 @@ const listUsersDocs: DocSchema = {
         type: "object",
         properties: {
           _self: {
-            type: 'null'
+            type: "null",
           },
           data: {
-            type: 'object',
+            type: "object",
             properties: {
               users: {
-                type: 'array',
+                type: "array",
                 items: {
-                  type: 'object',
+                  type: "object",
                   properties: {
                     _id: {
-                      type: 'string',
-                      format: 'uuid'
-                      },
+                      type: "string",
+                      format: "uuid",
+                    },
                     email: {
-                      type: 'string',
-                      format: 'email'
-                      },
+                      type: "string",
+                      format: "email",
+                    },
                     name: {
-                      type: 'string'
-                      },
+                      type: "string",
+                    },
                     role: {
-                      type: 'string',
-                      enum: ['waiter', 'admin']
-                      },
+                      type: "string",
+                      enum: ["waiter", "admin"],
+                    },
                     created_at: {
-                      type: 'string',
-                    format: 'date-time'
-                      },
+                      type: "string",
+                      format: "date-time",
+                    },
                     updated_at: {
-                      type: 'string',
-                      format: 'date-time'
-                      },
-                  }
-                }
-              }
-            }
-          }
-        }
+                      type: "string",
+                      format: "date-time",
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
       },
     },
   },

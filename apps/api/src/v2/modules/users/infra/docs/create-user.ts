@@ -3,84 +3,89 @@ import type { DocSchema } from "../../../../infra/http/interfaces";
 const createUserDocs: DocSchema = {
   schema: {
     body: {
-      type: 'object',
-      required: ['email', 'name', 'password'],
+      type: "object",
+      required: ["email", "name", "password"],
       properties: {
-        email: { type: 'string' },
-        name: { type: 'string', format: 'email' },
-        password: { type: 'string' },
-        role: { type: 'string', enum: ['waiter', 'admin'],  }
-      }
+        email: { type: "string" },
+        name: { type: "string", format: "email" },
+        password: { type: "string" },
+        role: { type: "string", enum: ["waiter", "admin"] },
       },
+    },
     response: {
       201: {
         description: "user created with success",
         type: "object",
         properties: {
           _self: {
-            type: 'null',
+            type: "null",
           },
           data: {
-            type: 'object',
+            type: "object",
             properties: {
               user: {
-                type: 'object',
+                type: "object",
                 properties: {
                   _id: {
-                    type: 'string',
-                    format: 'uuid'
-                    },
+                    type: "string",
+                    format: "uuid",
+                  },
                   email: {
-                    type: 'string',
-                    format: 'email'
-                    },
+                    type: "string",
+                    format: "email",
+                  },
                   name: {
-                    type: 'string'
-                    },
+                    type: "string",
+                  },
                   role: {
-                    type: 'string',
-                    enum: ['waiter', 'admin']
-                    },
+                    type: "string",
+                    enum: ["waiter", "admin"],
+                  },
                   created_at: {
-                    type: 'string',
-                  format: 'date-time'
-                    },
+                    type: "string",
+                    format: "date-time",
+                  },
                   updated_at: {
-                    type: 'string',
-                    format: 'date-time'
-                    },
-                }
-              }
-            }
-          }
-        }
+                    type: "string",
+                    format: "date-time",
+                  },
+                },
+              },
+            },
+          },
+        },
       },
       400: {
-        description: 'a field are incorrect',
-        type: 'object',
+        description: "a field are incorrect",
+        type: "object",
         properties: {
           status: {
-            type: 'number'
-            },
+            type: "number",
+          },
           message: {
-            type: 'string',
-            enum: ['some required fields are missing', '[password] is too weak', '[email] is invalid', '[role] is invalid']
-          }
-        }
+            type: "string",
+            enum: [
+              "some required fields are missing",
+              "[password] is too weak",
+              "[email] is invalid",
+              "[role] is invalid",
+            ],
+          },
+        },
       },
       409: {
-        description: 'the [email] already registered with another user',
-        type: 'object',
+        description: "the [email] already registered with another user",
+        type: "object",
         properties: {
           status: {
-            type: 'number'
-            },
+            type: "number",
+          },
           message: {
-            type: 'string',
-            enum: ['[email] already exists']
-          }
-        }
-      }
+            type: "string",
+            enum: ["[email] already exists"],
+          },
+        },
+      },
     },
   },
 };

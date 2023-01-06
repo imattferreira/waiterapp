@@ -1,5 +1,5 @@
 import AppError from "../../../../errors/app-error";
-import {HttpBodyResponse} from "../../../../infra/http/interfaces";
+import { HttpBodyResponse } from "../../../../infra/http/interfaces";
 import Either, { Left, Right } from "../../../../errors/either";
 import userPresentation, {
   IUserPresentation,
@@ -61,7 +61,10 @@ class AuthenticateUseCase {
 
     const token = crypto.jwt.sign({ email: user.email, role: user.role });
 
-    return Right.commit({ _self: null, data: {  user: userPresentation(user), token} });
+    return Right.commit({
+      _self: null,
+      data: { user: userPresentation(user), token },
+    });
   }
 }
 

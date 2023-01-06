@@ -13,7 +13,6 @@ export interface IUpdateUserUseCaseInput {
   role?: AccountRoles;
 }
 
-
 class UpdateUserUseCase {
   constructor(private readonly usersRepository: IUsersRepository) {}
 

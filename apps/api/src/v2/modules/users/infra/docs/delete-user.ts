@@ -3,31 +3,31 @@ import type { DocSchema } from "../../../../infra/http/interfaces";
 const listUsersDocs: DocSchema = {
   schema: {
     params: {
-      type: 'object',
+      type: "object",
       properties: {
         id: {
-          type: 'string',
-          format: 'uuid',
-        }
-      }
+          type: "string",
+          format: "uuid",
+        },
+      },
     },
     response: {
       204: {
         description: "user deleted with success",
-        type: 'null'
+        type: "null",
       },
       400: {
-        description: 'a field are incorrect',
-        type: 'object',
+        description: "a field are incorrect",
+        type: "object",
         properties: {
           status: {
-            type: 'number'
-            },
+            type: "number",
+          },
           message: {
-            type: 'string',
-            enum: ['invalid [id] param']
-          }
-        }
+            type: "string",
+            enum: ["invalid [id] param"],
+          },
+        },
       },
     },
   },
