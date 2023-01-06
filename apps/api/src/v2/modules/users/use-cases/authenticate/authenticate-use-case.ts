@@ -1,4 +1,5 @@
 import AppError from "../../../../errors/app-error";
+import {HttpBodyResponse} from "../../../../infra/http/interfaces";
 import Either, { Left, Right } from "../../../../errors/either";
 import userPresentation, {
   IUserPresentation,
@@ -12,17 +13,17 @@ export interface AuthenticateUseCaseInput {
   password: string;
 }
 
-interface AuthenticateUserUseCaseOutput {
+type AuthenticateUserUseCaseOutput = HttpBodyResponse<{
   user: IUserPresentation;
   token: string;
-}
+}>;
 
 class AuthenticateUseCase {
   constructor(private readonly usersRepository: IUsersRepository) {}
 
   async execute(
     input: AuthenticateUseCaseInput
-  ): Promise<Either<AppError, unknown>> {
+  ): Promise<Either<AppError, AuthenticateUserUseCaseOutput>> {
     if (
       !validate.requiredFields<AuthenticateUseCaseInput>(
         ["email", "password"],
@@ -60,7 +61,7 @@ class AuthenticateUseCase {
 
     const token = crypto.jwt.sign({ email: user.email, role: user.role });
 
-    return Right.commit({ user: userPresentation(user), token });
+    return Right.commit({ _self: null, data: {  user: userPresentation(user), token} });
   }
 }
 

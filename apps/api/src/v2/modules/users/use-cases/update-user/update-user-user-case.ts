@@ -1,10 +1,6 @@
 import AppError from "../../../../errors/app-error";
 import Either, { Left, Right } from "../../../../errors/either";
-import type { HttpBodyResponse } from "../../../../infra/http/interfaces";
 import type { AccountRoles } from "../../entities/User";
-import userPresentation, {
-  IUserPresentation,
-} from "../../presentations/user-presentation";
 import type { IUsersRepository } from "../../infra/repositories/interfaces";
 import crypto from "../../utils/crypto";
 import validate from "../../utils/validate";
@@ -17,16 +13,13 @@ export interface IUpdateUserUseCaseInput {
   role?: AccountRoles;
 }
 
-type UpdateUserUseCaseOutput = HttpBodyResponse<{
-  user: IUserPresentation;
-}>;
 
 class UpdateUserUseCase {
   constructor(private readonly usersRepository: IUsersRepository) {}
 
   async execute(
     input: IUpdateUserUseCaseInput
-  ): Promise<Either<AppError, UpdateUserUseCaseOutput>> {
+  ): Promise<Either<AppError, null>> {
     if (
       !validate.requiredFields<IUpdateUserUseCaseInput>(
         ["id", "name", "email", "password"],
@@ -70,12 +63,7 @@ class UpdateUserUseCase {
 
     await this.usersRepository.update(existingUser);
 
-    return Right.commit({
-      _self: null,
-      data: {
-        user: userPresentation(existingUser),
-      },
-    });
+    return Right.commit(null);
   }
 }
 

@@ -28,7 +28,7 @@ class UpdateUserController {
     }
 
     if (result.isRight()) {
-      return res.status(STATUS_CODES.CREATED).send(result.value);
+      return res.status(STATUS_CODES.NO_CONTENT).send();
     }
 
     const internalError = new InternalError();

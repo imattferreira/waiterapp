@@ -4,8 +4,49 @@ const listUsersDocs: DocSchema = {
   schema: {
     response: {
       200: {
-        description: "response and schema description",
-        type: "string",
+        description: "users listed",
+        type: "object",
+        properties: {
+          _self: {
+            type: 'null'
+          },
+          data: {
+            type: 'object',
+            properties: {
+              users: {
+                type: 'array',
+                items: {
+                  type: 'object',
+                  properties: {
+                    _id: {
+                      type: 'string',
+                      format: 'uuid'
+                      },
+                    email: {
+                      type: 'string',
+                      format: 'email'
+                      },
+                    name: {
+                      type: 'string'
+                      },
+                    role: {
+                      type: 'string',
+                      enum: ['waiter', 'admin']
+                      },
+                    created_at: {
+                      type: 'string',
+                    format: 'date-time'
+                      },
+                    updated_at: {
+                      type: 'string',
+                      format: 'date-time'
+                      },
+                  }
+                }
+              }
+            }
+          }
+        }
       },
     },
   },
