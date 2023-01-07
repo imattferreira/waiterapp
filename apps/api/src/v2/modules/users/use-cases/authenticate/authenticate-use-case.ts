@@ -59,7 +59,7 @@ class AuthenticateUseCase {
 
     await this.usersRepository.update(user);
 
-    const token = crypto.jwt.sign({ email: user.email, role: user.role });
+    const token = crypto.jwt.sign({ id: user._id, role: user.role });
 
     return Right.commit({
       _self: null,

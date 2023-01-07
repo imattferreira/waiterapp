@@ -16,7 +16,11 @@ const sign = (data: object): string =>
   jwt.sign({ data }, AUTH_SECRET, { expiresIn: "1d" });
 
 // TODO
-const decode = <T>(token: string) => jwt.verify(token, AUTH_SECRET);
+const decode = <PayloadData>(token: string) => {
+  const payload = jwt.verify(token, AUTH_SECRET) as { data: PayloadData };
+
+  return payload.data;
+};
 
 export default Object.freeze({
   hash,

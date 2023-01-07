@@ -1,5 +1,3 @@
-import path from "node:path";
-import dotenv from "dotenv";
 import fastify, { FastifyInstance } from "fastify";
 import helmet from "@fastify/helmet";
 import swagger from "@fastify/swagger";
@@ -23,15 +21,6 @@ class App {
     this.server.register(routesV2, { prefix: "/v2" });
   }
 
-  private dotenv() {
-    const envFileName =
-      process.env.NODE_ENV === "development" ? ".env.dev" : ".env";
-
-    dotenv.config({
-      path: path.resolve(__dirname, "..", "infra", "envs", envFileName),
-    });
-  }
-
   private async swagger() {
     await this.server.register(swagger);
     await this.server.register(swaggerUI, {
@@ -43,6 +32,7 @@ class App {
       staticCSP: true,
       transformSpecificationClone: true,
     });
+    this.server.swagger();
   }
 
   private middlewares() {
@@ -52,11 +42,9 @@ class App {
   }
 
   async setup() {
-    this.dotenv();
     this.middlewares();
     await this.swagger();
     this.routes();
-    this.server.swagger();
   }
 
   listen() {

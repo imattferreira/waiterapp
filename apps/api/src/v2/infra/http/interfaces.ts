@@ -5,7 +5,9 @@ import type {
   FastifySchema,
 } from "fastify";
 
-export type HttpRequest = FastifyRequest;
+export type HttpRequest = FastifyRequest & {
+  data?: { id?: string };
+};
 
 export type HttpResponse = FastifyReply;
 
