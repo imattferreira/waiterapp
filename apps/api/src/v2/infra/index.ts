@@ -3,8 +3,8 @@ import App from "./http/app";
 
 const app = new App();
 
-database.connect();
-
-app.setup().then(() => {
-  app.listen();
+database.connect().then(() => {
+  app.setup().then(() => {
+    app.listen();
+  });
 });

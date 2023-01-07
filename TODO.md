@@ -6,6 +6,7 @@
 - Image crop and transform to webp (with image-magic and queries)
 - rater-limiter
 - cache (redis)
+- create adapters
 
 ## Dashboard
 

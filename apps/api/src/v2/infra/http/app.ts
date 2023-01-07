@@ -1,10 +1,13 @@
 import path from "node:path";
 import dotenv from "dotenv";
-import routesV2 from "./routes";
-import routesV1 from "../../../v1/routes";
 import fastify, { FastifyInstance } from "fastify";
+import helmet from "@fastify/helmet";
 import swagger from "@fastify/swagger";
 import swaggerUI from "@fastify/swagger-ui";
+import cors from "@fastify/cors";
+import rateLimit from '@fastify/rate-limit';
+import routesV2 from "./routes";
+import routesV1 from "../../../v1/routes";
 
 const PORT = 3000;
 
@@ -38,19 +41,21 @@ class App {
         deepLinking: false,
       },
       staticCSP: true,
-      transformStaticCSP: (header) => header,
-      transformSpecification: (swaggerObject, request, reply) => {
-        return swaggerObject;
-      },
       transformSpecificationClone: true,
     });
   }
 
+  private middlewares() {
+    this.server.register(helmet);
+    this.server.register(cors, { origin: "http://localhost:5742" });
+    this.server.register(rateLimit);
+  }
+
   async setup() {
     this.dotenv();
+    this.middlewares();
     await this.swagger();
     this.routes();
-    await this.server.ready();
     this.server.swagger();
   }
 
