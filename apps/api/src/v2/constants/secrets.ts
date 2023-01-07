@@ -1,11 +1,11 @@
-import dotenv from 'dotenv';
-import path from 'node:path'
+import dotenv from "dotenv";
+import path from "node:path";
 
 const envFileName =
-process.env.NODE_ENV === "development" ? ".env.dev" : ".env";
+  process.env.NODE_ENV === "development" ? ".env.dev" : ".env";
 
 const { parsed } = dotenv.config({
-path: path.resolve(__dirname, "..", 'infra', "envs", envFileName),
+  path: path.resolve(__dirname, "..", "infra", "envs", envFileName),
 });
 
 const SECRETS = {

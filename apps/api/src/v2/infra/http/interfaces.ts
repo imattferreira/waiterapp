@@ -27,3 +27,8 @@ export interface HttpBodyResponse<T> {
   } | null;
   data: T;
 }
+
+export type MiddlewareFn = (
+  req: HttpRequest,
+  res: HttpResponse
+) => Promise<void> | void;

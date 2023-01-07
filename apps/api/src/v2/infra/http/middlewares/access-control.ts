@@ -1,7 +1,7 @@
-import type { AccountRoles } from '../../../modules/users/entities/User';
-import type { HttpRequest, HttpResponse } from '../interfaces';
-import crypto from '../../../utils/crypto';
-import AuthorizationError from '../../../errors/authorization-error';
+import type { AccountRoles } from "../../../modules/users/entities/User";
+import type { HttpRequest, HttpResponse, MiddlewareFn } from "../interfaces";
+import crypto from "../../../utils/crypto";
+import AuthorizationError from "../../../errors/authorization-error";
 
 interface JwtPayload {
   id: string;
@@ -9,7 +9,10 @@ interface JwtPayload {
 }
 
 function accessControl(permittedRoles: AccountRoles | AccountRoles[]) {
-  return async (req: HttpRequest, res: HttpResponse) => {
+  const middleware: MiddlewareFn = async (
+    req: HttpRequest,
+    res: HttpResponse
+  ) => {
     const { authorization } = req.headers;
 
     if (!authorization) {
@@ -19,7 +22,7 @@ function accessControl(permittedRoles: AccountRoles | AccountRoles[]) {
     }
 
     try {
-      const token = authorization.split(' ')[1];
+      const token = authorization.split(" ")[1];
       const { id, role } = crypto.jwt.decode<JwtPayload>(token);
 
       if (!id || !role) {
@@ -28,7 +31,11 @@ function accessControl(permittedRoles: AccountRoles | AccountRoles[]) {
         return res.status(error.status).send(error.body);
       }
 
-      if ((typeof permittedRoles === 'string' && permittedRoles !== role) && !permittedRoles.includes(role)) {
+      if (
+        typeof permittedRoles === "string" &&
+        permittedRoles !== role &&
+        !permittedRoles.includes(role)
+      ) {
         const error = new AuthorizationError({ role: true });
 
         return res.status(error.status).send(error.body);
@@ -40,8 +47,9 @@ function accessControl(permittedRoles: AccountRoles | AccountRoles[]) {
 
       return res.status(error.status).send(error.body);
     }
+  };
 
-  }
+  return middleware;
 }
 
 export default accessControl;

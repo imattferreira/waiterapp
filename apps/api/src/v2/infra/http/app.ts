@@ -3,7 +3,7 @@ import helmet from "@fastify/helmet";
 import swagger from "@fastify/swagger";
 import swaggerUI from "@fastify/swagger-ui";
 import cors from "@fastify/cors";
-import rateLimit from '@fastify/rate-limit';
+import rateLimit from "@fastify/rate-limit";
 import routesV2 from "./routes";
 import routesV1 from "../../../v1/routes";
 
