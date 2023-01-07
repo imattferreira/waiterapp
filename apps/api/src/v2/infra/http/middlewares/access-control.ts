@@ -8,7 +8,7 @@ interface JwtPayload {
   role: AccountRoles;
 }
 
-function accessControl(permittedRoles: AccountRoles | AccountRoles[]) {
+function accessControl(permittedRoles?: AccountRoles | AccountRoles[]) {
   const middleware: MiddlewareFn = async (
     req: HttpRequest,
     res: HttpResponse
@@ -26,19 +26,21 @@ function accessControl(permittedRoles: AccountRoles | AccountRoles[]) {
       const { id, role } = crypto.jwt.decode<JwtPayload>(token);
 
       if (!id || !role) {
-        const error = new AuthorizationError();
+        const error = new AuthorizationError({ token: true });
 
         return res.status(error.status).send(error.body);
       }
 
-      if (
-        typeof permittedRoles === "string" &&
-        permittedRoles !== role &&
-        !permittedRoles.includes(role)
-      ) {
-        const error = new AuthorizationError({ role: true });
+      if (permittedRoles) {
+        if (
+          typeof permittedRoles === "string" &&
+          permittedRoles !== role &&
+          !permittedRoles.includes(role)
+        ) {
+          const error = new AuthorizationError({ role: true, token: true });
 
-        return res.status(error.status).send(error.body);
+          return res.status(error.status).send(error.body);
+        }
       }
 
       req.data = { id };

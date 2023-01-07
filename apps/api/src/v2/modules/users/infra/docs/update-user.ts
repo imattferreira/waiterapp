@@ -2,6 +2,8 @@ import type { DocSchema } from "../../../../infra/http/interfaces";
 
 const updateUserDocs: DocSchema = {
   schema: {
+    description:
+      "update a user with your [id]. OBS: the auth token is necessary",
     params: {
       type: "object",
       properties: {

@@ -6,6 +6,7 @@ type ErrorTypes =
   | "forbidden"
   | "not_found"
   | "conflict"
+  | "precondition_failed"
   | "internal";
 
 interface ErrorBody {

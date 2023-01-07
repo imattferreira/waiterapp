@@ -8,17 +8,30 @@ import authenticate from "../../use-cases/authenticate";
 import docs from "../docs";
 import accessControl from "../../../../infra/http/middlewares/access-control";
 import withMiddlewares from "../../../../infra/http/middlewares/with-middlewares";
+import configure from "../../../../infra/http/configure";
 
 function routes(router: Router) {
   router.post("/users", docs.createUser, createUser.factory);
   router.get(
     "/users",
-    { ...withMiddlewares(accessControl("admin")), ...docs.listUsers },
+    configure([withMiddlewares(accessControl("admin")), docs.listUsers]),
     listUsers.factory
   );
-  router.get("/users/:id", docs.listUser, listUser.factory);
-  router.put("/users/:id", docs.updateUser, updateUser.factory);
-  router.delete("/users/:id", docs.deleteUser, deleteUser.factory);
+  router.get(
+    "/users/:id",
+    configure([withMiddlewares(accessControl()), docs.listUser]),
+    listUser.factory
+  );
+  router.put(
+    "/users/:id",
+    configure([withMiddlewares(accessControl()), docs.updateUser]),
+    updateUser.factory
+  );
+  router.delete(
+    "/users/:id",
+    configure([withMiddlewares(accessControl()), docs.deleteUser]),
+    deleteUser.factory
+  );
 
   router.post("/auth", docs.authenticate, authenticate.factory);
   // router.post('/refresh', () => {});

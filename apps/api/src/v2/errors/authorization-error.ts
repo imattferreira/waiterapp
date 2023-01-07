@@ -1,10 +1,11 @@
 import AppError from "./app-error";
 
 class AuthorizationError extends AppError {
-  constructor({ role = false } = {}) {
+  constructor({ role = false, token = false } = {}) {
     const message = role ? "access denied" : "authorization invalid";
+    const status = token ? "precondition_failed" : "unauthorized";
 
-    super("unauthorized", message);
+    super(status, message);
   }
 }
 

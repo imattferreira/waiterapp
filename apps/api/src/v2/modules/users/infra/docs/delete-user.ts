@@ -2,6 +2,8 @@ import type { DocSchema } from "../../../../infra/http/interfaces";
 
 const listUsersDocs: DocSchema = {
   schema: {
+    description:
+      "delete a user with your [id]. OBS: the auth token is required",
     params: {
       type: "object",
       properties: {

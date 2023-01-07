@@ -2,6 +2,8 @@ import type { DocSchema } from "../../../../infra/http/interfaces";
 
 const listUsersDocs: DocSchema = {
   schema: {
+    description:
+      "list all users data. OBS: the auth token and 'admin' is required",
     response: {
       200: {
         description: "users listed",

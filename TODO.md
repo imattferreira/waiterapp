@@ -10,6 +10,7 @@
 - json schema validator
 - padronize \_id/id field
 - adapters of fastify
+- improve authorization validations
 
 ## Dashboard
 
