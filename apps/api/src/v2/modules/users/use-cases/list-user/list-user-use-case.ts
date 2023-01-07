@@ -5,7 +5,7 @@ import userPresentation, {
   IUserPresentation,
 } from "../../presentations/user-presentation";
 import { IUsersRepository } from "../../infra/repositories/interfaces";
-import validate from "../../utils/validate";
+import validate from "../../../../utils/validate";
 
 interface ListUserUseCaseInput {
   id: string;

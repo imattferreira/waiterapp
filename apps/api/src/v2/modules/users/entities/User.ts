@@ -2,7 +2,7 @@ import Entity from "../../../entities/entity";
 import type { EntityInput, EntityProps } from "../../../entities/interfaces";
 import AppError from "../../../errors/app-error";
 import { isObj } from "../../../utils/object";
-import validate from "../utils/validate";
+import validate from "../../../utils/validate";
 
 export type AccountRoles = "admin" | "waiter";
 
