@@ -1,11 +1,11 @@
 import AppError from "../../../../errors/app-error";
 import Either, { Left, Right } from "../../../../errors/either";
 import type { HttpBodyResponse } from "../../../../infra/http/interfaces";
+import validate from "../../../../utils/validate";
+import { IUsersRepository } from "../../infra/repositories/interfaces";
 import userPresentation, {
   IUserPresentation,
 } from "../../presentations/user-presentation";
-import { IUsersRepository } from "../../infra/repositories/interfaces";
-import validate from "../../../../utils/validate";
 
 interface ListUserUseCaseInput {
   id: string;

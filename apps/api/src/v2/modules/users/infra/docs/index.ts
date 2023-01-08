@@ -1,5 +1,5 @@
-import createUser from "./create-user";
 import authenticate from "./authenticate";
+import createUser from "./create-user";
 import deleteUser from "./delete-user";
 import listUser from "./list-user";
 import listUsers from "./list-users";

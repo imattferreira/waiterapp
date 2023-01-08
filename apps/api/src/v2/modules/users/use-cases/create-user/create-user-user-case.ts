@@ -1,13 +1,13 @@
 import AppError from "../../../../errors/app-error";
 import Either, { Left, Right } from "../../../../errors/either";
 import type { HttpBodyResponse } from "../../../../infra/http/interfaces";
+import crypto from "../../../../utils/crypto";
+import validate from "../../../../utils/validate";
 import User, { AccountRoles } from "../../entities/user";
+import type { IUsersRepository } from "../../infra/repositories/interfaces";
 import userPresentation, {
   IUserPresentation,
 } from "../../presentations/user-presentation";
-import type { IUsersRepository } from "../../infra/repositories/interfaces";
-import crypto from "../../../../utils/crypto";
-import validate from "../../../../utils/validate";
 
 export interface ICreateUserUseCaseInput {
   name: string;

@@ -1,4 +1,5 @@
 import { model, Schema } from "mongoose";
+
 import Image, { ImageEntity, mimeFormats } from "../../entities/image";
 import type { IImagesRepository } from "./interfaces";
 

@@ -1,4 +1,5 @@
 import type { RouteOptions } from "fastify";
+
 import type { DoneFn, Router } from "../interfaces";
 import type { RouteModule } from "../routes/interfaces";
 

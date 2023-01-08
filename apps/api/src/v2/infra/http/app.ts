@@ -1,12 +1,12 @@
-import helmet from "./middlewares/helmet";
-import multipart from "./middlewares/multipart";
-import cors from "./middlewares/cors";
-import rateLimit from "./middlewares/rate-limit";
-import routerV2 from "./routes";
 import routesV1 from "../../../v1/routes";
 import routerAdapter from "./adapters/router";
-import docs from "./middlewares/docs";
 import type { ServerInstance } from "./interfaces";
+import cors from "./middlewares/cors";
+import docs from "./middlewares/docs";
+import helmet from "./middlewares/helmet";
+import multipart from "./middlewares/multipart";
+import rateLimit from "./middlewares/rate-limit";
+import routerV2 from "./routes";
 
 const PORT = 3000;
 const MIDDLEWARES = [helmet, cors, rateLimit, multipart, docs];

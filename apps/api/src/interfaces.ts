@@ -1,4 +1,4 @@
-import type { FastifyRequest, FastifyReply, FastifyInstance } from "fastify";
+import type { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 
 export type HttpRequest = FastifyRequest;
 

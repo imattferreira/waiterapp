@@ -1,12 +1,12 @@
-import type { MultipartFile as FastifyMultipartFile } from "@fastify/multipart";
+import type { Readable } from "node:stream";
+
 import type {
-  FastifyRequest,
-  FastifyReply,
   FastifyInstance,
+  FastifyReply,
+  FastifyRequest,
   FastifySchema,
   preHandlerHookHandler,
 } from "fastify";
-import type { Readable } from "node:stream";
 
 interface RequestDataFile {
   filename: string;

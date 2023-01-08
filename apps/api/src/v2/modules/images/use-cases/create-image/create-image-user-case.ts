@@ -5,10 +5,10 @@ import type {
   MultipartFile,
 } from "../../../../infra/http/interfaces";
 import Image from "../../entities/image";
+import type { IImagesRepository } from "../../infra/repositories/interfaces";
 import imagePresentation, {
   IImagePresentation,
 } from "../../presentations/image-presentation";
-import type { IImagesRepository } from "../../infra/repositories/interfaces";
 
 export interface ICreateImageUseCaseInput {
   file: MultipartFile | undefined;

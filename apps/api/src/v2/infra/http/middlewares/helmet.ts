@@ -1,4 +1,5 @@
 import helmet from "@fastify/helmet";
+
 import type { ServerInstance } from "../interfaces";
 
 function register(server: ServerInstance) {
