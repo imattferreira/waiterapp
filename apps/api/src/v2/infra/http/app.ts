@@ -2,6 +2,7 @@ import fastify, { FastifyInstance } from "fastify";
 import helmet from "@fastify/helmet";
 import swagger from "@fastify/swagger";
 import swaggerUI from "@fastify/swagger-ui";
+import multipart from "@fastify/multipart";
 import cors from "@fastify/cors";
 import rateLimit from "@fastify/rate-limit";
 import routesV2 from "./routes";
@@ -39,6 +40,7 @@ class App {
     this.server.register(helmet);
     this.server.register(cors, { origin: "http://localhost:5742" });
     this.server.register(rateLimit);
+    this.server.register(multipart);
   }
 
   async setup() {

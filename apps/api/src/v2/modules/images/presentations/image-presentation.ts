@@ -1,27 +1,24 @@
-import User from "../entities/user";
+import Image, { ImageMimeFormats } from "../entities/image";
 
-export interface IUserPresentation {
+export interface IImagePresentation {
   id: string;
-  email: string;
   name: string;
-  role: string;
+  format: ImageMimeFormats;
   created_at: string;
   updated_at: string;
 }
 
 function userPresentation({
   _id,
-  email,
   name,
-  role,
+  format,
   createdAt,
   updatedAt,
-}: User): IUserPresentation {
+}: Image): IImagePresentation {
   return {
     id: _id,
-    email,
     name,
-    role,
+    format,
     created_at: createdAt,
     updated_at: updatedAt,
   };

@@ -109,6 +109,10 @@ class User extends Entity<UserEntity> {
   }
 
   set role(role: AccountRoles) {
+    if (role !== "admin" && role !== "waiter") {
+      throw new AppError("bad_request", "[role] is invalid");
+    }
+
     this.props.role = role;
     this.updateTimestamps();
   }

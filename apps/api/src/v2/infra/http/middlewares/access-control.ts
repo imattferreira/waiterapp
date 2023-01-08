@@ -1,4 +1,4 @@
-import type { AccountRoles } from "../../../modules/users/entities/User";
+import type { AccountRoles } from "../../../modules/users/entities/user";
 import type { HttpRequest, HttpResponse, MiddlewareFn } from "../interfaces";
 import crypto from "../../../utils/crypto";
 import AuthorizationError from "../../../errors/authorization-error";

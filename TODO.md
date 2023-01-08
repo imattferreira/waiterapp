@@ -5,12 +5,12 @@
 - EmailService (with queues)
 - Image crop and transform to webp (with image-magic and queries)
 - cache (redis)
-- create adaters
 - nginx
 - json schema validator
 - padronize \_id/id field
 - adapters of fastify
 - improve authorization validations
+- pagination
 
 ## Dashboard
 

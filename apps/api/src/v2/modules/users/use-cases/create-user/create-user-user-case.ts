@@ -1,7 +1,7 @@
 import AppError from "../../../../errors/app-error";
 import Either, { Left, Right } from "../../../../errors/either";
 import type { HttpBodyResponse } from "../../../../infra/http/interfaces";
-import User, { AccountRoles } from "../../entities/User";
+import User, { AccountRoles } from "../../entities/user";
 import userPresentation, {
   IUserPresentation,
 } from "../../presentations/user-presentation";

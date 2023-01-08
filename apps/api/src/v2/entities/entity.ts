@@ -7,10 +7,10 @@ class Entity<T> {
 
   constructor(props: Omit<T, "_id" | "createdAt" | "updatedAt"> & EntityInput) {
     this.props = {
+      ...props,
       _id: crypto.randomUUID(),
       createdAt: datetime.getUTCTime(),
       updatedAt: datetime.getUTCTime(),
-      ...props,
     } as InternalEntityProps<T>;
   }
 
