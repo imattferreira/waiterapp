@@ -6,7 +6,7 @@ import type {
   FastifySchema,
   preHandlerHookHandler,
 } from "fastify";
-import type { Readable } from "stream";
+import type { Readable } from "node:stream";
 
 export type HttpRequest = FastifyRequest & {
   data?: { id?: string };
@@ -14,7 +14,9 @@ export type HttpRequest = FastifyRequest & {
 
 export type HttpResponse = FastifyReply;
 
-export type Router = FastifyInstance;
+export type ServerInstance = FastifyInstance;
+
+export type Router = ServerInstance;
 
 export type DoneFn = (err?: Error) => void;
 
