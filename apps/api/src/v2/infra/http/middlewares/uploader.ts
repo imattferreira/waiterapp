@@ -1,7 +1,7 @@
 import datetime from "../../../utils/datetime";
 import crypto from "../../../utils/crypto";
 import { File, HttpRequest, HttpResponse } from "../interfaces";
-import fs from "node:fs";
+import fs from "../../../utils/fs";
 
 interface UploaderOptions {
   tmp?: boolean;
@@ -46,7 +46,7 @@ function uploader({
       const extension = file.mimetype.split("/")[1];
       pathname = `${TMP_DIR_PATH}/${filename}.${extension}`;
 
-      fs.writeFileSync(pathname, buffer);
+      fs.writeFile(pathname, buffer);
     }
 
     req.data = {
