@@ -1,5 +1,5 @@
 import accessControl from "../../../../infra/http/middlewares/access-control";
-import type { RouteModule } from "../../../../infra/http/interfaces";
+import type { RouteModule } from "../../../../infra/http/routes/interfaces";
 import health from "../../use-cases/health";
 import ping from "../../use-cases/ping";
 import docs from "../docs";

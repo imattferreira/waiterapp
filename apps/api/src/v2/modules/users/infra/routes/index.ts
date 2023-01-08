@@ -5,7 +5,7 @@ import listUsers from "../../use-cases/list-users";
 import updateUser from "../../use-cases/update-user";
 import docs from "../docs";
 import accessControl from "../../../../infra/http/middlewares/access-control";
-import type { RouteModule } from "../../../../infra/http/interfaces";
+import type { RouteModule } from "../../../../infra/http/routes/interfaces";
 import authenticate from "../../use-cases/authenticate";
 
 const routes: RouteModule = {

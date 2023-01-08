@@ -38,18 +38,4 @@ export interface File extends Readable {
   bytesRead: number;
 }
 
-// Router
-type HttpMethods = "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
-
-interface Route {
-  docs?: DocSchema;
-  middlewares?: MiddlewareFn[];
-  method: HttpMethods;
-  path: string;
-  handler: (req: HttpRequest, res: HttpResponse) => Promise<HttpResponse>;
-}
-
-export interface RouteModule {
-  prefix?: string;
-  routes: Route[];
-}
+export type HttpMethods = "GET" | "POST" | "PUT" | "PATCH" | "DELETE";

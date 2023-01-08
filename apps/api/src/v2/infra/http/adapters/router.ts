@@ -1,12 +1,8 @@
 import type { RouteOptions } from "fastify";
 import type { DoneFn, Router } from "../interfaces";
-import type { RouteModule } from "../interfaces";
+import type { RouteModule } from "../routes/interfaces";
 
-function routerAdapter(
-  router: Router,
-  done: DoneFn,
-  routeModules: RouteModule[]
-) {
+function routerAdapter(routeModules: RouteModule[]) {
   const routesToRegister: RouteOptions[] = [];
 
   for (const { routes, prefix } of routeModules) {
@@ -23,11 +19,13 @@ function routerAdapter(
     }
   }
 
-  routesToRegister.forEach((route) => {
-    router.route(route);
-  });
+  return (router: Router, _: any, done: DoneFn) => {
+    routesToRegister.forEach((route) => {
+      router.route(route);
+    });
 
-  done();
+    done();
+  };
 }
 
 export default routerAdapter;

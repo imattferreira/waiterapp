@@ -1,4 +1,4 @@
-import type { RouteModule } from "../../../../infra/http/interfaces";
+import type { RouteModule } from "../../../../infra/http/routes/interfaces";
 import createImage from "../../use-cases/create-image";
 
 const routes: RouteModule = {
