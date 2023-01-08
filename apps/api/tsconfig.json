@@ -1,8 +1,9 @@
 {
   "extends": "tsconfig/base.json",
   "compilerOptions": {
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "target": "ESNext",
+    "module": "NodeNext"
   },
-  "include": ["**/*.ts", "src/v2/modules/users/use-cases/authenticate"],
-  "exclude": ["node_modules"]
+  "include": ["**/*.ts"]
 }

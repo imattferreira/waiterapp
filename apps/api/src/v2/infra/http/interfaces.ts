@@ -18,7 +18,7 @@ export type Router = FastifyInstance;
 
 export type DoneFn = (err?: Error) => void;
 
-export type DocSchema = { schema: FastifySchema };
+export type DocSchema = FastifySchema;
 
 export interface HttpBodyResponse<T> {
   _self: {
@@ -36,4 +36,20 @@ export type MultipartFile = FastifyMultipartFile | undefined;
 export interface File extends Readable {
   truncated: boolean;
   bytesRead: number;
+}
+
+// Router
+type HttpMethods = "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
+
+interface Route {
+  docs?: DocSchema;
+  middlewares?: MiddlewareFn[];
+  method: HttpMethods;
+  path: string;
+  handler: (req: HttpRequest, res: HttpResponse) => Promise<HttpResponse>;
+}
+
+export interface RouteModule {
+  prefix?: string;
+  routes: Route[];
 }

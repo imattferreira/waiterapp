@@ -5,8 +5,9 @@ import swaggerUI from "@fastify/swagger-ui";
 import multipart from "@fastify/multipart";
 import cors from "@fastify/cors";
 import rateLimit from "@fastify/rate-limit";
-import routesV2 from "./routes";
+import routerV2 from "./routes";
 import routesV1 from "../../../v1/routes";
+import routerAdapter from "./adapters/router";
 
 const PORT = 3000;
 
@@ -17,7 +18,9 @@ class App {
     this.server = fastify();
   }
 
-  private routes() {
+  private async routes() {
+    const routesV2 = await routerV2(routerAdapter);
+
     this.server.register(routesV1, { prefix: "/v1" });
     this.server.register(routesV2, { prefix: "/v2" });
   }
@@ -46,7 +49,7 @@ class App {
   async setup() {
     this.middlewares();
     await this.swagger();
-    this.routes();
+    await this.routes();
   }
 
   listen() {

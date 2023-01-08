@@ -1,14 +1,35 @@
-import type { DoneFn, Router } from "./interfaces";
-import usersRoutes from "../../modules/users/infra/routes";
-import healthCheckRoutes from "../../modules/health-check/infra/routes";
-import imagesRoutes from "../../modules/images/infra/routes";
+import type { DoneFn, RouteModule, Router } from "./interfaces";
+import path from "node:path";
+import fs from "node:fs";
 
-function routes(router: Router, _: any, done: DoneFn) {
-  usersRoutes(router);
-  healthCheckRoutes(router);
-  imagesRoutes(router);
+type RouterAdapter = (
+  router: Router,
+  done: DoneFn,
+  routes: RouteModule[]
+) => void;
 
-  done();
+async function routes(adapter: RouterAdapter) {
+  const modules = fs.readdirSync(
+    path.resolve(__dirname, "..", "..", "modules")
+  );
+  const routes: RouteModule[] = [];
+
+  const modulesWithRoutes = modules.filter((name) =>
+    fs.existsSync(
+      path.resolve(__dirname, "..", "..", "modules", name, "infra", "routes")
+    )
+  );
+
+  for (const name of modulesWithRoutes) {
+    const moduleRoutes = (await import(`../../modules/${name}/infra/routes`))
+      .default;
+
+    routes.push(moduleRoutes);
+  }
+
+  return (router: Router, _: any, done: DoneFn) => {
+    adapter(router, done, routes);
+  };
 }
 
 export default routes;
