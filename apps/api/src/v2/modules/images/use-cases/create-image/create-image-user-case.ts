@@ -6,6 +6,7 @@ import type {
 } from "../../../../infra/http/interfaces";
 import Image from "../../entities/image";
 import type { IImagesRepository } from "../../infra/repositories/interfaces";
+import ImageTransformJob from "../../jobs/image-transform";
 import imagePresentation, {
   IImagePresentation,
 } from "../../presentations/image-presentation";
@@ -19,7 +20,10 @@ type CreateImageUseCaseOutput = HttpBodyResponse<{
 }>;
 
 class CreateImageUseCase {
-  constructor(private readonly imagesRepository: IImagesRepository) {}
+  constructor(
+    private readonly imagesRepository: IImagesRepository,
+    private readonly imageTransformJob: ImageTransformJob
+  ) {}
 
   async execute({
     file,
@@ -41,6 +45,16 @@ class CreateImageUseCase {
     });
 
     await this.imagesRepository.create(image);
+    const jobIsRegistered = await this.imageTransformJob.commit({
+      filename: image.filename,
+      format: image.format,
+      id: image._id,
+      pathname: image.pathname as string,
+    });
+
+    if (!jobIsRegistered) {
+      return Left.commit(new AppError("internal", "an unknown error occur"));
+    }
 
     return Right.commit({
       _self: null,
