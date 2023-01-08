@@ -9,7 +9,7 @@ const Repository = model(
       type: String,
       required: true,
     },
-    name: {
+    filename: {
       type: String,
       required: true,
     },
@@ -18,7 +18,7 @@ const Repository = model(
       required: true,
       enum: mimeFormats,
     },
-    filepath: {
+    pathname: {
       type: String,
       required: false,
     },
@@ -36,17 +36,17 @@ const Repository = model(
 class ImagesRepository implements IImagesRepository {
   async create({
     _id,
-    name,
+    filename,
     format,
-    filepath,
+    pathname,
     createdAt,
     updatedAt,
   }: Image): Promise<void> {
     await Repository.create({
       _id,
-      name,
+      filename,
       format,
-      filepath,
+      pathname,
       createdAt,
       updatedAt,
     });

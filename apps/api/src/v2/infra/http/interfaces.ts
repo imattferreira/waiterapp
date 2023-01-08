@@ -8,8 +8,14 @@ import type {
 } from "fastify";
 import type { Readable } from "node:stream";
 
+interface RequestDataFile {
+  filename: string;
+  mimetype: string;
+  pathname: string | null;
+}
+
 export type HttpRequest = FastifyRequest & {
-  data?: { id?: string };
+  data?: { id?: string; files?: RequestDataFile[] };
 };
 
 export type HttpResponse = FastifyReply;
@@ -33,7 +39,7 @@ export type MiddlewareFn =
   | preHandlerHookHandler
   | ((req: HttpRequest, res: HttpResponse) => Promise<void> | void);
 
-export type MultipartFile = FastifyMultipartFile | undefined;
+export type MultipartFile = RequestDataFile | undefined;
 
 export interface File extends Readable {
   truncated: boolean;

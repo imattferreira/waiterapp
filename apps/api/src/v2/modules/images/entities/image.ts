@@ -3,26 +3,23 @@ import type { EntityInput, EntityProps } from "../../../entities/interfaces";
 import AppError from "../../../errors/app-error";
 import { File } from "../../../infra/http/interfaces";
 import crypto from "../../../utils/crypto";
-import fs from "node:fs";
 
-export type ImageMimeFormats =
+export type ImageMimeTypes =
   | "image/png"
   | "image/jpg"
   | "image/jpeg"
   | "image/webp";
 
 interface ImageInput extends EntityInput {
-  name?: string;
-  format: ImageMimeFormats | string;
-  content?: File | null;
-  filepath?: string | null;
+  filename?: string;
+  format: ImageMimeTypes | string;
+  pathname?: string | null;
 }
 
 export interface ImageEntity extends EntityProps {
-  name: string;
-  content: File | null;
-  filepath: string | null;
-  format: ImageMimeFormats;
+  filename: string;
+  pathname: string | null;
+  format: ImageMimeTypes;
 }
 
 export const mimeFormats = [
@@ -36,9 +33,8 @@ class Image extends Entity<ImageEntity> {
   constructor({
     _id,
     format,
-    name,
-    content = null,
-    filepath = null,
+    filename,
+    pathname = null,
     createdAt,
     updatedAt,
   }: ImageInput) {
@@ -48,75 +44,43 @@ class Image extends Entity<ImageEntity> {
 
     super({
       _id,
-      name: name || crypto.randomUUID(),
-      format: format as ImageMimeFormats,
-      content,
-      filepath,
+      filename: filename || crypto.randomUUID(),
+      format: format as ImageMimeTypes,
+      pathname,
       createdAt,
       updatedAt,
     });
   }
 
-  get name(): string {
-    return this.props.name;
+  get filename(): string {
+    return this.props.filename;
   }
 
-  get format(): ImageMimeFormats {
+  get format(): ImageMimeTypes {
     return this.props.format;
   }
 
-  get content(): File | null {
-    return this.props.content;
+  get pathname(): string | null {
+    return this.props.pathname;
   }
 
-  get filepath(): string | null {
-    return this.props.filepath;
-  }
-
-  set name(name: string) {
-    this.props.name = name;
+  set filename(filename: string) {
+    this.props.filename = filename;
     this.updateTimestamps();
   }
 
-  set content(content: File | null) {
-    this.props.content = content;
+  set pathname(pathname: string | null) {
+    this.props.pathname = pathname;
     this.updateTimestamps();
   }
 
-  set filepath(filepath: string | null) {
-    this.props.filepath = filepath;
-    this.updateTimestamps();
-  }
-
-  set format(format: ImageMimeFormats) {
+  set format(format: ImageMimeTypes) {
     if (!mimeFormats.includes(format)) {
       throw new AppError("bad_request", "[format] is invalid");
     }
 
     this.props.format = format;
     this.updateTimestamps();
-  }
-
-  async saveTmp(): Promise<boolean> {
-    const { content } = this.props;
-
-    if (!content) {
-      return false;
-    }
-
-    const chunks: Buffer[] = [];
-
-    for await (const chunk of content) {
-      chunks.push(chunk);
-    }
-
-    const buffer = Buffer.concat(chunks);
-    const filename = this.props.name;
-    const extension = this.props.format.split("/")[1];
-
-    fs.writeFileSync(`tmp/${filename}.${extension}`, buffer);
-
-    return true;
   }
 }
 

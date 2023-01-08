@@ -32,14 +32,13 @@ class CreateImageUseCase {
       );
     }
 
-    const { mimetype, file: content } = file;
+    const { mimetype, filename, pathname } = file;
 
     const image = new Image({
       format: mimetype,
-      content,
+      filename,
+      pathname,
     });
-
-    await image.saveTmp();
 
     await this.imagesRepository.create(image);
 

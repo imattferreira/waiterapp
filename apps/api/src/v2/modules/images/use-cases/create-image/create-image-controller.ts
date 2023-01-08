@@ -7,7 +7,7 @@ class CreateImageController {
   constructor(private readonly useCase: CreateImageUseCase) {}
 
   async handle(req: HttpRequest, res: HttpResponse): Promise<HttpResponse> {
-    const file = await req.file({ limits: { fileSize: 1.2 * 10 ** 7 } });
+    const file = req.data?.files?.[0];
 
     const result = await this.useCase.execute({
       file,

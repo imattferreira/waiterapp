@@ -1,23 +1,23 @@
-import Image, { ImageMimeFormats } from "../entities/image";
+import Image, { ImageMimeTypes } from "../entities/image";
 
 export interface IImagePresentation {
   id: string;
-  name: string;
-  format: ImageMimeFormats;
+  filename: string;
+  format: ImageMimeTypes;
   created_at: string;
   updated_at: string;
 }
 
 function userPresentation({
   _id,
-  name,
+  filename,
   format,
   createdAt,
   updatedAt,
 }: Image): IImagePresentation {
   return {
     id: _id,
-    name,
+    filename,
     format,
     created_at: createdAt,
     updated_at: updatedAt,
