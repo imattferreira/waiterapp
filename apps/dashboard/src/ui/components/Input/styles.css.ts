@@ -10,13 +10,13 @@ const inputWrapperBase = style({
   marginTop: 8,
   display: "flex",
   alignItems: "center",
-  border: `1px solid ${theme.color.gray[200]}`,
+  border: `1px solid ${theme.color.gray[300]}`,
   borderRadius: 8,
   transition: "250ms",
 
   selectors: {
     "&:focus-within": {
-      borderColor: theme.color.gray[400],
+      borderColor: theme.color.gray[500],
     },
   },
 });

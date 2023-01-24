@@ -21,21 +21,21 @@ export const containerVariants = styleVariants({
     base,
     {
       background: theme.color.red[400],
-      color: theme.color.white,
+      color: theme.color.gray[100],
     },
   ],
   secondary: [
     base,
     {
-      background: theme.color.white,
+      background: theme.color.gray[100],
       color: theme.color.red[400],
     },
   ],
   disabled: [
     base,
     {
-      background: theme.color.gray[200],
-      color: theme.color.white,
+      background: theme.color.gray[300],
+      color: theme.color.gray[100],
       cursor: "not-allowed",
 
       ":hover": {

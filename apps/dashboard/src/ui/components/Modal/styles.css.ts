@@ -21,7 +21,7 @@ export const container = style({
 export const modal = style({
   width: 480,
   padding: "40px 32px 32px",
-  background: theme.color.white,
+  background: theme.color.gray[100],
   borderRadius: 8,
 });
 

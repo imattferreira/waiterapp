@@ -8,7 +8,7 @@ export const container = style({
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "center",
-  color: theme.color.white,
+  color: theme.color.gray[100],
 });
 
 export const hero = style({
@@ -33,7 +33,7 @@ export const loginBtn = style({
   width: 384,
   marginTop: 24,
   padding: "16px 0",
-  background: theme.color.white,
+  background: theme.color.gray[100],
   color: theme.color.red[400],
   fontWeight: 600,
   borderRadius: 44,

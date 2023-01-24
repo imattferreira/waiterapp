@@ -1,4 +1,3 @@
-// TODO map colors
 import { globalStyle } from "@vanilla-extract/css";
 import theme from "./theme.css";
 
@@ -10,15 +9,15 @@ globalStyle("*", {
 
 globalStyle("html, body", {
   background: theme.color.gray[100],
-  color: theme.color.gray[500],
+  color: theme.color.gray[600],
   lineHeight: "120%",
-  fontFamily: "GeneralSans, sans-serif",
+  fontFamily: theme.font.body,
 });
 
 globalStyle("button", {
   cursor: "pointer",
   fontSize: "1rem",
-  color: theme.color.gray[500],
+  color: theme.color.gray[600],
   background: "none",
   border: "none",
   transition: "250ms",
@@ -27,11 +26,11 @@ globalStyle("button", {
 globalStyle("a", {
   cursor: "pointer",
   fontSize: "1rem",
-  color: theme.color.gray[500],
+  color: theme.color.gray[600],
   textDecoration: "none",
   transition: "250ms",
 });
 
 globalStyle("path", {
-  stroke: theme.color.gray[500],
+  stroke: theme.color.gray[600],
 });

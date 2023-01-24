@@ -3,7 +3,7 @@ import theme from "../../../styles/theme.css";
 
 const container = style({
   fontSize: 14,
-  color: theme.color.gray[400],
+  color: theme.color.gray[500],
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -33,7 +33,7 @@ export const containerVariants = styleVariants({
 
 export const iconVariants = styleVariants({
   default: {
-    stroke: theme.color.gray[400],
+    stroke: theme.color.gray[500],
   },
   active: {
     stroke: theme.color.red[400],

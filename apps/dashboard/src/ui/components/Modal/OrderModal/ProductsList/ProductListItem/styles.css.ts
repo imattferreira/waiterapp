@@ -13,7 +13,7 @@ export const img = style({
 
 export const qty = style({
   fontSize: 14,
-  color: theme.color.gray[300],
+  color: theme.color.gray[400],
   margin: "0 12px",
 });
 

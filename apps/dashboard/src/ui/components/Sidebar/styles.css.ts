@@ -11,11 +11,11 @@ export const container = style({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  background: theme.color.white,
+  background: theme.color.gray[100],
 });
 
 export const logo = style({
-  color: theme.color.gray[400],
+  color: theme.color.gray[500],
   fontSize: 24,
   marginBottom: 80,
 });
