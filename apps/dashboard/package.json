@@ -19,7 +19,8 @@
     "react-hook-form": "^7.41.2",
     "react-router-dom": "^6.6.1",
     "validate": "*",
-    "styled-tokens": "*"
+    "styled-tokens": "*",
+    "svg-icons": "*"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",

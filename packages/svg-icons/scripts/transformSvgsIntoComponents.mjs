@@ -1,15 +1,9 @@
 import fs from "node:fs";
 import path from "node:path";
 
-const SVGS_DIR = path.resolve("src", "ui", "assets", "svgs");
-const COMPONENTS_DIR = path.resolve("src", "ui", "components", "Icon", "Icons");
-const ENTRYPOINT_COMPONENT_DIR = path.resolve(
-  "src",
-  "ui",
-  "components",
-  "Icon",
-  "index.tsx"
-);
+const SVGS_DIR = path.resolve("src", "assets", "svgs");
+const COMPONENTS_DIR = path.resolve("src", "components", "Icons");
+const ENTRYPOINT_COMPONENT_DIR = path.resolve("src", "components", "index.tsx");
 
 function getSvgContent(name) {
   const dir = path.resolve(SVGS_DIR, name);
