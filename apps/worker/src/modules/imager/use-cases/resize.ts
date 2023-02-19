@@ -1,9 +1,7 @@
 import { JobFn } from "../../../interfaces/jobs";
 
-interface ResizeInput {
+interface ResizeInput {}
 
-}
-
-const resize: JobFn = async <ResizeInput>(data: ResizeInput) => {}
+const resize: JobFn = async <ResizeInput>(data: ResizeInput) => {};
 
 export default resize;
