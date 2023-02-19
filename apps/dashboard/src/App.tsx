@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import Router from "./app/Router";
-import Layout from "./ui/Layout";
+import Router from "./app/router";
+import Layout from "./ui/layout";
 import { themeClass } from "./ui/styles/theme.css";
 
 function App() {
