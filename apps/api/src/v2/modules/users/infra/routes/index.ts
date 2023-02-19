@@ -1,5 +1,6 @@
-import accessControl from "../../../../infra/http/middlewares/access-control";
-import type { RouteModule } from "../../../../infra/http/routes/interfaces";
+import accessControl from "@/infra/http/middlewares/access-control";
+import type { RouteModule } from "@/infra/http/routes/interfaces";
+
 import authenticate from "../../use-cases/authenticate";
 import createUser from "../../use-cases/create-user";
 import deleteUser from "../../use-cases/delete-user";

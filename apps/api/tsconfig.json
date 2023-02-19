@@ -1,9 +1,17 @@
 {
   "extends": "tsconfig/base.json",
   "compilerOptions": {
+    "baseUrl": ".",
+    "module": "NodeNext",
     "outDir": "./dist",
+    "paths": {
+      "@/*": [
+        "./src/v2/*"
+      ]
+    },
     "target": "ESNext",
-    "module": "NodeNext"
   },
-  "include": ["**/*.ts"]
+  "include": [
+    "**/*.ts"
+  ]
 }

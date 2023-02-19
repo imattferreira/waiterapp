@@ -1,6 +1,7 @@
-import AuthorizationError from "../../../errors/authorization-error";
-import type { AccountRoles } from "../../../modules/users/entities/user";
-import crypto from "../../../utils/crypto";
+import AuthorizationError from "@/errors/authorization-error";
+import type { AccountRoles } from "@/modules/users/entities/user";
+import crypto from "@/utils/crypto";
+
 import type { HttpRequest, HttpResponse, MiddlewareFn } from "../interfaces";
 
 interface JwtPayload {

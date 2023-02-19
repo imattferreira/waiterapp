@@ -1,4 +1,4 @@
-import type { DocSchema } from "../../../../infra/http/interfaces";
+import type { DocSchema } from "@/infra/http/interfaces";
 
 const listUserDocs: DocSchema = {
   description:

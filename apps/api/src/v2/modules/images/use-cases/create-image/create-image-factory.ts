@@ -1,7 +1,8 @@
 import type {
   HttpRequest,
   HttpResponse,
-} from "../../../../infra/http/interfaces";
+} from "@/infra/http/interfaces";
+
 import ImagesRepository from "../../infra/repositories/images-repository";
 import ImageTransformJob from "../../jobs/image-transform";
 import CreateImageController from "./create-image-controller";

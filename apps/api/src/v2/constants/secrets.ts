@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 
-import path from "../utils/path";
+import path from "@/utils/path";
 
 const envFileName =
   process.env.NODE_ENV === "development" ? ".env.dev" : ".env";

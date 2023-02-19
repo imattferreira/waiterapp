@@ -1,5 +1,6 @@
-import fs from "../../../utils/fs";
-import path from "../../../utils/path";
+import fs from "@/utils/fs";
+import path from "@/utils/path";
+
 import type { RouteModule, RouterAdapter } from "./interfaces";
 
 const MODULE_DIR = path.resolve(__dirname, "..", "..", "..", "modules");

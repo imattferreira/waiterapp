@@ -1,7 +1,8 @@
 import type {
   HttpRequest,
   HttpResponse,
-} from "../../../../infra/http/interfaces";
+} from "@/infra/http/interfaces";
+
 import PingController from "./ping-controller";
 
 function pingFactory(req: HttpRequest, res: HttpResponse) {

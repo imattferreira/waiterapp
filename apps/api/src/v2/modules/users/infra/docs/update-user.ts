@@ -1,4 +1,4 @@
-import type { DocSchema } from "../../../../infra/http/interfaces";
+import type { DocSchema } from "@/infra/http/interfaces";
 
 const updateUserDocs: DocSchema = {
   description: "update a user with your [id]. OBS: the auth token is necessary",

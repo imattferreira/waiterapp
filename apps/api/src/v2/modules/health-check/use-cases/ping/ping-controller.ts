@@ -1,8 +1,8 @@
 import type {
   HttpRequest,
   HttpResponse,
-} from "../../../../infra/http/interfaces";
-import STATUS_CODES from "../../../../infra/http/status-codes";
+} from "@/infra/http/interfaces";
+import STATUS_CODES from "@/infra/http/status-codes";
 
 class PingController {
   constructor() {}

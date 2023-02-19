@@ -1,4 +1,5 @@
 import fastify from "fastify";
+
 import database from "./database";
 import App from "./http/app";
 

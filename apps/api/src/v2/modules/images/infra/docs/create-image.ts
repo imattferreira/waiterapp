@@ -1,5 +1,5 @@
 // TODO
-import type { DocSchema } from "../../../../infra/http/interfaces";
+import type { DocSchema } from "@/infra/http/interfaces";
 
 const createImageDocs: DocSchema = {
   body: {

@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-import SECRETS from "../../constants/secrets";
+import SECRETS from "@/constants/secrets";
 
 async function connect(): Promise<void> {
   try {

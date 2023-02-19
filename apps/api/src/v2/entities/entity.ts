@@ -1,5 +1,6 @@
-import crypto from "../utils/crypto";
-import datetime from "../utils/datetime";
+import crypto from "@/utils/crypto";
+import datetime from "@/utils/datetime";
+
 import type { EntityInput, InternalEntityProps } from "./interfaces";
 
 class Entity<T> {

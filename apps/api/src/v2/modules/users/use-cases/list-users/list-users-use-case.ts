@@ -1,4 +1,5 @@
-import type { HttpBodyResponse } from "../../../../infra/http/interfaces";
+import type { HttpBodyResponse } from "@/infra/http/interfaces";
+
 import { IUsersRepository } from "../../infra/repositories/interfaces";
 import userPresentation, {
   IUserPresentation,

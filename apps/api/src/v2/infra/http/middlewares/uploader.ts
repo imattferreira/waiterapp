@@ -1,6 +1,7 @@
-import crypto from "../../../utils/crypto";
-import datetime from "../../../utils/datetime";
-import fs from "../../../utils/fs";
+import crypto from "@/utils/crypto";
+import datetime from "@/utils/datetime";
+import fs from "@/utils/fs";
+
 import { File, HttpRequest, HttpResponse } from "../interfaces";
 
 interface UploaderOptions {

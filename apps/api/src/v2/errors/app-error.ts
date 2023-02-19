@@ -1,4 +1,4 @@
-import STATUS_CODES from "../infra/http/status-codes";
+import STATUS_CODES from "@/infra/http/status-codes";
 
 type ErrorTypes =
   | "bad_request"

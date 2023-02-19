@@ -1,4 +1,4 @@
-import type { DocSchema } from "../../../../infra/http/interfaces";
+import type { DocSchema } from "@/infra/http/interfaces";
 
 const listUsersDocs: DocSchema = {
   description: "delete a user with your [id]. OBS: the auth token is required",

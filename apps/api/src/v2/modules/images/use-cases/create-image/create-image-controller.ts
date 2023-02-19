@@ -1,6 +1,7 @@
-import InternalError from "../../../../errors/internal-error";
-import { HttpRequest, HttpResponse } from "../../../../infra/http/interfaces";
-import STATUS_CODES from "../../../../infra/http/status-codes";
+import InternalError from "@/errors/internal-error";
+import { HttpRequest, HttpResponse } from "@/infra/http/interfaces";
+import STATUS_CODES from "@/infra/http/status-codes";
+
 import CreateImageUseCase from "./create-image-user-case";
 
 class CreateImageController {

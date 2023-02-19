@@ -1,7 +1,8 @@
-import AppError from "../../../../errors/app-error";
-import Either, { Left, Right } from "../../../../errors/either";
-import crypto from "../../../../utils/crypto";
-import validate from "../../../../utils/validate";
+import AppError from "@/errors/app-error";
+import Either, { Left, Right } from "@/errors/either";
+import crypto from "@/utils/crypto";
+import validate from "@/utils/validate";
+
 import type { AccountRoles } from "../../entities/user";
 import type { IUsersRepository } from "../../infra/repositories/interfaces";
 

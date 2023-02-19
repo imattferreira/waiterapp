@@ -1,5 +1,6 @@
-import uploader from "../../../../infra/http/middlewares/uploader";
-import type { RouteModule } from "../../../../infra/http/routes/interfaces";
+import uploader from "@/infra/http/middlewares/uploader";
+import type { RouteModule } from "@/infra/http/routes/interfaces";
+
 import createImage from "../../use-cases/create-image";
 
 const routes: RouteModule = {

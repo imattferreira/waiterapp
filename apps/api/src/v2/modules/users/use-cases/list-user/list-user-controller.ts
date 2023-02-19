@@ -1,8 +1,9 @@
-import InternalError from "../../../../errors/internal-error";
+import InternalError from "@/errors/internal-error";
 import type {
   HttpRequest,
   HttpResponse,
-} from "../../../../infra/http/interfaces";
+} from "@/infra/http/interfaces";
+
 import ListUserUseCase from "./list-user-use-case";
 
 class ListUserController {

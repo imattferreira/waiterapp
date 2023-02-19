@@ -1,7 +1,8 @@
 import type {
   HttpRequest,
   HttpResponse,
-} from "../../../../infra/http/interfaces";
+} from "@/infra/http/interfaces";
+
 import UsersRepository from "../../infra/repositories/users-repository";
 import ListUsersController from "./list-users-controller";
 import ListUsersUseCase from "./list-users-use-case";

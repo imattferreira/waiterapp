@@ -4,9 +4,10 @@
 // TODO add cpu percentage
 import os from "node:os";
 
-import AppError from "../../../../errors/app-error";
-import Either, { Right } from "../../../../errors/either";
-import type { HttpBodyResponse } from "../../../../infra/http/interfaces";
+import AppError from "@/errors/app-error";
+import Either, { Right } from "@/errors/either";
+import type { HttpBodyResponse } from "@/infra/http/interfaces";
+
 import healthPresentation, {
   IHealthPresentation,
 } from "../../presentations/health";

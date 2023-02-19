@@ -1,8 +1,7 @@
-import Entity from "../../../entities/entity";
-import type { EntityInput, EntityProps } from "../../../entities/interfaces";
-import AppError from "../../../errors/app-error";
-import { File } from "../../../infra/http/interfaces";
-import crypto from "../../../utils/crypto";
+import Entity from "@/entities/entity";
+import type { EntityInput, EntityProps } from "@/entities/interfaces";
+import AppError from "@/errors/app-error";
+import crypto from "@/utils/crypto";
 
 export type ImageMimeTypes =
   | "image/png"

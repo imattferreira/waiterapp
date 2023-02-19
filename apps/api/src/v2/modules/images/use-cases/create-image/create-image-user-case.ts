@@ -1,9 +1,10 @@
-import AppError from "../../../../errors/app-error";
-import Either, { Left, Right } from "../../../../errors/either";
+import AppError from "@/errors/app-error";
+import Either, { Left, Right } from "@/errors/either";
 import type {
   HttpBodyResponse,
   MultipartFile,
-} from "../../../../infra/http/interfaces";
+} from "@/infra/http/interfaces";
+
 import Image from "../../entities/image";
 import type { IImagesRepository } from "../../infra/repositories/interfaces";
 import ImageTransformJob from "../../jobs/image-transform";

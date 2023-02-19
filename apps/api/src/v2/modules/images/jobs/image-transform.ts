@@ -1,4 +1,5 @@
-import Queue from "../../../infra/queue";
+import Queue from "@/infra/queue";
+
 import { ImageMimeTypes } from "../entities/image";
 
 interface QueueData {
