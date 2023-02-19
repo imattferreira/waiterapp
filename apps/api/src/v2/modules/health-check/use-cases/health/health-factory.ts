@@ -1,7 +1,4 @@
-import type {
-  HttpRequest,
-  HttpResponse,
-} from "@/infra/http/interfaces";
+import type { HttpRequest, HttpResponse } from "@/infra/http/interfaces";
 
 import HealthController from "./health-controller";
 import HealthUseCase from "./health-use-case";

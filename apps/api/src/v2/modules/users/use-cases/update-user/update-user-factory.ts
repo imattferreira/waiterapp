@@ -1,7 +1,4 @@
-import type {
-  HttpRequest,
-  HttpResponse,
-} from "@/infra/http/interfaces";
+import type { HttpRequest, HttpResponse } from "@/infra/http/interfaces";
 
 import UsersRepository from "../../infra/repositories/users-repository";
 import UpdateUserController from "./update-user-controller";

@@ -1,7 +1,4 @@
-import type {
-  HttpRequest,
-  HttpResponse,
-} from "@/infra/http/interfaces";
+import type { HttpRequest, HttpResponse } from "@/infra/http/interfaces";
 
 import PingController from "./ping-controller";
 

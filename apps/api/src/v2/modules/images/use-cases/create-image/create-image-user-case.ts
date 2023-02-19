@@ -1,9 +1,6 @@
 import AppError from "@/errors/app-error";
 import Either, { Left, Right } from "@/errors/either";
-import type {
-  HttpBodyResponse,
-  MultipartFile,
-} from "@/infra/http/interfaces";
+import type { HttpBodyResponse, MultipartFile } from "@/infra/http/interfaces";
 
 import Image from "../../entities/image";
 import type { IImagesRepository } from "../../infra/repositories/interfaces";

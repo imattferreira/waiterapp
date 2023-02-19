@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "tsc",
-    "dev": "yarn services:up && NODE_ENV=development nodemon src/v2/infra/index.ts",
+    "dev": "yarn services:up && NODE_ENV=development nodemon",
     "prepare:infra": "kill-port -p 3000 27017",
     "services:up": "docker-compose -f ./src/v2/infra/container/docker-compose.yml up -d",
     "services:down": "docker-compose -f ./src/v2/infra/container/docker-compose.yml stop",
@@ -35,6 +35,7 @@
     "nodemon": "^2.0.20",
     "ts-node": "^10.9.1",
     "tsconfig": "*",
+    "tsconfig-paths": "^4.1.2",
     "typescript": "^4.5.3"
   }
 }
