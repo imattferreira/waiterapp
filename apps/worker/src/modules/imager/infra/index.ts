@@ -1,6 +1,6 @@
 import { Queue, Worker } from "bullmq";
 
-import database from "../../../infra/database";
+import database from "@/infra/database";
 
 const queue = new Queue("imager", {
   connection: database.connection({ type: "redis" }),

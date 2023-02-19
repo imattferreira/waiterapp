@@ -4,8 +4,8 @@ import path from "node:path";
 
 import express from "express";
 
-import { toKebabCase } from "../../utils/string";
-import queue, { Queues } from "../queue";
+import queue, { Queues } from "@/infra/queue";
+import { toKebabCase } from "@/utils/string";
 
 const PORT = 4000;
 const MODULE_DIR = path.resolve(__dirname, "..", "..", "modules");

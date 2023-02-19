@@ -1,4 +1,4 @@
-import { JobFn } from "../../../interfaces/jobs";
+import { JobFn } from "@/interfaces/jobs";
 
 interface ResizeInput {}
 

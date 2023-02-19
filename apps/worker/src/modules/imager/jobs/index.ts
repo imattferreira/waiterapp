@@ -1,4 +1,5 @@
-import { AvailableJobs } from "../../../interfaces/jobs";
+import { AvailableJobs } from "@/interfaces/jobs";
+
 import resize from "../use-cases/resize";
 
 const jobs: AvailableJobs = {
