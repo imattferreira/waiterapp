@@ -1,6 +1,8 @@
 import type { InputHTMLAttributes } from "react";
 import { useState } from "react";
-import { IconTypes } from "../icon";
+
+import { IconTypes } from "@/ui/components/icon";
+
 import Presentation from "./presentation";
 
 type InputProps = InputHTMLAttributes<HTMLInputElement> & {

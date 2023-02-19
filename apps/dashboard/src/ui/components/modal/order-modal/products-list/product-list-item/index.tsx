@@ -1,4 +1,5 @@
-import { toBRLCurrency } from "../../../../../../app/lib/formatter";
+import { toBRLCurrency } from "@/app/lib/formatter";
+
 import Title from "../../../../title";
 import { priceText, container, qty } from "./styles.css";
 

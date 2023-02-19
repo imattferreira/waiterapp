@@ -1,5 +1,7 @@
 import { createElement, ReactNode } from "react";
-import { compose } from "../../../app/lib/css";
+
+import { compose } from "@/app/lib/css";
+
 import { variants } from "./styles.css";
 
 type Sizes =

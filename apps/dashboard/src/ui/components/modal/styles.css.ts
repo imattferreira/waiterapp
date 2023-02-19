@@ -1,5 +1,6 @@
 import { style } from "@vanilla-extract/css";
-import theme from "../../styles/theme.css";
+
+import theme from "@/ui/styles/theme.css";
 
 export const overlay = style({
   background: "rgba(0, 0, 0, 0.8)",

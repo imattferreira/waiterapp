@@ -1,7 +1,8 @@
 import { Controller, useForm } from "react-hook-form";
-import regex from "../../../app/lib/regex";
-import Button from "../../components/button";
-import Input from "../../components/input";
+
+import regex from "@/app/lib/regex";
+import Button from "@/ui/components/button";
+import Input from "@/ui/components/input";
 import {
   container,
   form,

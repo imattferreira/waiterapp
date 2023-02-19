@@ -1,5 +1,7 @@
 import { InputHTMLAttributes, Suspense } from "react";
-import Icon, { IconTypes } from "../icon";
+
+import Icon, { IconTypes } from "@/ui/components/icon";
+
 import {
   eyeButton,
   iconError,

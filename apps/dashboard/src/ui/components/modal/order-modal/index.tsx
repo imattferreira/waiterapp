@@ -1,7 +1,8 @@
-import Modal from "..";
-import { OrderTranslatedStatusEnum } from "../../../../app/entities/order";
-import { toBRLCurrency } from "../../../../app/lib/formatter";
-import Button from "../../button";
+import Modal from "@/ui/components/modal";
+import { OrderTranslatedStatusEnum } from "@/app/entities/order";
+import { toBRLCurrency } from "@/app/lib/formatter";
+import Button from "@/ui/components/button";
+
 import ProductsList from "./products-list";
 import {
   buttonsContainer,

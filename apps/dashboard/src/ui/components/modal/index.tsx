@@ -1,6 +1,8 @@
 import { ReactNode } from "react";
-import Icon from "../icon";
-import Portal from "../portal";
+
+import Icon from "@/ui/components/icon";
+import Portal from "@/ui/components/portal";
+
 import { closeButton, container, modal, overlay, header } from "./styles.css";
 
 const PORTAL_SELECTOR = "modal-root";

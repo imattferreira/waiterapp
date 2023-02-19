@@ -1,6 +1,8 @@
 // TODO improve button variants
 import type { ButtonHTMLAttributes, ReactNode } from "react";
-import { compose } from "../../../app/lib/css";
+
+import { compose } from "@/app/lib/css";
+
 import { containerVariants } from "./styles.css";
 
 type ButtonTypes = "primary" | "secondary";

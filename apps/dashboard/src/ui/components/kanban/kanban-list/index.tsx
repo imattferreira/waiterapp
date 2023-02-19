@@ -1,4 +1,5 @@
-import type { Order } from "../../../../app/entities/order";
+import type { Order } from "@/app/entities/order";
+
 import Title from "../../title";
 import KanbanListItem from "../kanban-list-item";
 import {

@@ -1,6 +1,7 @@
+import heroImg from "@/ui/assets/images/hero.svg";
+import Link from "@/ui/components/link";
+
 import { container, hero, loginBtn, text, title } from "./styles.css";
-import heroImg from "../../assets/images/hero.svg";
-import Link from "../../components/link";
 
 function HomePage() {
   return (

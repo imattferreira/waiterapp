@@ -1,4 +1,5 @@
-import Icon, { IconTypes } from "../icon";
+import Icon, { IconTypes } from "@/ui/components/icon";
+
 import { container, ico, titleText, titleWrapper } from "./styles.css";
 
 type PresentationProps = {

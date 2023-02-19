@@ -1,4 +1,5 @@
-import { OrderTranslatedStatusEnum } from "../../../app/entities/order";
+import { OrderTranslatedStatusEnum } from "@/app/entities/order";
+
 import KanbanList from "./kanban-list";
 import { container } from "./styles.css";
 

@@ -1,4 +1,4 @@
-import Kanban from "../../components/kanban";
+import Kanban from "@/ui/components/kanban";
 
 function OrdersPage() {
   return <Kanban />;

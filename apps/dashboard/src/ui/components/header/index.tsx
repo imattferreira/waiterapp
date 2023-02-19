@@ -1,4 +1,5 @@
-import useRoutesStore from "../../../app/hooks/stores/use-router-store";
+import useRoutesStore from "@/app/hooks/stores/use-router-store";
+
 import Presentation from "./presentation";
 
 function Header() {

@@ -1,7 +1,8 @@
+import { Product } from "@/app/entities/product";
+
 import ProductListItem from "./product-list-item";
 import Title from "../title";
 import { container } from "./styles.css";
-import { Product } from "../../../../../app/entities/product";
 
 type ProductsListProps = {
   products: Product[];

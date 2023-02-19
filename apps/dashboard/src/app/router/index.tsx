@@ -1,7 +1,8 @@
 import { Routes, Route } from "react-router-dom";
-import HomePage from "../../ui/pages/home";
-import LoginPage from "../../ui/pages/login";
-import OrdersPage from "../../ui/pages/orders";
+
+import HomePage from "@/ui/pages/home";
+import LoginPage from "@/ui/pages/login";
+import OrdersPage from "@/ui/pages/orders";
 
 function Router() {
   return (

@@ -1,5 +1,6 @@
 import { style, styleVariants } from "@vanilla-extract/css";
-import theme from "../../styles/theme.css";
+
+import theme from "@/ui/styles/theme.css";
 
 export const labelText = style({
   fontSize: 14,

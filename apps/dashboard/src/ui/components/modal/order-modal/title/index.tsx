@@ -1,6 +1,7 @@
 // TODO create global <Title />
 
 import { ReactNode } from "react";
+
 import { container } from "./styles.css";
 
 type TitleProps = {

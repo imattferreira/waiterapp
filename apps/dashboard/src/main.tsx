@@ -1,10 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
-import App from "./app";
 
-import "./ui/styles/global.css";
-import "./ui/styles/fonts.css";
+import App from "@/app";
+
+import "@/ui/styles/global.css";
+import "@/ui/styles/fonts.css";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>

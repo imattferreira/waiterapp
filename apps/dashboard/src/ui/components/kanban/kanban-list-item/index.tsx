@@ -1,9 +1,11 @@
 import { lazy, Suspense, useCallback, useMemo, useState } from "react";
-import type { Order } from "../../../../app/entities/order";
+
+import type { Order } from "@/app/entities/order";
+
 import Title from "../../title";
 import { container, counterDisplay, tableTitle } from "./styles.css";
 
-const OrderModal = lazy(() => import("../../modal/order-modal"));
+const OrderModal = lazy(() => import("@/ui/components/modal/order-modal"));
 
 type KanbanListItemProps = Omit<Order, "status"> & {};
 

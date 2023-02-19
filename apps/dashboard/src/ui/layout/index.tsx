@@ -1,7 +1,9 @@
 import { ReactNode } from "react";
 import { useLocation } from "react-router-dom";
-import Header from "../components/header";
-import Sidebar from "../components/sidebar";
+
+import Header from "@/ui/components/header";
+import Sidebar from "@/ui/components/sidebar";
+
 import { container } from "./styles.css";
 
 type LayoutProps = {

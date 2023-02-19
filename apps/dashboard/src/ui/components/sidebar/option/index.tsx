@@ -1,6 +1,7 @@
-import Icon from "../../icon";
-import type { IconTypes } from "../../icon";
-import Link from "../../link";
+import Icon from "@/ui/components/icon";
+import type { IconTypes } from "@/ui/components/icon";
+import Link from "@/ui/components/link";
+
 import { containerVariants, dash, iconVariants } from "./styles.css";
 
 type OptionProps = {

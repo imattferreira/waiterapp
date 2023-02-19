@@ -1,5 +1,7 @@
 import { useLocation } from "react-router-dom";
-import useRoutesStore from "../../../app/hooks/stores/use-router-store";
+
+import useRoutesStore from "@/app/hooks/stores/use-router-store";
+
 import Option from "./option";
 import { container, logo, w } from "./styles.css";
 
