@@ -11,6 +11,7 @@
 - adapters of fastify
 - improve authorization validations
 - pagination
+- automatize entrypoints
 
 ## Dashboard
 
