@@ -1,1 +1,2 @@
-export { default as Icon } from "svg-icons";
+export type { IconTypes } from "svg-icons";
+export { default } from "svg-icons";

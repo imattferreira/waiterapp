@@ -6,10 +6,9 @@
   "scripts": {
     "analyze": "vite-bundle-analyze",
     "build": "yarn prebuild && tsc && vite build",
-    "dev": "yarn optimize:svg && yarn makeicons && vite",
-    "makeicons": "node ./scripts/transformSvgsIntoComponents.mjs && prettier --write \"src/ui/components/Icon/**/*.{ts,tsx}\"",
-    "optimize:svg": "svgo -f ./src/ui/assets/svgs -o ./src/ui/assets/svgs",
-    "prebuild": "yarn optimize:svg && yarn optimize:svg && yarn makeicons",
+    "dev": "yarn optimize:svg && vite",
+    "optimize:svg": "svgo -f ./src/ui/assets/images -o ./src/ui/assets/images",
+    "prebuild": "yarn optimize:svg && yarn optimize:svg",
     "preview": "vite preview"
   },
   "dependencies": {

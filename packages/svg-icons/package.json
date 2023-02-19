@@ -4,7 +4,13 @@
   "private": true,
   "main": "./src/index.ts",
   "types": "./src/index.ts",
+  "scripts": {
+    "makeicons": "node ./scripts/transformSvgsIntoComponents.mjs && prettier --write \"src/components/**/*.{ts,tsx}\"",
+    "optimize:svg": "svgo -f ./src/ui/assets/svgs -o ./src/ui/assets/svgs",
+    "build": "node optimize:svg && node makeicons"
+  },
   "devDependencies": {
+    "svgo": "^3.0.2",
     "tsconfig": "*",
     "typescript": "^4.5.3"
   }
