@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "build": "tsc",
     "dev": "yarn services:up && NODE_ENV=development nodemon src/infra/http/index.ts",
+    "prepare:infra": "kill-port -p 4000 63079",
     "services:up": "docker-compose -f ./src/infra/container/docker-compose.yml up -d",
     "services:down": "docker-compose -f ./src/infra/container/docker-compose.yml stop",
-    "build": "tsc",
-    "prepare:infra": "kill-port -p 4000 63079",
     "start": "NODE_ENV=production node dist"
   },
   "dependencies": {
